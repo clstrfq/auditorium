@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "status": "pass",
+  "job": "Close every finding and remaining action in PORTABILITY-AUDIT.md.",
+  "contract_assumptions": [
+    "The audit document is the source of truth for scope.",
+    "The user authorized local evidence vendoring and the first repository commit by asking to fix everything in the audit.",
+    "The OpenAI release artifact is a claim-focused evidence extract, not a byte-for-byte upstream snapshot, because direct archival retrieval returned HTTP 403."
+  ],
+  "inspected": [
+    "PORTABILITY-AUDIT.md",
+    "repository source, tests, generated bindings, evidence catalogs, and validation controls",
+    "the seven local source artifacts named by the audit",
+    "the three primary web references named by catalog 1.1.0"
+  ],
+  "not_inspected": [
+    "live Cursor or Gemini installations",
+    "external model or training infrastructure"
+  ],
+  "artifacts": {
+    "audit": {
+      "path": "PORTABILITY-AUDIT.md",
+      "sha256": "730b87e506e988957ce089b17d71f6e9931f9090890447998e78f5c92e91f27e"
+    },
+    "evidence_catalog": {
+      "path": "evals/references/ftpo-evidence-catalog-1.1.0.json",
+      "sha256": "52d7b5b929e706113607870a61f5c2c08a6168c64f7654e0d87eb2ba0695abb3"
+    },
+    "offline_gate": {
+      "path": "scripts/check.sh",
+      "sha256": "47cd5dc9129826c901e1f7b9699c02eea31ade89a74df89e6c34ccab3b067ef7"
+    },
+    "clarvoy_crosswalk": {
+      "path": "validation-proxy/controls/clarvoy-crosswalk.md",
+      "sha256": "eae04ea2e761fa974067f7d8a466965a2e882e63f844311c0f4ace7045c46eb3"
+    },
+    "analyzer_receipt": {
+      "path": ".app-harness/reviews/PORTABILITY-AUDIT/receipt.json",
+      "sha256": "5468c2735e012a0568e79110b16813571036529705a3bd7c547900e822cba02b"
+    }
+  },
+  "evidence": {
+    "catalog": "10 artifacts across 6 sources verified; verifiable_offline=true",
+    "preexisting_hashes": "negative-parallelism report and all four Solene artifacts matched their recorded sha256 values before promotion",
+    "new_baselines": "Clarvoy source and ingested Markdown first hashed 2026-07-17; web snapshots first hashed 2026-07-17",
+    "frozen_provenance": "catalog 1.0.0 remains byte-identical to the hash in the cycle-0010 build receipt"
+  },
+  "tests": [
+    {
+      "command": "PATH=\"$PWD/.venv/bin:$PATH\" sh scripts/check.sh",
+      "result": "pass: skills 6/6; surface sync; 10/10 evidence artifacts offline; portability 15/15; verifier 12/12; e2e 14/14; pytest 150 passed with 6 subtests"
+    }
+  ],
+  "ai_output_review": {
+    "status": "agent_review",
+    "deterministic_result": "2 uncertain, 0 harmful, 0 legitimate",
+    "adjudication": "Both uncertain 'rather than' matches are legitimate technical contrasts; no source rewrite was accepted."
+  },
+  "model_attribution": "gpt",
+  "source_preservation": "verified by the analyzer receipt input hash and by the frozen catalog regression test",
+  "external_effects": {
+    "network_calls": 9,
+    "network_note": "One primary-source browsing batch, seven explicit curl retrieval attempts, and one uv dependency synchronization. Some OpenAI curl attempts returned HTTP 403.",
+    "secrets_accessed": 0,
+    "remote_jobs_submitted": 0,
+    "external_spend_usd": 0
+  },
+  "unresolved": [],
+  "limits": [
+    "The OpenAI evidence extract preserves only the catalog claims and retrieval provenance; it is not a full upstream page snapshot.",
+    "Engineering verification does not establish empirical model efficacy, product demand, or production readiness."
+  ]
+}

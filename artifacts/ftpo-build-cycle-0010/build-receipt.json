@@ -1,0 +1,142 @@
+{
+  "acceptance": {
+    "empirical_ftpo": "not_evaluated",
+    "engineering_build": "pass",
+    "literature_targets": "context_only_not_scored_as_local_measurements"
+  },
+  "artifacts": {
+    "checkpoints": [
+      {
+        "arm": "B2",
+        "path": "artifacts/ftpo-build-cycle-0010/checkpoints/B2-seed-20260712.json",
+        "seed": 20260712,
+        "sha256": "c0d8a9861a7fb0ce1800a14bdde5e1b655c3038e6f47167b6d9c50cc2bee7835"
+      },
+      {
+        "arm": "B3",
+        "path": "artifacts/ftpo-build-cycle-0010/checkpoints/B3-seed-20260712.json",
+        "seed": 20260712,
+        "sha256": "712e183d7b0b5f431cd81daafda64b4446456bdfcca54796f82677279a90765e"
+      },
+      {
+        "arm": "B2",
+        "path": "artifacts/ftpo-build-cycle-0010/checkpoints/B2-seed-20260713.json",
+        "seed": 20260713,
+        "sha256": "87dd4caeb877d5728d7e9348208df8b02946a97ed14fa2c9c47731978efec9f0"
+      },
+      {
+        "arm": "B3",
+        "path": "artifacts/ftpo-build-cycle-0010/checkpoints/B3-seed-20260713.json",
+        "seed": 20260713,
+        "sha256": "1199f584e8bfc24d632e8a29e45971d6cefe0653352e925df363adaea1a84f72"
+      },
+      {
+        "arm": "B2",
+        "path": "artifacts/ftpo-build-cycle-0010/checkpoints/B2-seed-20260714.json",
+        "seed": 20260714,
+        "sha256": "049b481fcc70928540a165832115ad540a6f54074eccb12e95d2eec39e35a09e"
+      },
+      {
+        "arm": "B3",
+        "path": "artifacts/ftpo-build-cycle-0010/checkpoints/B3-seed-20260714.json",
+        "seed": 20260714,
+        "sha256": "bad7063ae89cbef2abfeec31a13711864f6ad26f755acac9ac3719e8fb1b4e9f"
+      }
+    ],
+    "metrics_path": "artifacts/ftpo-build-cycle-0010/metrics.json",
+    "metrics_sha256": "aa31047426f174eadbcb1bf839559bbd7490dd4c8ee16d4a576443363d0757f1"
+  },
+  "claims": {
+    "allowed": [
+      "the FTPO build is executable and engineering-verified",
+      "GPT-5.6 Sol has separate local runtime corroboration",
+      "external FTPO results motivate the design and targets"
+    ],
+    "forbidden": [
+      "this build reproduced the literature effect size",
+      "GPT-5.6 Sol Ultra was fine-tuned",
+      "synthetic build measurements establish empirical product or scientific acceptance"
+    ]
+  },
+  "created_at": "2026-07-13T19:37:24.869420+00:00",
+  "data": {
+    "counts": {
+      "holdout": 84,
+      "train": 552,
+      "validation": 84
+    },
+    "origin": "synthetic",
+    "split_integrity": {
+      "fields": [
+        "example_id",
+        "pattern_id",
+        "source_item_id",
+        "prompt_id",
+        "author_cluster_id"
+      ],
+      "registered_overlap_count": 0,
+      "status": "pass"
+    },
+    "tier": "S1_LOCAL_SYNTHETIC"
+  },
+  "evidence": {
+    "catalog_path": "evals/references/ftpo-evidence-catalog-1.0.0.json",
+    "catalog_sha256": "8a32739e4f128d04f8353e72132743af3fc773a769266b077e8b1bd0f5687480",
+    "design_source": "negative-parallelism-design-report",
+    "method_evidence": [
+      "antislop-iclr-2026",
+      "liquid-antidoom-2026-07-07"
+    ],
+    "model_runtime_corroboration": "solene-gpt-5-6-sol-runtime-eval-2026-07-11",
+    "runtime_product_context": "openai-gpt-5-6-release-2026-07-09"
+  },
+  "execution": {
+    "arms": [
+      "B0",
+      "B1",
+      "B2",
+      "B3"
+    ],
+    "config": {
+      "beta": 0.1,
+      "chosen_weighting": "linear_margin_stop_gradient",
+      "epochs": 240,
+      "learning_rate": 0.25,
+      "margin": 1.5,
+      "reference_regularization": 0.0001,
+      "temperature": 1.0
+    },
+    "external_training": false,
+    "seed_role": "cluster_bootstrap_replay; optimizer is deterministic full-batch",
+    "seeds": [
+      20260712,
+      20260713,
+      20260714
+    ],
+    "training_performed": true,
+    "weight_updating_arms": [
+      "B2",
+      "B3"
+    ]
+  },
+  "external_effects": {
+    "external_inference_calls": 0,
+    "external_spend_usd": 0,
+    "remote_jobs_submitted": 0,
+    "secret_access": 0
+  },
+  "input_fingerprint": "cee0beced3d81addf23eb9806b0873b5a051dbdd9d412b902835bc7d8205f641",
+  "input_hashes": {
+    "baseline_spec": "2168dc30296f23fb687792e9af34a498d30206a05c4522a87facd5008be3db08",
+    "dataset_manifest": "39b636f3c959cf064b3fc27d0aff1ddd88dc6a3f5bf0a7c3fb4ada4b720f340c",
+    "evidence_catalog": "8a32739e4f128d04f8353e72132743af3fc773a769266b077e8b1bd0f5687480",
+    "holdout": "ddf2099760e9c2c90f7995b90502d96df6b7d57e29eb722839cb3e0e26d83593",
+    "train": "c491f47feb6c3cb4291547ceafc98b15d52cf43ffb8ae5195e813beb38eb5690",
+    "validation": "cf91b4b900c3dead11f1d99946e678958c09d5b9fa7736bfcee069fa5046b573"
+  },
+  "receipt_classification": "MODEL_CORROBORATED_BUILD_VERIFICATION",
+  "receipt_id": "ftpo-build-cycle-0010",
+  "receipt_type": "ftpo_engineering_build_verification",
+  "schema_version": "1.0.0",
+  "status": "pass"
+}

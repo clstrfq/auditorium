@@ -1,0 +1,6 @@
+{
+  "version": "negative-parallelism-en-1.0.0",
+  "language": "en",
+  "rules": ["not_but", "not_instead", "rather_than"],
+  "offset_basis": "normalized_item_text_unicode_code_points"
+}

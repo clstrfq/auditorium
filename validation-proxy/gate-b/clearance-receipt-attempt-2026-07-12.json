@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "gate-b-clearance-attempt-2026-07-12-01",
+  "requested_state": "PIPELINE/RUNNING",
+  "decision": "rejected_missing_machine_verifiable_evidence",
+  "checks": {
+    "corpus_manifest_300_rows": {"status": "failed", "evidence": "No corpus manifest file found in workspace; only corpus-manifest.schema.json exists."},
+    "manifest_schema_validation": {"status": "not_run", "reason": "Manifest absent."},
+    "license_and_authorship_receipts": {"status": "failed", "evidence": "No row-level ArgRewrite-v2, YourMorals, or Congressional Record license/provenance receipts found."},
+    "api_credential_presence": {
+      "status": "failed",
+      "checked_environment_names": ["OPENAI_API_KEY", "ANTHROPIC_API_KEY", "DEEPSEEK_API_KEY"],
+      "result": "all_absent",
+      "secret_values_recorded": false
+    },
+    "huggingface_access": {
+      "status": "failed",
+      "checked_environment_names": ["HF_TOKEN", "HUGGINGFACE_TOKEN"],
+      "result": "all_absent",
+      "secret_values_recorded": false
+    },
+    "local_model_weights": {"status": "failed", "evidence": "No submitted local weight paths, checkpoint hash receipt, or runtime image digest found."},
+    "gpu_cluster": {"status": "failed", "evidence": "nvidia-smi unavailable in current execution environment; no external cluster endpoint or scheduler receipt found."},
+    "api_connectivity_receipts": {"status": "failed", "evidence": "No OpenAI, Anthropic, or DeepSeek connectivity receipt found."},
+    "spend_authorization": {"status": "failed", "evidence": "pipeline/state.json still sets external_spend_usd to 0."},
+    "evaluator_independence": {"status": "failed", "evidence": "ArmoRM, Skywork Critic, and OffsetBias are Meta-Llama descendants; ArmoRM and OffsetBias also inherit from FsfairX. Five implementations do not establish five ancestry/provider families; no empirical residual-correlation matrix exists, so n_eff >= 4 is unverified."},
+    "pause_sentinel": {"status": "active", "path": "pipeline/PAUSED"},
+    "running_sentinel": {"status": "absent", "path": "pipeline/RUNNING"}
+  },
+  "external_calls_made": 0,
+  "external_spend_usd": 0,
+  "pipeline_state_after_check": "PAUSED",
+  "required_remediation": [
+    "Place the 300-row manifest in the workspace and validate every row against corpus-manifest.schema.json.",
+    "Provide row-level license/provenance evidence and content hashes.",
+    "Provide credential injection or external cluster connection instructions without placing secrets in tracked files.",
+    "Provide exact local weight paths and checkpoint/runtime hashes.",
+    "Provide successful zero-content API and model-load receipts.",
+    "Update and approve a nonzero bounded external spend cap if paid APIs will be used.",
+    "Replace correlated Llama-derived evaluator implementations with enough genuinely distinct ancestry/provider families and compute the calibration-set residual correlation matrix."
+  ]
+}

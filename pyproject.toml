@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "negative-parallelism-evaluation-harness"
+version = "0.1.0"
+# Support policy: the interpreters this project intends to support.
+# Distinct from the *runtime* floor the CLI enforces (see MINIMUM_PYTHON in
+# scripts/harness_cli.py), which refuses only what genuinely cannot execute.
+requires-python = ">=3.11"
+# The engine has no runtime dependencies, by design. Keep this list empty:
+# a harness that asks apps to trust its receipts should not need an install
+# step to run.
+dependencies = []
+
+[project.optional-dependencies]
+# Needed only for the pytest-based unit suites. The two suites a new user is
+# told to run — tests/e2e (README) and tests/app_harness/test_portability.py —
+# are stdlib-only and need none of this.
+dev = ["pytest>=8"]
+
+[project.scripts]
+app-harness = "scripts.harness_cli:main"
+ftpo-generate-s0 = "scripts.generate_synthetic_ftpo:main"
+ftpo-generate-local-s1 = "scripts.generate_local_s1_ftpo:main"
+ftpo-run-build = "scripts.run_local_ftpo_experiment:main"
+ftpo-split = "scripts.split_ftpo_data:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src", "scripts"]

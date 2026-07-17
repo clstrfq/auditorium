@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/ftpo-training-example-1.0.0.schema.json",
+  "title": "FTPO final-token preference example",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "example_id", "source_item_id", "author_cluster_id",
+    "prompt_id", "prompt_sha256", "trace_id", "model_id", "model_revision",
+    "tokenizer_sha256", "prefix_text", "prefix_token_ids", "pattern_id",
+    "pattern_family", "rejected", "chosen", "protected_facts_sha256",
+    "semantic_necessity", "cda_validation", "review", "provenance"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "example_id": {"type": "string", "pattern": "^ftpo-[a-zA-Z0-9._-]+$"},
+    "source_item_id": {"type": "string", "minLength": 1},
+    "author_cluster_id": {"type": "string", "minLength": 1},
+    "prompt_id": {"type": "string", "minLength": 1},
+    "prompt_sha256": {"$ref": "#/$defs/sha256"},
+    "trace_id": {"type": "string", "minLength": 1},
+    "model_id": {"type": "string", "minLength": 1},
+    "model_revision": {"type": "string", "minLength": 1},
+    "tokenizer_sha256": {"$ref": "#/$defs/sha256"},
+    "prefix_text": {"type": "string", "minLength": 1},
+    "prefix_token_ids": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 0}},
+    "pattern_id": {"type": "string", "minLength": 1},
+    "pattern_family": {"type": "string", "enum": ["negative_parallelism", "tricolon", "trailing_participle", "em_dash", "curly_quote", "transition_pileup", "bold_lead_in", "other_preregistered"]},
+    "rejected": {"$ref": "#/$defs/tokenCandidate"},
+    "chosen": {"type": "array", "minItems": 2, "maxItems": 8, "uniqueItems": true, "items": {"$ref": "#/$defs/tokenCandidate"}},
+    "protected_facts_sha256": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/sha256"}},
+    "semantic_necessity": {"type": "string", "enum": ["unnecessary", "necessary", "uncertain"]},
+    "cda_validation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["pair_type", "protected_facts_match", "semantic_equivalence_pass", "length_tolerance_pass", "validator_version"],
+      "properties": {
+        "pair_type": {"type": "string", "enum": ["content_fixed_length_divergent", "length_fixed_content_divergent", "not_applicable"]},
+        "protected_facts_match": {"type": "boolean"},
+        "semantic_equivalence_pass": {"type": ["boolean", "null"]},
+        "length_tolerance_pass": {"type": ["boolean", "null"]},
+        "validator_version": {"type": "string", "minLength": 1}
+      }
+    },
+    "review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "reviewer_id", "reviewed_at", "generator_family_excluded"],
+      "properties": {
+        "status": {"type": "string", "enum": ["approved", "rejected", "pending"]},
+        "reviewer_id": {"type": "string", "minLength": 1},
+        "reviewed_at": {"type": "string", "format": "date-time"},
+        "generator_family_excluded": {"type": "boolean"}
+      }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_manifest_sha256", "trace_sha256", "detector_version", "created_at"],
+      "properties": {
+        "source_manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "trace_sha256": {"$ref": "#/$defs/sha256"},
+        "detector_version": {"type": "string", "minLength": 1},
+        "created_at": {"type": "string", "format": "date-time"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "tokenCandidate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["token_id", "token_text", "reference_logprob"],
+      "properties": {
+        "token_id": {"type": "integer", "minimum": 0},
+        "token_text": {"type": "string", "minLength": 1},
+        "reference_logprob": {"type": "number"}
+      }
+    }
+  }
+}

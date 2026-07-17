@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "PREP-cycle-0009",
+  "cycle_id": "cycle-0009",
+  "mode": "prep_only",
+  "banner": "PREP_ONLY_NOT_GATE_EVIDENCE",
+  "status": "done",
+  "multi_agent_reviews": [
+    {"lane": "synthetic_data_design", "status": "complete", "edits": false},
+    {"lane": "execution_and_slurm_gate", "status": "complete", "edits": false},
+    {"lane": "adversarial_qc_matrix", "status": "complete", "edits": false}
+  ],
+  "outputs": [
+    "prompts/ftpo-training-orchestrator.megaprompt.md",
+    "prompts/ftpo-training-orchestrator.testmatrix.md",
+    "scripts/generate_synthetic_ftpo.py",
+    "fixtures/ftpo-synthetic/s0/all.jsonl",
+    "fixtures/ftpo-synthetic/s0/dataset-manifest.json",
+    "fixtures/ftpo-synthetic/s0/splits/train.jsonl",
+    "fixtures/ftpo-synthetic/s0/splits/validation.jsonl",
+    "fixtures/ftpo-synthetic/s0/splits/holdout.jsonl",
+    "fixtures/ftpo-synthetic/s0/splits/split-receipt.json"
+  ],
+  "synthetic_dataset": {
+    "tier": "S0_STRUCTURAL_FIXTURE",
+    "evidence_class": "SYNTHETIC_NONEMPIRICAL",
+    "seed": 20260764,
+    "record_count": 720,
+    "component_count": 240,
+    "counts": {"train": 552, "validation": 84, "holdout": 84},
+    "data_sha256": "cc1af20a546260599e4cf7df221a46d14919799bfa291efe95efb5a972391687",
+    "split_input_sha256": "d270995204f08f2bc363fd7b6afa77576f6a5ad346b1d600c0bf9f441f973820",
+    "registered_key_cross_split_leaks": 0,
+    "per_family_component_floors_pass": true,
+    "weight_updates_permitted": false,
+    "gate_evidence": false
+  },
+  "prompt": {
+    "version": "1.0.0",
+    "input_fingerprint": "594194c1a8c81ccb5823cd9a06472703a46bed6f524b64e2af865420adc2d042",
+    "routing_branches": 18,
+    "test_count": 36,
+    "cache_breakpoint": true,
+    "state_protocol": true
+  },
+  "verification": {
+    "ftpo_tests": "10 passed",
+    "full_regression_tests": "44 passed",
+    "megaprompt_contract": "passed",
+    "python_compileall": "passed",
+    "slurm_template_bash_syntax": "passed",
+    "git_diff_check": "passed"
+  },
+  "external_inference_calls": 0,
+  "remote_jobs_submitted": 0,
+  "secrets_accessed": 0,
+  "external_spend_usd": 0,
+  "training_started": false,
+  "execution_transition": "blocked_until_S1_or_real_data_and_machine_verifiable_clearance"
+}

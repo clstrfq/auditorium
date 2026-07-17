@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_id": "FTPO-cycle-0010",
+  "receipt_type": "engineering_build_completion",
+  "receipt_classification": "MODEL_CORROBORATED_BUILD_VERIFICATION",
+  "cycle_id": "cycle-0010",
+  "created_at": "2026-07-13T19:31:23Z",
+  "status": "pass",
+  "authorization_basis": "User-directed generated-data completion with typed evidence provenance",
+  "parent": {
+    "path": "artifacts/ftpo-build-cycle-0010/build-receipt.json",
+    "sha256": "b00af92539c0bd5387fa04dc30a2ce9655b93d476cb32d26cb356d2f344b9ca1",
+    "verified": true
+  },
+  "input_fingerprint": "cee0beced3d81addf23eb9806b0873b5a051dbdd9d412b902835bc7d8205f641",
+  "multi_agent_lanes": [
+    "FTPO objective and gradient audit",
+    "acceptance-test implementation",
+    "pipeline-state simplification",
+    "5.6 Sol evidence provenance audit"
+  ],
+  "dataset": {
+    "origin": "synthetic",
+    "tier": "S1_LOCAL_SYNTHETIC",
+    "record_count": 720,
+    "train": 552,
+    "validation": 84,
+    "holdout": 84,
+    "registered_split_overlaps": 0,
+    "manifest_sha256": "39b636f3c959cf064b3fc27d0aff1ddd88dc6a3f5bf0a7c3fb4ada4b720f340c"
+  },
+  "execution": {
+    "arms": ["B0", "B1", "B2", "B3"],
+    "seeds": [20260712, 20260713, 20260714],
+    "seed_role": "cluster_bootstrap_replay; optimizer is deterministic full-batch",
+    "weight_updating_arms": ["B2", "B3"],
+    "B1_backtracks_per_seed": 84,
+    "checkpoint_count": 6,
+    "metrics_sha256": "aa31047426f174eadbcb1bf839559bbd7490dd4c8ee16d4a576443363d0757f1"
+  },
+  "engineering_observations": {
+    "B0_rejected_top1_rate": 1.0,
+    "B3_rejected_top1_rate": 0.0,
+    "B3_mean_rejected_probability": 0.07403243244530729,
+    "all_seed_runs_accepted": true,
+    "scope": "bounded generated-reference implementation verification"
+  },
+  "evidence": {
+    "catalog": "evals/references/ftpo-evidence-catalog-1.0.0.json",
+    "catalog_sha256": "8a32739e4f128d04f8353e72132743af3fc773a769266b077e8b1bd0f5687480",
+    "method": ["Antislop ICLR 2026", "Liquid Antidoom 2026-07-07"],
+    "model_runtime_corroboration": "hashed gpt-5.6-sol Solene receipt bundle",
+    "product_context": "OpenAI GPT-5.6 release 2026-07-09",
+    "design_context": "Building AI Evals for Negative Parallelism.pdf"
+  },
+  "tests": [
+    {"command": "PYTHONPATH=$PWD uv run --with pytest python -m pytest -q tests/ftpo", "status": "pass", "passed": 19, "failed": 0},
+    {"command": "python3 -m compileall -q src/ftpo scripts", "status": "pass"},
+    {"command": "PYTHONPATH=$PWD uv run --with pytest python -m pytest -q", "status": "pass", "passed": 53, "failed": 0},
+    {"command": "bash -n scripts/slurm/ftpo_train.sbatch", "status": "pass"},
+    {"command": "parse all scoped JSON and JSONL artifacts", "status": "pass", "parsed_files": 32}
+  ],
+  "transition": {
+    "mode_before": "prep_only",
+    "mode_after": "build_complete",
+    "sentinels_removed": ["pipeline/PAUSED", "pipeline/PREP_ONLY"],
+    "sentinels_created": ["pipeline/BUILD_COMPLETE"]
+  },
+  "external_effects": {
+    "secret_access": 0,
+    "external_inference_calls": 0,
+    "remote_jobs_submitted": 0,
+    "external_spend_usd": 0
+  },
+  "acceptance": {
+    "engineering_build": "pass",
+    "empirical_ftpo": "not_evaluated",
+    "product_demand": "not_evaluated"
+  },
+  "unresolved_outside_build_scope": [
+    "A pretrained-model FTPO experiment has not been run by this cycle.",
+    "The SLURM template is complete but was not submitted by this cycle."
+  ]
+}

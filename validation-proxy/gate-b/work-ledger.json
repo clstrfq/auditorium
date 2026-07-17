@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "cycle_id": "gate-b-0001",
+  "status": "research_complete_blocked_on_acquisition_and_access",
+  "hard_caps": {"external_spend_usd": 0, "corpus_items": 300, "generation_outputs_per_panel_max": 2700, "bootstrap_replicates": 10000},
+  "items": {
+    "GB1": {"name": "freeze preregistration", "status": "done", "output": "validation-proxy/gate-b/preregistration.md"},
+    "GB2": {"name": "freeze corpus schema and licensed frames", "status": "done", "output": "validation-proxy/gate-b/corpus-manifest.schema.json"},
+    "GB3R": {"name": "research corpus sources and rights", "status": "done", "output": "validation-proxy/gate-b/research-audit-2026-07-12.md"},
+    "GB3": {"name": "acquire and validate 300 corpus items", "status": "blocked", "blocker": "Reddit and HuffPost full-body frames rejected; approved ACL/PMC OA, Stack Exchange, and Global Voices acquisition has not been run"},
+    "GB4R": {"name": "research and freeze repository identities", "status": "done", "output": "validation-proxy/gate-b/frozen-model-registry.json"},
+    "GB4M": {"name": "integrate diversity-collapse, CDA, MUSE, structural detection, and FTPO methodology", "status": "done", "output": "validation-proxy/gate-b/methodology-upgrade-2026-07-12.md"},
+    "GB4C": {"name": "assess proposed corpus, OLMo 3, frontier endpoint, and evaluator clearance architecture", "status": "done", "output": "validation-proxy/gate-b/clearance-assessment-2026-07-12.md"},
+    "GB4V": {"name": "verify submitted clearance declaration against workspace and runtime", "status": "failed", "output": "validation-proxy/gate-b/clearance-receipt-attempt-2026-07-12.json", "blocker": "manifest, credentials, weights, GPU/cluster receipts, spend approval, connectivity receipts, and five-family evaluator independence are not machine-verifiable in this environment"},
+    "GB4V2": {"name": "verify second submitted clearance declaration and named workspace/cluster paths", "status": "failed", "output": "validation-proxy/gate-b/clearance-receipt-attempt-2026-07-12-02.json", "blocker": "declared workspace, receipts, configuration, SLURM tools, secret manager, GPU probe, and all named weight paths are absent from this execution environment; evaluator independence remains unverified"},
+    "GB7V": {"name": "verify submitted final telemetry and FTPO entry evidence", "status": "failed", "output": "validation-proxy/gate-b/telemetry-verification-attempt-2026-07-12.json", "blocker": "no execution, telemetry, statistical, cluster, checkpoint, or FTPO-entry artifacts are visible; durable state remains prep_only and paused"},
+    "GB8V": {"name": "verify submitted Gemma S1 surrogate trace and training-active declaration", "status": "failed", "output": "validation-proxy/gate-b/s1-clearance-verification-2026-07-12.json", "blocker": "pasted trace is not a schema-valid S1 dataset; checkpoint/tokenizer/forward-pass evidence, chosen alternatives, safety reviews, splits, runtime, rollback, and nonzero budget are absent"},
+    "GB4": {"name": "freeze executable models and endpoints", "status": "blocked", "blocker": "weights/licenses/compute not verified; GPT-4 Turbo snapshot entitlement unresolved; proposed seven evaluators collapse to about three ancestry clusters"},
+    "GB5": {"name": "generate matched treatment outputs", "status": "pending", "depends_on": ["GB3", "GB4"]},
+    "GB6": {"name": "run blinded evaluator ensemble and Clarvoy B/Q/C passes", "status": "pending", "depends_on": ["GB5"]},
+    "GB7": {"name": "run clustered analysis and issue Gate B receipt", "status": "pending", "depends_on": ["GB6"]}
+  },
+  "external_effects": [],
+  "updated_at": "2026-07-13T05:00:00Z"
+}

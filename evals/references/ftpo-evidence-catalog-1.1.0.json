@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.1.0",
+  "catalog_id": "ftpo-evidence-catalog-1.1.0",
+  "as_of_date": "2026-07-17",
+  "receipt_classification": "MODEL_CORROBORATED_BUILD_VERIFICATION",
+  "supersedes": "ftpo-evidence-catalog-1.0.0",
+  "supersedes_note": "Catalog 1.0.0 is frozen, not edited: artifacts/ftpo-build-cycle-0010/build-receipt.json records its sha256 (8a32739e...) as a build input. Rewriting it in place would make that receipt's provenance claim false. 1.0.0 remains the correct reference for cycle-0010; new runs use this version.",
+  "reference_policy": {
+    "identifier": "content_id",
+    "identifier_note": "A sha256 content id is the durable, machine-independent reference. A path is a hint about where a copy sits; it is never the identifier. Paths recorded here are repo-relative and resolve against the repository root.",
+    "resolution_values": {
+      "vendored": "Bytes are present in this repository at 'path' and hash to 'content_id'. Verifiable offline by scripts/verify_evidence.py.",
+      "external-unverifiable": "Bytes are not in this repository. The claim cannot be re-checked from a clone alone. Recorded honestly rather than pointed at a path that would not resolve."
+    },
+    "vendoring_note": "Every artifact in this catalog is vendored and hash-checked. Previously recorded content ids were preserved and verified before promotion. The Clarvoy files and web snapshots establish baselines dated 2026-07-17; the OpenAI artifact is explicitly a claim-focused evidence extract because the primary server rejected direct archival download. A hash mismatch is a finding and must not be resolved by silently re-hashing changed bytes."
+  },
+  "sources": [
+    {
+      "id": "negative-parallelism-design-report",
+      "source_type": "local_research_synthesis",
+      "title": "Building AI Evals for Negative Parallelism",
+      "resolution": "vendored",
+      "artifacts": [
+        {
+          "role": "report",
+          "content_id": "sha256:8988162ab48e2a87b9c86ebeb13fe0f87049e1627380ea66aafc6d3a484e3ea6",
+          "path": "evals/references/vendored/negative-parallelism-design-report.pdf",
+          "path_status": "present",
+          "origin_note": "Ingested 2026-07-13 from a local Downloads copy. Origin is provenance, not a dependency."
+        }
+      ],
+      "sections_used": ["2.2 Final Token Preference Optimization", "6. Empirical Benchmarking and Diversity Retention Metrics"],
+      "supports": ["FTPO architecture rationale", "B0-B3 comparator selection", "literature-derived target provenance"],
+      "does_not_support": ["a completed GPT-5.6 Sol Ultra FTPO run", "local model-weight updates", "acceptance of this build on empirical data"]
+    },
+    {
+      "id": "antislop-iclr-2026",
+      "source_type": "primary_research_paper",
+      "title": "Antislop: A Comprehensive Framework for Identifying and Eliminating Repetitive Patterns in Language Models",
+      "resolution": "vendored",
+      "artifacts": [
+        {
+          "role": "paper",
+          "content_id": "sha256:e20e46fa115451aeb39fd4ba36a2956746f58d3bea1208f59e43e3b9bf694711",
+          "content_id_note": "Baseline recorded 2026-07-17 from the versioned arXiv PDF.",
+          "path": "evals/references/vendored/antislop-iclr-2026.pdf",
+          "path_status": "present",
+          "url": "https://openreview.net/forum?id=gLcyM1khyp",
+          "arxiv_url": "https://arxiv.org/abs/2510.15061"
+        }
+      ],
+      "supports": ["FTPO method provenance", "reported 90 percent slop reduction on the paper's tested systems", "Antislop Sampler and DPO comparison rationale"],
+      "does_not_support": ["transfer of the reported effect size to this build or GPT-5.6 Sol Ultra"]
+    },
+    {
+      "id": "liquid-antidoom-2026-07-07",
+      "source_type": "primary_vendor_engineering_report",
+      "title": "Reducing Doom Loops with Final Token Preference Optimization",
+      "published_date": "2026-07-07",
+      "resolution": "vendored",
+      "artifacts": [
+        {
+          "role": "engineering-report",
+          "content_id": "sha256:76dad91b6387de37c18611fab60031a7ea86220eb3ba779cee093338bbcec5be",
+          "content_id_note": "Baseline recorded 2026-07-17 from the publisher's HTML response.",
+          "path": "evals/references/vendored/liquid-antidoom-2026-07-07.html",
+          "path_status": "present",
+          "url": "https://www.liquid.ai/blog/antidoom"
+        }
+      ],
+      "supports": ["independent FTPO implementation pattern", "reported LFM2.5-2.6B loop-rate change from 10.2 percent to 1.4 percent", "reported Qwen3.5-4B loop-rate change from 22.9 percent to 1 percent"],
+      "does_not_support": ["negative-parallelism suppression in this build", "GPT-5.6 Sol Ultra weight access"]
+    },
+    {
+      "id": "openai-gpt-5-6-release-2026-07-09",
+      "source_type": "official_product_release",
+      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
+      "published_date": "2026-07-09",
+      "resolution": "vendored",
+      "artifacts": [
+        {
+          "role": "product-release",
+          "content_id": "sha256:237d3b98254726858c49dc6fe209d8456d2ce8abaf03d6fcf0608ba6b9ec8fce",
+          "content_id_note": "Baseline recorded 2026-07-17. This is a claim-focused evidence extract, not a byte-for-byte page snapshot; the primary page was inspected but rejected direct archival download with HTTP 403.",
+          "path": "evals/references/vendored/openai-gpt-5-6-release-2026-07-09.md",
+          "path_status": "present",
+          "url": "https://openai.com/index/gpt-5-6/"
+        }
+      ],
+      "supports": ["GPT-5.6 Sol availability in Codex", "ultra as a parallel multi-agent capability setting"],
+      "does_not_support": ["FTPO training on GPT-5.6 Sol", "the Negative Parallelism report's benchmark table"]
+    },
+    {
+      "id": "solene-gpt-5-6-sol-runtime-eval-2026-07-11",
+      "source_type": "local_model_runtime_receipt_bundle",
+      "title": "Solene Layer-2 comparative eval - gpt-5.6-sol",
+      "resolution": "vendored",
+      "artifacts": [
+        {
+          "role": "report",
+          "content_id": "sha256:4ce3c19832bb3f47f5a8a4dc0af5d402c8fda12fbb936c06040a71ac57a9bc83",
+          "path": "evals/references/vendored/solene-report.md",
+          "path_status": "present",
+          "origin_note": "Ingested 2026-07-11 from a sibling project (Solene). Origin is provenance, not a dependency."
+        },
+        {
+          "role": "dev-receipt",
+          "content_id": "sha256:efbeb294ecaeec471dc20bc18bba617564ee14903e0fc20b70120df7848cc232",
+          "path": "evals/references/vendored/solene-dev-receipt.json",
+          "path_status": "present",
+          "origin_note": "Ingested 2026-07-11 from a sibling project (Solene)."
+        },
+        {
+          "role": "holdout-receipt",
+          "content_id": "sha256:6db4cb0712cb455c3bc2b2dddef0aa7e4f8dec57b0da0edf0920e051f2244bac",
+          "path": "evals/references/vendored/solene-holdout-receipt.json",
+          "path_status": "present",
+          "origin_note": "Ingested 2026-07-11 from a sibling project (Solene)."
+        },
+        {
+          "role": "cache",
+          "content_id": "sha256:4286709251b4d066e2dd973b96bc063d204a85c9b1d86504178427acd0dd93ff",
+          "path": "evals/references/vendored/solene-cache.json",
+          "path_status": "present",
+          "origin_note": "Layer-2 response cache (~598k tokens) from a sibling project. Vendored so the runtime receipt bundle is completely replayable offline; its content id was verified before promotion."
+        }
+      ],
+      "observations": {"live_calls": 132, "heldout_cases": 48, "heldout_errors_observed": 0, "heldout_tokens": 598001, "wilson_lower_bound_each_class": 0.862},
+      "supports": ["auditable gpt-5.6-sol Codex runtime execution", "hashed receipt and replay mechanics", "multi-agent build-context corroboration"],
+      "does_not_support": ["FTPO logits or model-weight updates", "negative-parallelism suppression", "production generalization", "an ultra-mode attestation for this run"]
+    },
+    {
+      "id": "clarvoy-crosswalk",
+      "source_type": "internal_control_taxonomy",
+      "title": "Clarvoy bias control reference catalog for PCC for-profit",
+      "resolution": "vendored",
+      "artifacts": [
+        {
+          "role": "source-document",
+          "content_id": "sha256:a5da23aa01e4fa46027abb5fab1eea94c4af5ce194b2e3bbab92d019e145aa44",
+          "content_id_note": "First baseline recorded on vendoring date 2026-07-17; no earlier hash existed.",
+          "path": "validation-proxy/controls/vendored/clarvoy_bias_control_reference_catalog_pcc_forprofit.docx",
+          "path_status": "present",
+          "origin_note": "Copied from the Clarvoy sibling project. Origin is provenance, not a dependency."
+        },
+        {
+          "role": "ingested-markdown",
+          "content_id": "sha256:708807f31d57d991eebb98e6cc37bdfcf7797647f998d615645847ef7ca1110e",
+          "content_id_note": "First baseline recorded on vendoring date 2026-07-17; no earlier hash existed.",
+          "path": "validation-proxy/controls/vendored/clarvoy-content.md",
+          "path_status": "present",
+          "origin_note": "Copied from the Clarvoy sibling project's ingested artifact."
+        }
+      ],
+      "supports": ["control taxonomy provenance", "bias-channel and quantitative-channel detector design", "ensemble crosswalk traceability"],
+      "does_not_support": ["an empirical validation result", "forecast calibration performance", "production acceptance"]
+    }
+  ],
+  "claim_policy": {
+    "allowed": ["the FTPO build is executable and engineering-verified", "GPT-5.6 Sol has separate local runtime corroboration", "external FTPO results motivate the design and targets"],
+    "forbidden": ["this build reproduced the literature effect size", "GPT-5.6 Sol Ultra was fine-tuned", "synthetic build measurements establish empirical product or scientific acceptance", "the OpenAI evidence extract is a byte-for-byte snapshot of the upstream page"]
+  }
+}

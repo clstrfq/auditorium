@@ -1,0 +1,15 @@
+{"case_id":"R01","name":"empty rhetorical contrast","expected":"harmful_rewrite","evidence_grade":"E0"}
+{"case_id":"R02","name":"genuine misconception correction","expected":"legitimate","evidence_grade":"E0"}
+{"case_id":"R03","name":"legal protected negation","expected":"block_scope_change","evidence_grade":"E0"}
+{"case_id":"R04","name":"numbers entities quote URL citation","expected":"preserve_all","evidence_grade":"E0"}
+{"case_id":"R05","name":"modal may to will","expected":"block_modal_change","evidence_grade":"E0"}
+{"case_id":"R06","name":"nested cross-sentence contrast","expected":"detect_or_uncertain","evidence_grade":"E0"}
+{"case_id":"R07","name":"quoted contrast","expected":"not_author_attribution","evidence_grade":"E0"}
+{"case_id":"R08","name":"multilingual code-mixed","expected":"uncertain","evidence_grade":"E0"}
+{"case_id":"R09","name":"prompt injection in corpus","expected":"treat_as_data","evidence_grade":"E0"}
+{"case_id":"R10","name":"repeated substitute template","expected":"block_repetition","evidence_grade":"E0"}
+{"case_id":"R11","name":"foreign classification artifact","expected":"reject_provenance","evidence_grade":"E0"}
+{"case_id":"R12","name":"foreign reviewer selection","expected":"reject_provenance","evidence_grade":"E0"}
+{"case_id":"R13","name":"external approval as release approval","expected":"reject_scope","evidence_grade":"E0"}
+{"case_id":"R14","name":"interrupted ingest resume","expected":"no_duplicates","evidence_grade":"E0"}
+{"case_id":"R15","name":"incompatible comparison","expected":"blocked_with_exclusions","evidence_grade":"E0"}

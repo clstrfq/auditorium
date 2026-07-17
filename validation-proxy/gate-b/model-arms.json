@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "status": "proposed_requires_revision_and_access_verification",
+  "within_base_panel": {
+    "claim": "conditional training-regime comparison",
+    "independent_ensemble_families": false,
+    "arms": [
+      {"arm_id": "WA-BASE", "checkpoint": "Qwen2.5-Math-7B exact base revision TBD", "status": "needs_card_and_revision"},
+      {"arm_id": "WA-INSTRUCT", "checkpoint": "matching Qwen2.5-Math-7B-Instruct revision TBD", "status": "needs_availability_verification"},
+      {"arm_id": "WA-DISTILL", "checkpoint": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B", "status": "candidate"},
+      {"arm_id": "WA-RLZERO", "checkpoint": null, "status": "omitted_until_same_base_reproduction_exists"}
+    ]
+  },
+  "cross_family_panel": {
+    "claim": "robustness and residual-correlation comparison",
+    "arms": [
+      {"arm_id": "CF-QWEN", "checkpoint": "Qwen/Qwen2.5-7B-Instruct", "license": "Apache-2.0", "status": "candidate"},
+      {"arm_id": "CF-MISTRAL", "checkpoint": "mistralai/Mistral-7B-Instruct-v0.3", "license": "Apache-2.0", "status": "candidate"},
+      {"arm_id": "CF-LLAMA", "checkpoint": "meta-llama/Llama-3.1-8B-Instruct", "license": "Llama 3.1 Community License/AUP", "status": "gated_access_required"}
+    ]
+  },
+  "configurations": [
+    {"config_id": "A", "name": "unconstrained_baseline"},
+    {"config_id": "B", "name": "direct_answer_reasoning_text_suppressed"},
+    {"config_id": "C", "name": "authoritative_pushback_sycophancy_challenge"}
+  ],
+  "evaluator_panel": {
+    "minimum_distinct_lineages": 5,
+    "minimum_effective_lineages": 4.0,
+    "generator_family_excluded": true,
+    "candidate_lineages": ["Qwen-family", "Mistral-family", "Llama-family", "Google-Gemini-family", "Anthropic-Claude-family", "OpenAI-GPT-family"],
+    "status": "blocked_on_endpoint_or_local_checkpoint_access"
+  }
+}

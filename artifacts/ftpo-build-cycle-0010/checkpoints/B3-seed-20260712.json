@@ -1,0 +1,170 @@
+{
+  "adapter_kind": "feature_tied_delta_table",
+  "arm": "B3",
+  "checkpoint_sha256": "95bb0202b2dd000af10333ee9e82d7b814345c4449f9cb9edfe4c472d030c092",
+  "dataset_origin": "synthetic",
+  "records": [
+    {
+      "delta": 0.8767563458035245,
+      "pattern_family": "bold_lead_in",
+      "token_id": 551600471
+    },
+    {
+      "delta": -2.594278830834744,
+      "pattern_family": "bold_lead_in",
+      "token_id": 861230668
+    },
+    {
+      "delta": 0.8419466838903203,
+      "pattern_family": "bold_lead_in",
+      "token_id": 2693587895
+    },
+    {
+      "delta": 0.875575801140897,
+      "pattern_family": "bold_lead_in",
+      "token_id": 3558295130
+    },
+    {
+      "delta": 0.8445851870147327,
+      "pattern_family": "curly_quote",
+      "token_id": 189569607
+    },
+    {
+      "delta": -2.615141333235951,
+      "pattern_family": "curly_quote",
+      "token_id": 1332441085
+    },
+    {
+      "delta": 0.8737279870939489,
+      "pattern_family": "curly_quote",
+      "token_id": 2693587895
+    },
+    {
+      "delta": 0.8968281591272698,
+      "pattern_family": "curly_quote",
+      "token_id": 3558295130
+    },
+    {
+      "delta": 0.8482625919080171,
+      "pattern_family": "em_dash",
+      "token_id": 684140058
+    },
+    {
+      "delta": -2.6407731807230586,
+      "pattern_family": "em_dash",
+      "token_id": 2414144486
+    },
+    {
+      "delta": 0.8771746977442453,
+      "pattern_family": "em_dash",
+      "token_id": 3982124341
+    },
+    {
+      "delta": 0.9153358910707957,
+      "pattern_family": "em_dash",
+      "token_id": 4088000816
+    },
+    {
+      "delta": 0.8612414016105384,
+      "pattern_family": "negative_parallelism",
+      "token_id": 2693587895
+    },
+    {
+      "delta": 0.8677509732399852,
+      "pattern_family": "negative_parallelism",
+      "token_id": 2903731380
+    },
+    {
+      "delta": 0.9138398176891414,
+      "pattern_family": "negative_parallelism",
+      "token_id": 2913012950
+    },
+    {
+      "delta": -2.6428321925396676,
+      "pattern_family": "negative_parallelism",
+      "token_id": 3987860345
+    },
+    {
+      "delta": -2.6281337223884145,
+      "pattern_family": "other_preregistered",
+      "token_id": 394567643
+    },
+    {
+      "delta": 0.9029922176180104,
+      "pattern_family": "other_preregistered",
+      "token_id": 1724503147
+    },
+    {
+      "delta": 0.8853601905969224,
+      "pattern_family": "other_preregistered",
+      "token_id": 2693587895
+    },
+    {
+      "delta": 0.8397813141734795,
+      "pattern_family": "other_preregistered",
+      "token_id": 3762524653
+    },
+    {
+      "delta": 0.8625641765094788,
+      "pattern_family": "trailing_participle",
+      "token_id": 1724503147
+    },
+    {
+      "delta": -2.620391329512574,
+      "pattern_family": "trailing_participle",
+      "token_id": 2719335406
+    },
+    {
+      "delta": 0.8359271955916354,
+      "pattern_family": "trailing_participle",
+      "token_id": 2903731380
+    },
+    {
+      "delta": 0.9218999574114607,
+      "pattern_family": "trailing_participle",
+      "token_id": 3018975749
+    },
+    {
+      "delta": 0.8587907538390505,
+      "pattern_family": "transition_pileup",
+      "token_id": 489241034
+    },
+    {
+      "delta": 0.8861705032208115,
+      "pattern_family": "transition_pileup",
+      "token_id": 1724503147
+    },
+    {
+      "delta": -2.6558679856789347,
+      "pattern_family": "transition_pileup",
+      "token_id": 2812534299
+    },
+    {
+      "delta": 0.9109067286190791,
+      "pattern_family": "transition_pileup",
+      "token_id": 4174359549
+    },
+    {
+      "delta": -2.620416587024409,
+      "pattern_family": "tricolon",
+      "token_id": 1270216992
+    },
+    {
+      "delta": 0.8525957078985011,
+      "pattern_family": "tricolon",
+      "token_id": 2509459485
+    },
+    {
+      "delta": 0.8607439069741966,
+      "pattern_family": "tricolon",
+      "token_id": 2621312895
+    },
+    {
+      "delta": 0.907076972151712,
+      "pattern_family": "tricolon",
+      "token_id": 2999035782
+    }
+  ],
+  "schema_version": "1.0.0",
+  "seed": 20260712
+}

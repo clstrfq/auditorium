@@ -1,0 +1,106 @@
+{
+  "agent_surfaces": {
+    "count": 5,
+    "keys": [
+      "codex",
+      "claude",
+      "cursor",
+      "gemini",
+      "agents"
+    ],
+    "verified": "install --surface all wrote 5 SKILL.md files with 1 distinct body (byte-identical across hosts); re-run reported unchanged"
+  },
+  "ai_output_review": "not_applicable",
+  "artifacts": {
+    "generator": {
+      "path": "scripts/generate_claude_skills.py",
+      "sha256": "143e457775323e0335d4fbe3e70e1f00de4bde2508a39c3f74db99c5e505ff4b"
+    },
+    "installer": {
+      "path": "src/app_harness/installer.py",
+      "sha256": "a8af9d59d72141f02252556101ddc5c250039e013bc454de1b1e1a9048ad2c1e"
+    },
+    "lint_receipt": {
+      "path": ".app-harness/receipts/skill-guarantees-1.0.0.json"
+    },
+    "linter": {
+      "path": "scripts/lint_skills.py",
+      "sha256": "9494bb43832dcf13e8068f99bb98645037317e161d79396224729c3a648c900c"
+    },
+    "models": {
+      "path": "src/app_harness/models.py",
+      "sha256": "548528c20fc76bd459a56ac4de289a28002eb5bf14b84f010847ecdbe970b9b0"
+    },
+    "providers": {
+      "path": "src/app_harness/providers.py",
+      "sha256": "c8680e5716d937258a86a5b64122fe6370ce8dfd2a0196fde857846c6a903563"
+    }
+  },
+  "contract_schema_version": "1.1.0",
+  "external_effects": {
+    "external_spend_usd": 0,
+    "network_calls": 0,
+    "remote_jobs_submitted": 0,
+    "secrets_accessed": 0
+  },
+  "harness_version": "easy-app-harness-1.0.1",
+  "idempotency": {
+    "analyze": "verified: second analyze reports reused=true",
+    "generate": "verified: second generate reports unchanged for all 5 skills and packages",
+    "install": "verified: second install reports unchanged",
+    "lint": "verified: lint_all output equal across runs (unit test)"
+  },
+  "job": "Harden skills and harness; generalize harness across agent surfaces and model families; generate Claude skills carrying five design guarantees.",
+  "model_attribution": "not_applicable",
+  "model_families": {
+    "count": 9,
+    "frozen_registry_entries_attributed": "14/14",
+    "keys": [
+      "llama",
+      "mistral",
+      "qwen",
+      "deepseek",
+      "gemma",
+      "gemini",
+      "chatglm",
+      "gpt",
+      "claude"
+    ],
+    "unattributed_ids": []
+  },
+  "schema_version": "1.0.0",
+  "scope_limits": "Engineering completion only. This receipt asserts that code, skills, and tests exist and run as described. It makes no claim about empirical efficacy, model performance, user demand, or production readiness. No model was executed, fine-tuned, or benchmarked.",
+  "skills": {
+    "all_carry_five_guarantees": true,
+    "canonical": 6,
+    "generated_claude_skills": 5,
+    "hardened": [
+      "apply-app-harness"
+    ],
+    "total": 8
+  },
+  "source_preservation": "verified: golden.jsonl byte-unchanged across analyze runs",
+  "status": "pass",
+  "tests": [
+    {
+      "baseline_before_change": "66 passed",
+      "command": "PYTHONPATH=. python3 -m pytest -q",
+      "new_tests_added": 61,
+      "result": "127 passed in 2.07s"
+    },
+    {
+      "command": "python3 scripts/lint_skills.py skills .claude .codex",
+      "result": "8/8 skills carry all 5 guarantees"
+    },
+    {
+      "command": "python3 scripts/lint_skills.py <deliberately-broken-skill>",
+      "result": "exit 1; all 5 guarantees correctly reported as violated (negative control)"
+    }
+  ],
+  "unresolved": [
+    "Bugs found and fixed during this work: model pattern word-boundary failed on bare 'Qwen2.5-Math-7B'; linter had three false results (section-prefix comparison, duplicate-ban verb-only match, dot-excluding character class). All now covered by regression tests.",
+    "One pre-existing test (tests/ftpo/test_synthetic_generation.py) fails when PYTHONPATH is unset, because a subprocess cannot import 'src'. Pre-existing and unrelated to this change; passes with PYTHONPATH set.",
+    "'./harness install' cannot force-overwrite inside this sandbox's mounted folder (unlink not permitted). Environment restriction, not harness logic: force-overwrite verified working under /tmp. Installed .claude/.codex copies were resynced from canonical by truncate-write.",
+    "Agent surface skill-directory conventions for Cursor and Gemini CLI are declared in the provider registry from repository convention, not verified against a live install of those tools."
+  ]
+}

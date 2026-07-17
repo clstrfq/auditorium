@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.2",
+  "project": "negative-parallelism-evaluation-harness",
+  "mode": "build_complete",
+  "last_cycle_id": "cycle-0010",
+  "input_watermarks": {
+    "prd_sha256": "cb17b2ab3c4b14403186cc7b3d0ddfa73ec49bd2dba4e1202277dc6cc5175dad",
+    "sprint_plan_sha256": "3d646b79a5d9512ce5bb3a4b40978891ddd49aea42ad48d7457cfa3931d58dda",
+    "prompt_set_sha256": "a8f79efa257676a0059df2ca67b5f55b7036770c4e89a1ec6026c8e1fb48ab14"
+  },
+  "budget": {
+    "max_concurrent_agents": 3,
+    "max_items_per_cycle": 2,
+    "max_tokens_per_item": 40000,
+    "max_files_per_item": 12,
+    "max_minutes_per_item": 30,
+    "max_cycle_minutes": 60,
+    "external_spend_usd": 0
+  },
+  "items": {
+    "M1": {"status": "done", "depends_on": [], "attempt_count": 1, "input_fingerprint": "6f53b55e211ebfc7fbb3e07217736bc4e0c683872c0e1ed666b83a63aee79681", "output_pointer": "pipeline/receipts/M1-cycle-0001.json", "last_error": null, "dedupe_keys": []},
+    "M2": {"status": "done", "depends_on": ["M1"], "attempt_count": 1, "input_fingerprint": "998490f1ecb15b85ecf7da1b8538eb07f0973c153b09ce9c1eaee76a1ff7c329", "output_pointer": "pipeline/receipts/M2-cycle-0002.json", "last_error": null, "dedupe_keys": []},
+    "M3": {"status": "done", "depends_on": ["M1", "M2"], "attempt_count": 1, "input_fingerprint": "9636a2af8c24f377e056f10e079529abbbfcb72c877afab11c77d3ab8c86f917", "output_pointer": "pipeline/receipts/M3-cycle-0003.json", "last_error": null, "dedupe_keys": []},
+    "M4": {"status": "done", "depends_on": ["M1", "M2", "M3"], "attempt_count": 1, "input_fingerprint": "6c552765cbb5d2d14ecc6e9d80928c04dbc33f9b271643de9c7479d7b4e210df", "output_pointer": "pipeline/receipts/M4-cycle-0004.json", "last_error": null, "dedupe_keys": []},
+    "M5": {"status": "done", "depends_on": ["M1", "M2", "M3", "M4"], "attempt_count": 1, "input_fingerprint": "6b2491f5f7c2d0d18a25bcdb9b175bde509b47613b4b36760b914260ae902ed9", "output_pointer": "pipeline/receipts/M5-cycle-0005.json", "last_error": null, "dedupe_keys": []},
+    "INT": {"status": "done", "depends_on": ["M1", "M2", "M3", "M4", "M5"], "attempt_count": 1, "input_fingerprint": "integration-v1", "output_pointer": "pipeline/receipts/INT-cycle-0006.json", "last_error": null, "dedupe_keys": []},
+    "FTPO": {"status": "done", "depends_on": ["INT"], "attempt_count": 1, "input_fingerprint": "cee0beced3d81addf23eb9806b0873b5a051dbdd9d412b902835bc7d8205f641", "output_pointer": "pipeline/receipts/FTPO-cycle-0010.json", "last_error": null, "dedupe_keys": []}
+  },
+  "paused": false,
+  "pause_reason": null,
+  "build": {
+    "status": "pass",
+    "receipt_classification": "MODEL_CORROBORATED_BUILD_VERIFICATION",
+    "receipt": "pipeline/receipts/FTPO-cycle-0010.json",
+    "artifact_receipt": "artifacts/ftpo-build-cycle-0010/build-receipt.json",
+    "artifact_receipt_sha256": "b00af92539c0bd5387fa04dc30a2ce9655b93d476cb32d26cb356d2f344b9ca1",
+    "dataset_origin": "synthetic",
+    "engineering_acceptance": "pass",
+    "empirical_ftpo_acceptance": "not_evaluated",
+    "external_effects": []
+  },
+  "updated_at": "2026-07-13T19:31:23Z"
+}

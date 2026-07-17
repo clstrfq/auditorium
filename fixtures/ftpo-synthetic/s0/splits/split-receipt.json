@@ -1,0 +1,1941 @@
+{
+  "assignments": {
+    "ftpo-s0-bold_lead_in-00-0": "train",
+    "ftpo-s0-bold_lead_in-00-1": "train",
+    "ftpo-s0-bold_lead_in-00-2": "train",
+    "ftpo-s0-bold_lead_in-01-0": "train",
+    "ftpo-s0-bold_lead_in-01-1": "train",
+    "ftpo-s0-bold_lead_in-01-2": "train",
+    "ftpo-s0-bold_lead_in-02-0": "holdout",
+    "ftpo-s0-bold_lead_in-02-1": "holdout",
+    "ftpo-s0-bold_lead_in-02-2": "holdout",
+    "ftpo-s0-bold_lead_in-03-0": "holdout",
+    "ftpo-s0-bold_lead_in-03-1": "holdout",
+    "ftpo-s0-bold_lead_in-03-2": "holdout",
+    "ftpo-s0-bold_lead_in-04-0": "train",
+    "ftpo-s0-bold_lead_in-04-1": "train",
+    "ftpo-s0-bold_lead_in-04-2": "train",
+    "ftpo-s0-bold_lead_in-05-0": "train",
+    "ftpo-s0-bold_lead_in-05-1": "train",
+    "ftpo-s0-bold_lead_in-05-2": "train",
+    "ftpo-s0-bold_lead_in-06-0": "train",
+    "ftpo-s0-bold_lead_in-06-1": "train",
+    "ftpo-s0-bold_lead_in-06-2": "train",
+    "ftpo-s0-bold_lead_in-07-0": "holdout",
+    "ftpo-s0-bold_lead_in-07-1": "holdout",
+    "ftpo-s0-bold_lead_in-07-2": "holdout",
+    "ftpo-s0-bold_lead_in-08-0": "train",
+    "ftpo-s0-bold_lead_in-08-1": "train",
+    "ftpo-s0-bold_lead_in-08-2": "train",
+    "ftpo-s0-bold_lead_in-09-0": "validation",
+    "ftpo-s0-bold_lead_in-09-1": "validation",
+    "ftpo-s0-bold_lead_in-09-2": "validation",
+    "ftpo-s0-bold_lead_in-10-0": "holdout",
+    "ftpo-s0-bold_lead_in-10-1": "holdout",
+    "ftpo-s0-bold_lead_in-10-2": "holdout",
+    "ftpo-s0-bold_lead_in-11-0": "train",
+    "ftpo-s0-bold_lead_in-11-1": "train",
+    "ftpo-s0-bold_lead_in-11-2": "train",
+    "ftpo-s0-bold_lead_in-12-0": "train",
+    "ftpo-s0-bold_lead_in-12-1": "train",
+    "ftpo-s0-bold_lead_in-12-2": "train",
+    "ftpo-s0-bold_lead_in-13-0": "train",
+    "ftpo-s0-bold_lead_in-13-1": "train",
+    "ftpo-s0-bold_lead_in-13-2": "train",
+    "ftpo-s0-bold_lead_in-14-0": "train",
+    "ftpo-s0-bold_lead_in-14-1": "train",
+    "ftpo-s0-bold_lead_in-14-2": "train",
+    "ftpo-s0-bold_lead_in-15-0": "train",
+    "ftpo-s0-bold_lead_in-15-1": "train",
+    "ftpo-s0-bold_lead_in-15-2": "train",
+    "ftpo-s0-bold_lead_in-16-0": "train",
+    "ftpo-s0-bold_lead_in-16-1": "train",
+    "ftpo-s0-bold_lead_in-16-2": "train",
+    "ftpo-s0-bold_lead_in-17-0": "train",
+    "ftpo-s0-bold_lead_in-17-1": "train",
+    "ftpo-s0-bold_lead_in-17-2": "train",
+    "ftpo-s0-bold_lead_in-18-0": "train",
+    "ftpo-s0-bold_lead_in-18-1": "train",
+    "ftpo-s0-bold_lead_in-18-2": "train",
+    "ftpo-s0-bold_lead_in-19-0": "train",
+    "ftpo-s0-bold_lead_in-19-1": "train",
+    "ftpo-s0-bold_lead_in-19-2": "train",
+    "ftpo-s0-bold_lead_in-20-0": "holdout",
+    "ftpo-s0-bold_lead_in-20-1": "holdout",
+    "ftpo-s0-bold_lead_in-20-2": "holdout",
+    "ftpo-s0-bold_lead_in-21-0": "train",
+    "ftpo-s0-bold_lead_in-21-1": "train",
+    "ftpo-s0-bold_lead_in-21-2": "train",
+    "ftpo-s0-bold_lead_in-22-0": "train",
+    "ftpo-s0-bold_lead_in-22-1": "train",
+    "ftpo-s0-bold_lead_in-22-2": "train",
+    "ftpo-s0-bold_lead_in-23-0": "validation",
+    "ftpo-s0-bold_lead_in-23-1": "validation",
+    "ftpo-s0-bold_lead_in-23-2": "validation",
+    "ftpo-s0-bold_lead_in-24-0": "validation",
+    "ftpo-s0-bold_lead_in-24-1": "validation",
+    "ftpo-s0-bold_lead_in-24-2": "validation",
+    "ftpo-s0-bold_lead_in-25-0": "train",
+    "ftpo-s0-bold_lead_in-25-1": "train",
+    "ftpo-s0-bold_lead_in-25-2": "train",
+    "ftpo-s0-bold_lead_in-26-0": "holdout",
+    "ftpo-s0-bold_lead_in-26-1": "holdout",
+    "ftpo-s0-bold_lead_in-26-2": "holdout",
+    "ftpo-s0-bold_lead_in-27-0": "holdout",
+    "ftpo-s0-bold_lead_in-27-1": "holdout",
+    "ftpo-s0-bold_lead_in-27-2": "holdout",
+    "ftpo-s0-bold_lead_in-28-0": "train",
+    "ftpo-s0-bold_lead_in-28-1": "train",
+    "ftpo-s0-bold_lead_in-28-2": "train",
+    "ftpo-s0-bold_lead_in-29-0": "train",
+    "ftpo-s0-bold_lead_in-29-1": "train",
+    "ftpo-s0-bold_lead_in-29-2": "train",
+    "ftpo-s0-curly_quote-00-0": "train",
+    "ftpo-s0-curly_quote-00-1": "train",
+    "ftpo-s0-curly_quote-00-2": "train",
+    "ftpo-s0-curly_quote-01-0": "train",
+    "ftpo-s0-curly_quote-01-1": "train",
+    "ftpo-s0-curly_quote-01-2": "train",
+    "ftpo-s0-curly_quote-02-0": "train",
+    "ftpo-s0-curly_quote-02-1": "train",
+    "ftpo-s0-curly_quote-02-2": "train",
+    "ftpo-s0-curly_quote-03-0": "validation",
+    "ftpo-s0-curly_quote-03-1": "validation",
+    "ftpo-s0-curly_quote-03-2": "validation",
+    "ftpo-s0-curly_quote-04-0": "train",
+    "ftpo-s0-curly_quote-04-1": "train",
+    "ftpo-s0-curly_quote-04-2": "train",
+    "ftpo-s0-curly_quote-05-0": "validation",
+    "ftpo-s0-curly_quote-05-1": "validation",
+    "ftpo-s0-curly_quote-05-2": "validation",
+    "ftpo-s0-curly_quote-06-0": "train",
+    "ftpo-s0-curly_quote-06-1": "train",
+    "ftpo-s0-curly_quote-06-2": "train",
+    "ftpo-s0-curly_quote-07-0": "train",
+    "ftpo-s0-curly_quote-07-1": "train",
+    "ftpo-s0-curly_quote-07-2": "train",
+    "ftpo-s0-curly_quote-08-0": "train",
+    "ftpo-s0-curly_quote-08-1": "train",
+    "ftpo-s0-curly_quote-08-2": "train",
+    "ftpo-s0-curly_quote-09-0": "train",
+    "ftpo-s0-curly_quote-09-1": "train",
+    "ftpo-s0-curly_quote-09-2": "train",
+    "ftpo-s0-curly_quote-10-0": "train",
+    "ftpo-s0-curly_quote-10-1": "train",
+    "ftpo-s0-curly_quote-10-2": "train",
+    "ftpo-s0-curly_quote-11-0": "train",
+    "ftpo-s0-curly_quote-11-1": "train",
+    "ftpo-s0-curly_quote-11-2": "train",
+    "ftpo-s0-curly_quote-12-0": "train",
+    "ftpo-s0-curly_quote-12-1": "train",
+    "ftpo-s0-curly_quote-12-2": "train",
+    "ftpo-s0-curly_quote-13-0": "train",
+    "ftpo-s0-curly_quote-13-1": "train",
+    "ftpo-s0-curly_quote-13-2": "train",
+    "ftpo-s0-curly_quote-14-0": "train",
+    "ftpo-s0-curly_quote-14-1": "train",
+    "ftpo-s0-curly_quote-14-2": "train",
+    "ftpo-s0-curly_quote-15-0": "holdout",
+    "ftpo-s0-curly_quote-15-1": "holdout",
+    "ftpo-s0-curly_quote-15-2": "holdout",
+    "ftpo-s0-curly_quote-16-0": "train",
+    "ftpo-s0-curly_quote-16-1": "train",
+    "ftpo-s0-curly_quote-16-2": "train",
+    "ftpo-s0-curly_quote-17-0": "train",
+    "ftpo-s0-curly_quote-17-1": "train",
+    "ftpo-s0-curly_quote-17-2": "train",
+    "ftpo-s0-curly_quote-18-0": "validation",
+    "ftpo-s0-curly_quote-18-1": "validation",
+    "ftpo-s0-curly_quote-18-2": "validation",
+    "ftpo-s0-curly_quote-19-0": "holdout",
+    "ftpo-s0-curly_quote-19-1": "holdout",
+    "ftpo-s0-curly_quote-19-2": "holdout",
+    "ftpo-s0-curly_quote-20-0": "train",
+    "ftpo-s0-curly_quote-20-1": "train",
+    "ftpo-s0-curly_quote-20-2": "train",
+    "ftpo-s0-curly_quote-21-0": "train",
+    "ftpo-s0-curly_quote-21-1": "train",
+    "ftpo-s0-curly_quote-21-2": "train",
+    "ftpo-s0-curly_quote-22-0": "train",
+    "ftpo-s0-curly_quote-22-1": "train",
+    "ftpo-s0-curly_quote-22-2": "train",
+    "ftpo-s0-curly_quote-23-0": "train",
+    "ftpo-s0-curly_quote-23-1": "train",
+    "ftpo-s0-curly_quote-23-2": "train",
+    "ftpo-s0-curly_quote-24-0": "validation",
+    "ftpo-s0-curly_quote-24-1": "validation",
+    "ftpo-s0-curly_quote-24-2": "validation",
+    "ftpo-s0-curly_quote-25-0": "train",
+    "ftpo-s0-curly_quote-25-1": "train",
+    "ftpo-s0-curly_quote-25-2": "train",
+    "ftpo-s0-curly_quote-26-0": "holdout",
+    "ftpo-s0-curly_quote-26-1": "holdout",
+    "ftpo-s0-curly_quote-26-2": "holdout",
+    "ftpo-s0-curly_quote-27-0": "train",
+    "ftpo-s0-curly_quote-27-1": "train",
+    "ftpo-s0-curly_quote-27-2": "train",
+    "ftpo-s0-curly_quote-28-0": "train",
+    "ftpo-s0-curly_quote-28-1": "train",
+    "ftpo-s0-curly_quote-28-2": "train",
+    "ftpo-s0-curly_quote-29-0": "train",
+    "ftpo-s0-curly_quote-29-1": "train",
+    "ftpo-s0-curly_quote-29-2": "train",
+    "ftpo-s0-em_dash-00-0": "train",
+    "ftpo-s0-em_dash-00-1": "train",
+    "ftpo-s0-em_dash-00-2": "train",
+    "ftpo-s0-em_dash-01-0": "train",
+    "ftpo-s0-em_dash-01-1": "train",
+    "ftpo-s0-em_dash-01-2": "train",
+    "ftpo-s0-em_dash-02-0": "train",
+    "ftpo-s0-em_dash-02-1": "train",
+    "ftpo-s0-em_dash-02-2": "train",
+    "ftpo-s0-em_dash-03-0": "train",
+    "ftpo-s0-em_dash-03-1": "train",
+    "ftpo-s0-em_dash-03-2": "train",
+    "ftpo-s0-em_dash-04-0": "holdout",
+    "ftpo-s0-em_dash-04-1": "holdout",
+    "ftpo-s0-em_dash-04-2": "holdout",
+    "ftpo-s0-em_dash-05-0": "train",
+    "ftpo-s0-em_dash-05-1": "train",
+    "ftpo-s0-em_dash-05-2": "train",
+    "ftpo-s0-em_dash-06-0": "train",
+    "ftpo-s0-em_dash-06-1": "train",
+    "ftpo-s0-em_dash-06-2": "train",
+    "ftpo-s0-em_dash-07-0": "train",
+    "ftpo-s0-em_dash-07-1": "train",
+    "ftpo-s0-em_dash-07-2": "train",
+    "ftpo-s0-em_dash-08-0": "train",
+    "ftpo-s0-em_dash-08-1": "train",
+    "ftpo-s0-em_dash-08-2": "train",
+    "ftpo-s0-em_dash-09-0": "train",
+    "ftpo-s0-em_dash-09-1": "train",
+    "ftpo-s0-em_dash-09-2": "train",
+    "ftpo-s0-em_dash-10-0": "train",
+    "ftpo-s0-em_dash-10-1": "train",
+    "ftpo-s0-em_dash-10-2": "train",
+    "ftpo-s0-em_dash-11-0": "train",
+    "ftpo-s0-em_dash-11-1": "train",
+    "ftpo-s0-em_dash-11-2": "train",
+    "ftpo-s0-em_dash-12-0": "validation",
+    "ftpo-s0-em_dash-12-1": "validation",
+    "ftpo-s0-em_dash-12-2": "validation",
+    "ftpo-s0-em_dash-13-0": "train",
+    "ftpo-s0-em_dash-13-1": "train",
+    "ftpo-s0-em_dash-13-2": "train",
+    "ftpo-s0-em_dash-14-0": "train",
+    "ftpo-s0-em_dash-14-1": "train",
+    "ftpo-s0-em_dash-14-2": "train",
+    "ftpo-s0-em_dash-15-0": "train",
+    "ftpo-s0-em_dash-15-1": "train",
+    "ftpo-s0-em_dash-15-2": "train",
+    "ftpo-s0-em_dash-16-0": "train",
+    "ftpo-s0-em_dash-16-1": "train",
+    "ftpo-s0-em_dash-16-2": "train",
+    "ftpo-s0-em_dash-17-0": "validation",
+    "ftpo-s0-em_dash-17-1": "validation",
+    "ftpo-s0-em_dash-17-2": "validation",
+    "ftpo-s0-em_dash-18-0": "validation",
+    "ftpo-s0-em_dash-18-1": "validation",
+    "ftpo-s0-em_dash-18-2": "validation",
+    "ftpo-s0-em_dash-19-0": "train",
+    "ftpo-s0-em_dash-19-1": "train",
+    "ftpo-s0-em_dash-19-2": "train",
+    "ftpo-s0-em_dash-20-0": "validation",
+    "ftpo-s0-em_dash-20-1": "validation",
+    "ftpo-s0-em_dash-20-2": "validation",
+    "ftpo-s0-em_dash-21-0": "train",
+    "ftpo-s0-em_dash-21-1": "train",
+    "ftpo-s0-em_dash-21-2": "train",
+    "ftpo-s0-em_dash-22-0": "train",
+    "ftpo-s0-em_dash-22-1": "train",
+    "ftpo-s0-em_dash-22-2": "train",
+    "ftpo-s0-em_dash-23-0": "train",
+    "ftpo-s0-em_dash-23-1": "train",
+    "ftpo-s0-em_dash-23-2": "train",
+    "ftpo-s0-em_dash-24-0": "train",
+    "ftpo-s0-em_dash-24-1": "train",
+    "ftpo-s0-em_dash-24-2": "train",
+    "ftpo-s0-em_dash-25-0": "validation",
+    "ftpo-s0-em_dash-25-1": "validation",
+    "ftpo-s0-em_dash-25-2": "validation",
+    "ftpo-s0-em_dash-26-0": "train",
+    "ftpo-s0-em_dash-26-1": "train",
+    "ftpo-s0-em_dash-26-2": "train",
+    "ftpo-s0-em_dash-27-0": "train",
+    "ftpo-s0-em_dash-27-1": "train",
+    "ftpo-s0-em_dash-27-2": "train",
+    "ftpo-s0-em_dash-28-0": "holdout",
+    "ftpo-s0-em_dash-28-1": "holdout",
+    "ftpo-s0-em_dash-28-2": "holdout",
+    "ftpo-s0-em_dash-29-0": "train",
+    "ftpo-s0-em_dash-29-1": "train",
+    "ftpo-s0-em_dash-29-2": "train",
+    "ftpo-s0-negative_parallelism-00-0": "train",
+    "ftpo-s0-negative_parallelism-00-1": "train",
+    "ftpo-s0-negative_parallelism-00-2": "train",
+    "ftpo-s0-negative_parallelism-01-0": "train",
+    "ftpo-s0-negative_parallelism-01-1": "train",
+    "ftpo-s0-negative_parallelism-01-2": "train",
+    "ftpo-s0-negative_parallelism-02-0": "train",
+    "ftpo-s0-negative_parallelism-02-1": "train",
+    "ftpo-s0-negative_parallelism-02-2": "train",
+    "ftpo-s0-negative_parallelism-03-0": "train",
+    "ftpo-s0-negative_parallelism-03-1": "train",
+    "ftpo-s0-negative_parallelism-03-2": "train",
+    "ftpo-s0-negative_parallelism-04-0": "train",
+    "ftpo-s0-negative_parallelism-04-1": "train",
+    "ftpo-s0-negative_parallelism-04-2": "train",
+    "ftpo-s0-negative_parallelism-05-0": "train",
+    "ftpo-s0-negative_parallelism-05-1": "train",
+    "ftpo-s0-negative_parallelism-05-2": "train",
+    "ftpo-s0-negative_parallelism-06-0": "train",
+    "ftpo-s0-negative_parallelism-06-1": "train",
+    "ftpo-s0-negative_parallelism-06-2": "train",
+    "ftpo-s0-negative_parallelism-07-0": "train",
+    "ftpo-s0-negative_parallelism-07-1": "train",
+    "ftpo-s0-negative_parallelism-07-2": "train",
+    "ftpo-s0-negative_parallelism-08-0": "train",
+    "ftpo-s0-negative_parallelism-08-1": "train",
+    "ftpo-s0-negative_parallelism-08-2": "train",
+    "ftpo-s0-negative_parallelism-09-0": "train",
+    "ftpo-s0-negative_parallelism-09-1": "train",
+    "ftpo-s0-negative_parallelism-09-2": "train",
+    "ftpo-s0-negative_parallelism-10-0": "train",
+    "ftpo-s0-negative_parallelism-10-1": "train",
+    "ftpo-s0-negative_parallelism-10-2": "train",
+    "ftpo-s0-negative_parallelism-11-0": "train",
+    "ftpo-s0-negative_parallelism-11-1": "train",
+    "ftpo-s0-negative_parallelism-11-2": "train",
+    "ftpo-s0-negative_parallelism-12-0": "train",
+    "ftpo-s0-negative_parallelism-12-1": "train",
+    "ftpo-s0-negative_parallelism-12-2": "train",
+    "ftpo-s0-negative_parallelism-13-0": "train",
+    "ftpo-s0-negative_parallelism-13-1": "train",
+    "ftpo-s0-negative_parallelism-13-2": "train",
+    "ftpo-s0-negative_parallelism-14-0": "holdout",
+    "ftpo-s0-negative_parallelism-14-1": "holdout",
+    "ftpo-s0-negative_parallelism-14-2": "holdout",
+    "ftpo-s0-negative_parallelism-15-0": "train",
+    "ftpo-s0-negative_parallelism-15-1": "train",
+    "ftpo-s0-negative_parallelism-15-2": "train",
+    "ftpo-s0-negative_parallelism-16-0": "train",
+    "ftpo-s0-negative_parallelism-16-1": "train",
+    "ftpo-s0-negative_parallelism-16-2": "train",
+    "ftpo-s0-negative_parallelism-17-0": "train",
+    "ftpo-s0-negative_parallelism-17-1": "train",
+    "ftpo-s0-negative_parallelism-17-2": "train",
+    "ftpo-s0-negative_parallelism-18-0": "train",
+    "ftpo-s0-negative_parallelism-18-1": "train",
+    "ftpo-s0-negative_parallelism-18-2": "train",
+    "ftpo-s0-negative_parallelism-19-0": "train",
+    "ftpo-s0-negative_parallelism-19-1": "train",
+    "ftpo-s0-negative_parallelism-19-2": "train",
+    "ftpo-s0-negative_parallelism-20-0": "validation",
+    "ftpo-s0-negative_parallelism-20-1": "validation",
+    "ftpo-s0-negative_parallelism-20-2": "validation",
+    "ftpo-s0-negative_parallelism-21-0": "train",
+    "ftpo-s0-negative_parallelism-21-1": "train",
+    "ftpo-s0-negative_parallelism-21-2": "train",
+    "ftpo-s0-negative_parallelism-22-0": "train",
+    "ftpo-s0-negative_parallelism-22-1": "train",
+    "ftpo-s0-negative_parallelism-22-2": "train",
+    "ftpo-s0-negative_parallelism-23-0": "holdout",
+    "ftpo-s0-negative_parallelism-23-1": "holdout",
+    "ftpo-s0-negative_parallelism-23-2": "holdout",
+    "ftpo-s0-negative_parallelism-24-0": "train",
+    "ftpo-s0-negative_parallelism-24-1": "train",
+    "ftpo-s0-negative_parallelism-24-2": "train",
+    "ftpo-s0-negative_parallelism-25-0": "validation",
+    "ftpo-s0-negative_parallelism-25-1": "validation",
+    "ftpo-s0-negative_parallelism-25-2": "validation",
+    "ftpo-s0-negative_parallelism-26-0": "train",
+    "ftpo-s0-negative_parallelism-26-1": "train",
+    "ftpo-s0-negative_parallelism-26-2": "train",
+    "ftpo-s0-negative_parallelism-27-0": "holdout",
+    "ftpo-s0-negative_parallelism-27-1": "holdout",
+    "ftpo-s0-negative_parallelism-27-2": "holdout",
+    "ftpo-s0-negative_parallelism-28-0": "train",
+    "ftpo-s0-negative_parallelism-28-1": "train",
+    "ftpo-s0-negative_parallelism-28-2": "train",
+    "ftpo-s0-negative_parallelism-29-0": "train",
+    "ftpo-s0-negative_parallelism-29-1": "train",
+    "ftpo-s0-negative_parallelism-29-2": "train",
+    "ftpo-s0-other_preregistered-00-0": "train",
+    "ftpo-s0-other_preregistered-00-1": "train",
+    "ftpo-s0-other_preregistered-00-2": "train",
+    "ftpo-s0-other_preregistered-01-0": "train",
+    "ftpo-s0-other_preregistered-01-1": "train",
+    "ftpo-s0-other_preregistered-01-2": "train",
+    "ftpo-s0-other_preregistered-02-0": "train",
+    "ftpo-s0-other_preregistered-02-1": "train",
+    "ftpo-s0-other_preregistered-02-2": "train",
+    "ftpo-s0-other_preregistered-03-0": "train",
+    "ftpo-s0-other_preregistered-03-1": "train",
+    "ftpo-s0-other_preregistered-03-2": "train",
+    "ftpo-s0-other_preregistered-04-0": "train",
+    "ftpo-s0-other_preregistered-04-1": "train",
+    "ftpo-s0-other_preregistered-04-2": "train",
+    "ftpo-s0-other_preregistered-05-0": "validation",
+    "ftpo-s0-other_preregistered-05-1": "validation",
+    "ftpo-s0-other_preregistered-05-2": "validation",
+    "ftpo-s0-other_preregistered-06-0": "train",
+    "ftpo-s0-other_preregistered-06-1": "train",
+    "ftpo-s0-other_preregistered-06-2": "train",
+    "ftpo-s0-other_preregistered-07-0": "train",
+    "ftpo-s0-other_preregistered-07-1": "train",
+    "ftpo-s0-other_preregistered-07-2": "train",
+    "ftpo-s0-other_preregistered-08-0": "train",
+    "ftpo-s0-other_preregistered-08-1": "train",
+    "ftpo-s0-other_preregistered-08-2": "train",
+    "ftpo-s0-other_preregistered-09-0": "holdout",
+    "ftpo-s0-other_preregistered-09-1": "holdout",
+    "ftpo-s0-other_preregistered-09-2": "holdout",
+    "ftpo-s0-other_preregistered-10-0": "train",
+    "ftpo-s0-other_preregistered-10-1": "train",
+    "ftpo-s0-other_preregistered-10-2": "train",
+    "ftpo-s0-other_preregistered-11-0": "validation",
+    "ftpo-s0-other_preregistered-11-1": "validation",
+    "ftpo-s0-other_preregistered-11-2": "validation",
+    "ftpo-s0-other_preregistered-12-0": "train",
+    "ftpo-s0-other_preregistered-12-1": "train",
+    "ftpo-s0-other_preregistered-12-2": "train",
+    "ftpo-s0-other_preregistered-13-0": "train",
+    "ftpo-s0-other_preregistered-13-1": "train",
+    "ftpo-s0-other_preregistered-13-2": "train",
+    "ftpo-s0-other_preregistered-14-0": "train",
+    "ftpo-s0-other_preregistered-14-1": "train",
+    "ftpo-s0-other_preregistered-14-2": "train",
+    "ftpo-s0-other_preregistered-15-0": "train",
+    "ftpo-s0-other_preregistered-15-1": "train",
+    "ftpo-s0-other_preregistered-15-2": "train",
+    "ftpo-s0-other_preregistered-16-0": "train",
+    "ftpo-s0-other_preregistered-16-1": "train",
+    "ftpo-s0-other_preregistered-16-2": "train",
+    "ftpo-s0-other_preregistered-17-0": "validation",
+    "ftpo-s0-other_preregistered-17-1": "validation",
+    "ftpo-s0-other_preregistered-17-2": "validation",
+    "ftpo-s0-other_preregistered-18-0": "holdout",
+    "ftpo-s0-other_preregistered-18-1": "holdout",
+    "ftpo-s0-other_preregistered-18-2": "holdout",
+    "ftpo-s0-other_preregistered-19-0": "train",
+    "ftpo-s0-other_preregistered-19-1": "train",
+    "ftpo-s0-other_preregistered-19-2": "train",
+    "ftpo-s0-other_preregistered-20-0": "holdout",
+    "ftpo-s0-other_preregistered-20-1": "holdout",
+    "ftpo-s0-other_preregistered-20-2": "holdout",
+    "ftpo-s0-other_preregistered-21-0": "train",
+    "ftpo-s0-other_preregistered-21-1": "train",
+    "ftpo-s0-other_preregistered-21-2": "train",
+    "ftpo-s0-other_preregistered-22-0": "train",
+    "ftpo-s0-other_preregistered-22-1": "train",
+    "ftpo-s0-other_preregistered-22-2": "train",
+    "ftpo-s0-other_preregistered-23-0": "train",
+    "ftpo-s0-other_preregistered-23-1": "train",
+    "ftpo-s0-other_preregistered-23-2": "train",
+    "ftpo-s0-other_preregistered-24-0": "train",
+    "ftpo-s0-other_preregistered-24-1": "train",
+    "ftpo-s0-other_preregistered-24-2": "train",
+    "ftpo-s0-other_preregistered-25-0": "validation",
+    "ftpo-s0-other_preregistered-25-1": "validation",
+    "ftpo-s0-other_preregistered-25-2": "validation",
+    "ftpo-s0-other_preregistered-26-0": "train",
+    "ftpo-s0-other_preregistered-26-1": "train",
+    "ftpo-s0-other_preregistered-26-2": "train",
+    "ftpo-s0-other_preregistered-27-0": "train",
+    "ftpo-s0-other_preregistered-27-1": "train",
+    "ftpo-s0-other_preregistered-27-2": "train",
+    "ftpo-s0-other_preregistered-28-0": "train",
+    "ftpo-s0-other_preregistered-28-1": "train",
+    "ftpo-s0-other_preregistered-28-2": "train",
+    "ftpo-s0-other_preregistered-29-0": "train",
+    "ftpo-s0-other_preregistered-29-1": "train",
+    "ftpo-s0-other_preregistered-29-2": "train",
+    "ftpo-s0-trailing_participle-00-0": "train",
+    "ftpo-s0-trailing_participle-00-1": "train",
+    "ftpo-s0-trailing_participle-00-2": "train",
+    "ftpo-s0-trailing_participle-01-0": "train",
+    "ftpo-s0-trailing_participle-01-1": "train",
+    "ftpo-s0-trailing_participle-01-2": "train",
+    "ftpo-s0-trailing_participle-02-0": "train",
+    "ftpo-s0-trailing_participle-02-1": "train",
+    "ftpo-s0-trailing_participle-02-2": "train",
+    "ftpo-s0-trailing_participle-03-0": "holdout",
+    "ftpo-s0-trailing_participle-03-1": "holdout",
+    "ftpo-s0-trailing_participle-03-2": "holdout",
+    "ftpo-s0-trailing_participle-04-0": "validation",
+    "ftpo-s0-trailing_participle-04-1": "validation",
+    "ftpo-s0-trailing_participle-04-2": "validation",
+    "ftpo-s0-trailing_participle-05-0": "train",
+    "ftpo-s0-trailing_participle-05-1": "train",
+    "ftpo-s0-trailing_participle-05-2": "train",
+    "ftpo-s0-trailing_participle-06-0": "holdout",
+    "ftpo-s0-trailing_participle-06-1": "holdout",
+    "ftpo-s0-trailing_participle-06-2": "holdout",
+    "ftpo-s0-trailing_participle-07-0": "train",
+    "ftpo-s0-trailing_participle-07-1": "train",
+    "ftpo-s0-trailing_participle-07-2": "train",
+    "ftpo-s0-trailing_participle-08-0": "train",
+    "ftpo-s0-trailing_participle-08-1": "train",
+    "ftpo-s0-trailing_participle-08-2": "train",
+    "ftpo-s0-trailing_participle-09-0": "train",
+    "ftpo-s0-trailing_participle-09-1": "train",
+    "ftpo-s0-trailing_participle-09-2": "train",
+    "ftpo-s0-trailing_participle-10-0": "train",
+    "ftpo-s0-trailing_participle-10-1": "train",
+    "ftpo-s0-trailing_participle-10-2": "train",
+    "ftpo-s0-trailing_participle-11-0": "train",
+    "ftpo-s0-trailing_participle-11-1": "train",
+    "ftpo-s0-trailing_participle-11-2": "train",
+    "ftpo-s0-trailing_participle-12-0": "validation",
+    "ftpo-s0-trailing_participle-12-1": "validation",
+    "ftpo-s0-trailing_participle-12-2": "validation",
+    "ftpo-s0-trailing_participle-13-0": "validation",
+    "ftpo-s0-trailing_participle-13-1": "validation",
+    "ftpo-s0-trailing_participle-13-2": "validation",
+    "ftpo-s0-trailing_participle-14-0": "holdout",
+    "ftpo-s0-trailing_participle-14-1": "holdout",
+    "ftpo-s0-trailing_participle-14-2": "holdout",
+    "ftpo-s0-trailing_participle-15-0": "train",
+    "ftpo-s0-trailing_participle-15-1": "train",
+    "ftpo-s0-trailing_participle-15-2": "train",
+    "ftpo-s0-trailing_participle-16-0": "train",
+    "ftpo-s0-trailing_participle-16-1": "train",
+    "ftpo-s0-trailing_participle-16-2": "train",
+    "ftpo-s0-trailing_participle-17-0": "train",
+    "ftpo-s0-trailing_participle-17-1": "train",
+    "ftpo-s0-trailing_participle-17-2": "train",
+    "ftpo-s0-trailing_participle-18-0": "train",
+    "ftpo-s0-trailing_participle-18-1": "train",
+    "ftpo-s0-trailing_participle-18-2": "train",
+    "ftpo-s0-trailing_participle-19-0": "validation",
+    "ftpo-s0-trailing_participle-19-1": "validation",
+    "ftpo-s0-trailing_participle-19-2": "validation",
+    "ftpo-s0-trailing_participle-20-0": "train",
+    "ftpo-s0-trailing_participle-20-1": "train",
+    "ftpo-s0-trailing_participle-20-2": "train",
+    "ftpo-s0-trailing_participle-21-0": "train",
+    "ftpo-s0-trailing_participle-21-1": "train",
+    "ftpo-s0-trailing_participle-21-2": "train",
+    "ftpo-s0-trailing_participle-22-0": "train",
+    "ftpo-s0-trailing_participle-22-1": "train",
+    "ftpo-s0-trailing_participle-22-2": "train",
+    "ftpo-s0-trailing_participle-23-0": "train",
+    "ftpo-s0-trailing_participle-23-1": "train",
+    "ftpo-s0-trailing_participle-23-2": "train",
+    "ftpo-s0-trailing_participle-24-0": "train",
+    "ftpo-s0-trailing_participle-24-1": "train",
+    "ftpo-s0-trailing_participle-24-2": "train",
+    "ftpo-s0-trailing_participle-25-0": "holdout",
+    "ftpo-s0-trailing_participle-25-1": "holdout",
+    "ftpo-s0-trailing_participle-25-2": "holdout",
+    "ftpo-s0-trailing_participle-26-0": "train",
+    "ftpo-s0-trailing_participle-26-1": "train",
+    "ftpo-s0-trailing_participle-26-2": "train",
+    "ftpo-s0-trailing_participle-27-0": "train",
+    "ftpo-s0-trailing_participle-27-1": "train",
+    "ftpo-s0-trailing_participle-27-2": "train",
+    "ftpo-s0-trailing_participle-28-0": "train",
+    "ftpo-s0-trailing_participle-28-1": "train",
+    "ftpo-s0-trailing_participle-28-2": "train",
+    "ftpo-s0-trailing_participle-29-0": "train",
+    "ftpo-s0-trailing_participle-29-1": "train",
+    "ftpo-s0-trailing_participle-29-2": "train",
+    "ftpo-s0-transition_pileup-00-0": "train",
+    "ftpo-s0-transition_pileup-00-1": "train",
+    "ftpo-s0-transition_pileup-00-2": "train",
+    "ftpo-s0-transition_pileup-01-0": "train",
+    "ftpo-s0-transition_pileup-01-1": "train",
+    "ftpo-s0-transition_pileup-01-2": "train",
+    "ftpo-s0-transition_pileup-02-0": "train",
+    "ftpo-s0-transition_pileup-02-1": "train",
+    "ftpo-s0-transition_pileup-02-2": "train",
+    "ftpo-s0-transition_pileup-03-0": "train",
+    "ftpo-s0-transition_pileup-03-1": "train",
+    "ftpo-s0-transition_pileup-03-2": "train",
+    "ftpo-s0-transition_pileup-04-0": "validation",
+    "ftpo-s0-transition_pileup-04-1": "validation",
+    "ftpo-s0-transition_pileup-04-2": "validation",
+    "ftpo-s0-transition_pileup-05-0": "train",
+    "ftpo-s0-transition_pileup-05-1": "train",
+    "ftpo-s0-transition_pileup-05-2": "train",
+    "ftpo-s0-transition_pileup-06-0": "train",
+    "ftpo-s0-transition_pileup-06-1": "train",
+    "ftpo-s0-transition_pileup-06-2": "train",
+    "ftpo-s0-transition_pileup-07-0": "train",
+    "ftpo-s0-transition_pileup-07-1": "train",
+    "ftpo-s0-transition_pileup-07-2": "train",
+    "ftpo-s0-transition_pileup-08-0": "train",
+    "ftpo-s0-transition_pileup-08-1": "train",
+    "ftpo-s0-transition_pileup-08-2": "train",
+    "ftpo-s0-transition_pileup-09-0": "train",
+    "ftpo-s0-transition_pileup-09-1": "train",
+    "ftpo-s0-transition_pileup-09-2": "train",
+    "ftpo-s0-transition_pileup-10-0": "holdout",
+    "ftpo-s0-transition_pileup-10-1": "holdout",
+    "ftpo-s0-transition_pileup-10-2": "holdout",
+    "ftpo-s0-transition_pileup-11-0": "train",
+    "ftpo-s0-transition_pileup-11-1": "train",
+    "ftpo-s0-transition_pileup-11-2": "train",
+    "ftpo-s0-transition_pileup-12-0": "train",
+    "ftpo-s0-transition_pileup-12-1": "train",
+    "ftpo-s0-transition_pileup-12-2": "train",
+    "ftpo-s0-transition_pileup-13-0": "train",
+    "ftpo-s0-transition_pileup-13-1": "train",
+    "ftpo-s0-transition_pileup-13-2": "train",
+    "ftpo-s0-transition_pileup-14-0": "train",
+    "ftpo-s0-transition_pileup-14-1": "train",
+    "ftpo-s0-transition_pileup-14-2": "train",
+    "ftpo-s0-transition_pileup-15-0": "train",
+    "ftpo-s0-transition_pileup-15-1": "train",
+    "ftpo-s0-transition_pileup-15-2": "train",
+    "ftpo-s0-transition_pileup-16-0": "train",
+    "ftpo-s0-transition_pileup-16-1": "train",
+    "ftpo-s0-transition_pileup-16-2": "train",
+    "ftpo-s0-transition_pileup-17-0": "train",
+    "ftpo-s0-transition_pileup-17-1": "train",
+    "ftpo-s0-transition_pileup-17-2": "train",
+    "ftpo-s0-transition_pileup-18-0": "train",
+    "ftpo-s0-transition_pileup-18-1": "train",
+    "ftpo-s0-transition_pileup-18-2": "train",
+    "ftpo-s0-transition_pileup-19-0": "train",
+    "ftpo-s0-transition_pileup-19-1": "train",
+    "ftpo-s0-transition_pileup-19-2": "train",
+    "ftpo-s0-transition_pileup-20-0": "train",
+    "ftpo-s0-transition_pileup-20-1": "train",
+    "ftpo-s0-transition_pileup-20-2": "train",
+    "ftpo-s0-transition_pileup-21-0": "train",
+    "ftpo-s0-transition_pileup-21-1": "train",
+    "ftpo-s0-transition_pileup-21-2": "train",
+    "ftpo-s0-transition_pileup-22-0": "holdout",
+    "ftpo-s0-transition_pileup-22-1": "holdout",
+    "ftpo-s0-transition_pileup-22-2": "holdout",
+    "ftpo-s0-transition_pileup-23-0": "train",
+    "ftpo-s0-transition_pileup-23-1": "train",
+    "ftpo-s0-transition_pileup-23-2": "train",
+    "ftpo-s0-transition_pileup-24-0": "validation",
+    "ftpo-s0-transition_pileup-24-1": "validation",
+    "ftpo-s0-transition_pileup-24-2": "validation",
+    "ftpo-s0-transition_pileup-25-0": "train",
+    "ftpo-s0-transition_pileup-25-1": "train",
+    "ftpo-s0-transition_pileup-25-2": "train",
+    "ftpo-s0-transition_pileup-26-0": "train",
+    "ftpo-s0-transition_pileup-26-1": "train",
+    "ftpo-s0-transition_pileup-26-2": "train",
+    "ftpo-s0-transition_pileup-27-0": "train",
+    "ftpo-s0-transition_pileup-27-1": "train",
+    "ftpo-s0-transition_pileup-27-2": "train",
+    "ftpo-s0-transition_pileup-28-0": "validation",
+    "ftpo-s0-transition_pileup-28-1": "validation",
+    "ftpo-s0-transition_pileup-28-2": "validation",
+    "ftpo-s0-transition_pileup-29-0": "train",
+    "ftpo-s0-transition_pileup-29-1": "train",
+    "ftpo-s0-transition_pileup-29-2": "train",
+    "ftpo-s0-tricolon-00-0": "holdout",
+    "ftpo-s0-tricolon-00-1": "holdout",
+    "ftpo-s0-tricolon-00-2": "holdout",
+    "ftpo-s0-tricolon-01-0": "holdout",
+    "ftpo-s0-tricolon-01-1": "holdout",
+    "ftpo-s0-tricolon-01-2": "holdout",
+    "ftpo-s0-tricolon-02-0": "train",
+    "ftpo-s0-tricolon-02-1": "train",
+    "ftpo-s0-tricolon-02-2": "train",
+    "ftpo-s0-tricolon-03-0": "train",
+    "ftpo-s0-tricolon-03-1": "train",
+    "ftpo-s0-tricolon-03-2": "train",
+    "ftpo-s0-tricolon-04-0": "train",
+    "ftpo-s0-tricolon-04-1": "train",
+    "ftpo-s0-tricolon-04-2": "train",
+    "ftpo-s0-tricolon-05-0": "train",
+    "ftpo-s0-tricolon-05-1": "train",
+    "ftpo-s0-tricolon-05-2": "train",
+    "ftpo-s0-tricolon-06-0": "holdout",
+    "ftpo-s0-tricolon-06-1": "holdout",
+    "ftpo-s0-tricolon-06-2": "holdout",
+    "ftpo-s0-tricolon-07-0": "train",
+    "ftpo-s0-tricolon-07-1": "train",
+    "ftpo-s0-tricolon-07-2": "train",
+    "ftpo-s0-tricolon-08-0": "train",
+    "ftpo-s0-tricolon-08-1": "train",
+    "ftpo-s0-tricolon-08-2": "train",
+    "ftpo-s0-tricolon-09-0": "train",
+    "ftpo-s0-tricolon-09-1": "train",
+    "ftpo-s0-tricolon-09-2": "train",
+    "ftpo-s0-tricolon-10-0": "train",
+    "ftpo-s0-tricolon-10-1": "train",
+    "ftpo-s0-tricolon-10-2": "train",
+    "ftpo-s0-tricolon-11-0": "train",
+    "ftpo-s0-tricolon-11-1": "train",
+    "ftpo-s0-tricolon-11-2": "train",
+    "ftpo-s0-tricolon-12-0": "train",
+    "ftpo-s0-tricolon-12-1": "train",
+    "ftpo-s0-tricolon-12-2": "train",
+    "ftpo-s0-tricolon-13-0": "train",
+    "ftpo-s0-tricolon-13-1": "train",
+    "ftpo-s0-tricolon-13-2": "train",
+    "ftpo-s0-tricolon-14-0": "train",
+    "ftpo-s0-tricolon-14-1": "train",
+    "ftpo-s0-tricolon-14-2": "train",
+    "ftpo-s0-tricolon-15-0": "train",
+    "ftpo-s0-tricolon-15-1": "train",
+    "ftpo-s0-tricolon-15-2": "train",
+    "ftpo-s0-tricolon-16-0": "holdout",
+    "ftpo-s0-tricolon-16-1": "holdout",
+    "ftpo-s0-tricolon-16-2": "holdout",
+    "ftpo-s0-tricolon-17-0": "validation",
+    "ftpo-s0-tricolon-17-1": "validation",
+    "ftpo-s0-tricolon-17-2": "validation",
+    "ftpo-s0-tricolon-18-0": "train",
+    "ftpo-s0-tricolon-18-1": "train",
+    "ftpo-s0-tricolon-18-2": "train",
+    "ftpo-s0-tricolon-19-0": "train",
+    "ftpo-s0-tricolon-19-1": "train",
+    "ftpo-s0-tricolon-19-2": "train",
+    "ftpo-s0-tricolon-20-0": "train",
+    "ftpo-s0-tricolon-20-1": "train",
+    "ftpo-s0-tricolon-20-2": "train",
+    "ftpo-s0-tricolon-21-0": "train",
+    "ftpo-s0-tricolon-21-1": "train",
+    "ftpo-s0-tricolon-21-2": "train",
+    "ftpo-s0-tricolon-22-0": "train",
+    "ftpo-s0-tricolon-22-1": "train",
+    "ftpo-s0-tricolon-22-2": "train",
+    "ftpo-s0-tricolon-23-0": "train",
+    "ftpo-s0-tricolon-23-1": "train",
+    "ftpo-s0-tricolon-23-2": "train",
+    "ftpo-s0-tricolon-24-0": "validation",
+    "ftpo-s0-tricolon-24-1": "validation",
+    "ftpo-s0-tricolon-24-2": "validation",
+    "ftpo-s0-tricolon-25-0": "validation",
+    "ftpo-s0-tricolon-25-1": "validation",
+    "ftpo-s0-tricolon-25-2": "validation",
+    "ftpo-s0-tricolon-26-0": "train",
+    "ftpo-s0-tricolon-26-1": "train",
+    "ftpo-s0-tricolon-26-2": "train",
+    "ftpo-s0-tricolon-27-0": "train",
+    "ftpo-s0-tricolon-27-1": "train",
+    "ftpo-s0-tricolon-27-2": "train",
+    "ftpo-s0-tricolon-28-0": "train",
+    "ftpo-s0-tricolon-28-1": "train",
+    "ftpo-s0-tricolon-28-2": "train",
+    "ftpo-s0-tricolon-29-0": "train",
+    "ftpo-s0-tricolon-29-1": "train",
+    "ftpo-s0-tricolon-29-2": "train"
+  },
+  "component_count": 240,
+  "components": [
+    {
+      "component_sha256": "00355a31426a483bd5587e7a1f9416df8bc47f58f463e0dde6f87e9ebba0107b",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "003c078c2359748034c3b3679a3e09f88bd9df0d94a644763f5e4f3a328fd314",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "0060fdc490592ffa44dc4f18e1a6b95d8ba96ee8f57252e4e4c9cb468621ca04",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "008de70ace2df5fe214e67fb9d224c658ed56120d577547d94cf1f5d71b3b75e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "00f51f5808d638af4151390f2552909a21fe1476c9500ed1ff0d943058593cfd",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "01046fa359f472d0f0e9f083fd024cc25a3213872576c088757031ee504d689e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "023f8d6ebdb92e14b236f5fb3d1ff16679e7ed767d5c680c9696201094052561",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "0370f19ac368d710c69808e7a5fb74a07a57f3a638c98a4739b9ba6122828026",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "0393bd987e0a5e1cb34121ff81770a3ece738d524b60dfa28c2832caef3f9551",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "0935120ed786a41316b21cb41b09f18dafe542be822ec53ffc9a154d7b6e5e4a",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "09f4794cd58cf4b0a0f867b9d4d5759e99c62490e6b219f7b85ccd3f4daecf0e",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "0ae075d6bd06cc1aae741d6ee647bbead44a6827803f1da6beb5350b6c6a42a4",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "0c40a93849c9e69b35adbec43d85e282af3e0b0a5db275cd37a893a3fba3d6d0",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "0dd6b148d4562b89d47fd2334b2502fa9c8633eaf61596be0e926867550fbe76",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "10a98468b69f8b32fcaabd3ab29f3bfe45c3db8fe2c76ebd59315ed42adfe0aa",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "10ce0d85d2fde77b61dbe888777ce3602f83eac99fac43dcf77d32b1dad86bac",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "11b45c923e09abc4431d92e9c76317835f2401bfd8d93fd8ad3bb739833fdef1",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "12cce76818aaad9e37827ac2169043023ae670a76042b0778fef5220c0ffce07",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "149bb097911c43333fbdf233597c21376d5edcfc6cf1e27e545ee89d9f4f5493",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "1618443dff2466c8df8e55a6e14e65a8c329c08c5b489268b20e1a966cd7f5b9",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "1630db6b0eb4ae7aba082c3feb336f06883e959e2be91b73b6244871b45c6691",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "18550b53893db50f74848ca54d69874bdd866592315356156bebfa610e5ca6dc",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "194ec6240bac77df44b46664f9a137920dc5353d26560f0f12bf62aa32cb04f7",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "1a8c9ae243421aafe7621b26c7e535c90bd16861b28679d7c53d3853331a7c84",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "1a92365cf7b61a98851d657e3645fdded04cad8a89b2da3ff7a1bf5eb84d9177",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "1e2cd77846eaffab8e5e363a09031a8c7e8bcb588037453f7d52beaa7471a1fc",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "1e412f1343cb8f77f26772f50c41da5ab7020b2f57420098e000b6fc85d3bfa3",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "1e92a2e1226bce39063c08cbb6299d9a724db5ca5b3d066395827a20f44b7abe",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "1f9d7c4767aa6f608894e450a4391ccb4295c853d83851e2ebffeb82a50306d6",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "1fb14a80971d728fc6720bc18ca3866b8eecf986b079c3800b0f9c86d31e14b3",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "20a6b2671f739323aa3cfe7f01e62ccaa88117b587cef1d11c9664aef8e768f5",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2211c21ec46b445a16a6e3c17e18f3ff6b8f1e7c0bbb48ac758bed4d413a1010",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2287a6960e1659e6754557c3fd5b096c2296a3830b91797684b7d60ec4241cd7",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "22abb046b9c76cee15b0e562372c0b42826731b1a77a4a8b6994f3b3e0448ada",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2364c806e52b49f23f829c238bd6cab7e7ad7cbaab35390697d8c38a0e4b0fdb",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2401cbb4780ed05a8d11ea043ba14e597636f4444de3375c979a6f6148f3434d",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "247db90b887cce37514120f7e92db22c1242d84da79f9a76e31ad67cbf42b7cd",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "270da7c6d734d0da097ba01fa1d4dac11d62c0ad142598034ed0af10e82ba26a",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "2737b09f5d4ad8c0bd35ee7686f1f977cd4ae7fb655b88adeb7302cceab80233",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "278aabeb9da82cbec65c7520463d0e7d5554694ef6a22399ff88625f5b76c03a",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2859394c2f828d16e6764f7718b5719ddfa4332a8d36a033d0be57e111a5e79e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "29c54f454f1835609c70e70d8bd3623650330dbc4fe82c0664dbac2b7c227c95",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "2a32535ac52e00913998ec54311632f1931bb9785f3a045e510078b79688ae82",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2a8f89d23cd4eb73cba3259262e676b54a5ba35bc11818e70ee08b72fab049c4",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2aab89414a0311c48b3f6da0fc2a704ed056710616af6fbd94485b12b51509da",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2b37d08dd48ec7fa017b2d3fe49796c17fb188ba9a9387e11c9b7aec9d7d5e0e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "2c022eddf90eadda5dc9798d3797b142c8e22a7ff67c01e523a5076cc51f0245",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "2f0cc41b632e36f15d9cb91b64c9c62ccaa156db07f7fa2a5242d5641a8bd8e5",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "34b18a57a0b5e2f37b2dda3fde6200edb213c2d1935d66d7524ea4f49c449de9",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "365bb450c3f25a4d6ef5dffd9c0718056bcccb479315c1ccecc9f37792e3dfe1",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "3757c3c93954ba2e3a8854156b47fe56a085931f3d29af5fa094b38afcf99527",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "37580e050bb63d91e1aa04883ef70d49648ea875718210bcc92b02f7f4462f09",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "378a92ef3a2071412c4bf91084a0f729963bf8e4f4ada6d1f946b8d29d438d7e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "37d87db684729476461363838ce335e95d1ea9db6300fca4ee7e3c736a356d40",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "39031f58c7ac86dd340f76dfcdeaa7607151b439bc95da55f17717a72974835e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "392f661643c4c742037daf8ae6f777941c21d7d9a9fb976eff1b47b05326cb91",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "3a6717212f17c83bce338e509afe919829e942e359246e51cb9b8c42cbc05437",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "3b72b9abdc43408b8c6a9069195d18eb4058ecd2b7614e5b71a4ff4d5d08f156",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "3bc45a81ca42f847c400bb24ac609dab7f11349a0767ca4724e42021869c8c0e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "3cc3e630603b0633ee1da22becd11e160aa2d85d1261a14b6cec9104a69a4dfe",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "3e0d72c498aa4ba42c800362d4a5d2bea9323581158943c21758081903c06be1",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "3eafc09ac2de7a50f2865fc41022768253485710d59dcd1f83acc236320cdc8c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "3ee70f050a6c07e7033a34eb8979769eab89c649d0c65cdb924bb07b13086e9e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "402068e62b41ef7e490068a393182dfcc31ea3957f2dd17ea553b1df53ab3f6d",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "40813009e5755c10309f6ac0d2b4a9e0491caa8272b0d9b7406e4b3d90a8cb01",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "40c477ad0e96bc2482af9f2863f5d0b22b9d72a11d37122c0f59e8a94d923a18",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "40ff07077818c7dccab1f16e10959c0b15adcea50646ea8e3dd776e61a95a320",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "41a59d8b55dab39f109b3bebcb20b96eb287d6b84ae6b45bf7910393f8d51dd1",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "431e16e6c2c709894132a32e4874aa7c0231f8c044a835a41d473252f18c3663",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "44da02af5a8e890e7ed1305945537b9e4e8c783629f3e2d3c0f3c565769ad8d6",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "453c0ef94a23c56d4c106f50fb3b071fc3fa752c6b8925f59f7faa7a82ee609a",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "4579248a7dd2526649e98e802a53ed3a1614dbaa1033a52c0fa08c9ec30d485b",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "45f50f7d0f5c820f68f8155ff56f1db96a7a205ddf4827faf573c986b252ee25",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "4aff1228c4cec9e086835239e790fdccb17b277173e30399b336be5b1922e798",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "4b770dfeed88b10c5d77e822e0d52248a459867389c8d05e74937039313d7cff",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "4cd82035641133912d7e7f027da3562120ce0735cab48baaeaa07ef8c3e8f06b",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "4ced56e931cb7898265bcdc9c9699e3aefdcabe186447efa9a9ccc2aa26f56b2",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "4d06a8790756065dda9d9997ec2d55d502aec85096ae3743398cb98ddb402534",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "4d7a731ecd5a33fa1daa459e0c64dae1e555f4361d91d529079c0b628314a131",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "4ddee901a4546b5a2643ea6c314e89fe91cfebe5a294ab14a3755e22c734786d",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "519be7ea59595bdb9e443beb59b75711a7b19627a1f41d519bc39351d37ffa5c",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "51d5070dc7f9dcb256a3631d66d43c7d87abaeffd6600768afb1c239e7e413cd",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "56edca25a5e214bc7d4a948b9b5fe220b24131ea503656b359fbc1647dc0924a",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "5ae2fbd883bd38a8744b4ea1ac69d61b067064e995dfc44a6f46237631d44ef3",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "5c30be08287453150cb141a9a4954912ecccca938edc70f46acebc90b6e3bdef",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "5e1ceeecb68068972ac31e98509d8c679418d1479cdf88b008adc4765c3ad492",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "5e47d2ee83f7af0e60b86ceff67a95b473116db5524bbf1b7a2153db7313c079",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "5f0e7b1cb9b0c063d61535fa85adf6f225a528edeaccf687d494174ab4312de7",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "5fb09e637102ea7ee47dfded70184976665422e4c6ad7f7e3c7661d31b247cf1",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "614a5b26f2b3dd1fe4c56fdfa9f21a11193e37e4b58ea43ba76fd23351a8a202",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "61724a15dd871e124749a23e9d9b2468fa45f4db6a270a0219782b6381c7eac4",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "61a9ff1393e0edaa95ffa463abf57de9782b8840b06dbd302bf5f6d728b0d815",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "6238b658ca7bdab329f172c7b244027b81a0780eb7a2db85c1c16abdb9a74d65",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "62a0107e1448bc0fe267efad75883488571a7379c8aa3d0a9b20173607c6bb4d",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "634c9386f0dfb91341590bb77aab71c381967755e35160280266effdf2aefadf",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "63b80bac45304325b51de1f80041936fb4297258c05b825776f9e16cd65342a6",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "648ff3ce8d014b3cd5ef7ebbb39b2f6441118d32e6ddd3275e42d6bcb4cc5f42",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "64de91f2e6cc6a6771b9080ecfc170bb81f6233b228b7b9b6627f880ef4f222d",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "6871ec03c05a77f94761776edbe4574c1712825875f86b731f8933831004333d",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "6875829a85d27312619d361218650a3d43cec06bfbae7b5d1a5fda7ccb4d7dc9",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "6ab00d931c13840840a36e4955956245ef5c0d5f220d9e0a1b01f0a2b7a5dc9e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "6b2f4c6c49d26aa316611aa52ad8fd8abb4eaec20faba0bc31156951dfb3d152",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "6b7311bf6637ba0c94a296658bc8021410ddbd72ab790be32d71582008515b89",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "6cfdfe2ef382f29265c408d35f4d3c1aae436fa098b4f9c6f880fd16029314c6",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "6df379f806e54af5592ec7e4d663a045bd7c21b937502dfb9d99fc6914dfd1f5",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "6f6e789cda80e70ca25ec989d7312f6d9ddb306b62e93e9c741044f715b0b66f",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "70776522f8af59cd9e60444989584821a41ac8d12cb356e69c23f8ec4a3d5fb4",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7083c4f6b295963981b85b990c33f4d13346d0dba51874d45841a93b4ebc9a12",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "708b04d7ce3892038a688f6138383a8a7d035dbb08a80efa13dc8a6eb8a70662",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7149794e3aed9403f7c1a4c0ba063b56a531b70f16619281b45de411e6b97f3f",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "7454932e14c3dfe2bede4e534ff70be30f04871e3e56d92b5d386a83d0c4f038",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "74703b79e450cdb789ebcfb8d032a709336a5750bf554bd5a4f3ed047c63a9f4",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "75a45c28b99222ee8c266d98c7cee75459949874531c4a6aacb3e3d291d795d6",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7660559c2941bce35dc570f2d0595787005f8b1ec1c4980c0e47666fd96dbbba",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "774590e714e1f5f2ed583c7ccbf3e932304d4a2cee6adc5e94c2c719ea686b90",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "77b89cedc1cd1578231aba9f185b1b8dd7fb49d5fb54a581403689a6701fa8ec",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "7a6d8464737af2a0bede029fc5348826baa47a71c8f86bb04bae33e72f596730",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7b6f304f201632d624ab2d2a67f34235b2c03cf49b4cb99f331b1c0813401b12",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "7c7891a7d70d3381a9f07a767074f3c3f25fa7cfe276f6ca5a7c23efc2da26e8",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7cb12dcc870e6e736336aa2faa83fc3e0ddec1bd5de2799e4ba9060e75a949f3",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7cefe89e7744d2b1862c2b3efb84296134651b8a0dfdeb8823af346097cd8087",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7d72c2b8c704309c445676bcf7d044f29bbbe856802f956369d6aca49e821859",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7df27d7b3d375563d2b595647ce6de52ed3aa80b8cf604b59443c2b07730b0ee",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "7f4e9843969ee4f71a1596b6297f778499f63f30e3340b83979b64b7810ff2f8",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "804f2340508e4dfaf19942561ccb42e9ba7ecb33bb142ab79f446d6f5be379d5",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "81514ae4b0075b75597d480d4dfe3322483f3bdc9c70f0850d7347113769493e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "8160325c59eadac6160dadc2f2d2495634d5420f4d00fe577b3620529cc939cb",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "827157937e3b51638bbad212b864f3728fe02e437e8b349a2b37e18baeb7b399",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "85894ab501508977df834b474ec5d4642e02435e7760bfbbf341bc14c94e2523",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "86ca586e2521c7b1ac2fce7c54c375c9277924b516de39102b3b151f878a4d9e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "87d355d097520670da2640ef564de99bb1e3ca1499251921b14df41e7bee39b3",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "87fa74e9e999a77af00539f97b7a88c88da05f4e7ea3202a00623490b19d9097",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "8867fc27b94fea5dca3dd32c39353941582f3bdae80ffda535152de3e0a21792",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "88abd5eb707c7785b22d7df4b31c1e60540ebbd7a3ba0e4fae51a588e87e670d",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "8b39aebba76e80d4ff1d39b5354a697a5f7a9284fb7de250429e270a49011a3a",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "8f44d5c4099ca02bef2cb6fe2068d36957f5d125f325cc4d5bd0402f48a7b7eb",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "92dd4dba27cff75cd2826c7da0a8c2715fbf189e35f04c542bf757dc296d2f80",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "962a8081ffff8f322cefdfe51c8946d2caf97a398823c345bd4a7c535c7dbc1c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "96404d7cab5632b9bcce9d5b60ab695e88cf0e537aaa0abb86c79acf857fbfa8",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "9673dad3f38b4f0ef9600c9efe7a0fcc1f8217cdf8756b570372de8f7170a50c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "971fdc485cf38aad9f04f42b8291143a0529f638125565fb5f7e460ba6552016",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "97c979ccea61555d749bc3c11467e12dc779fad24b8881c1dbe734824f023130",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "98f006547ffa3221f81e97eaf30a9e27db3596bef261538b5239bfcc69dfd64e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "9957880aef07ae809066ef2748e47c8e76d1017e0bcc5392a50405c2a0a557c7",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "9a4057e85d1c6f8c1d2b104b1f4d2a9ff852b385bc64d28bccb97fd5f4c2d11c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "9b5a868a9be678b8a7442d114726a511280b19804b45e27500c63abd934602e7",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "9d8814922f97d3339366390d7207332588572e2415fd2abebc43b00a22ef8d6f",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "9df67177d8611f86854c1b11bf11725bc75f93049ec8eb56fecaed53a15b5237",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a042d084554405d75e1fb2a5d3706aed6bf9fa9ca2738da0e5c3ff9feca81fa3",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a0f5e04a10a7a4c268968886045b1281fe2e11493aa9b10a1d87787c828c4970",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a17545ab45b27699af0b920d49ae227d0af4eaed256f54ba598cf557eaaeea40",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a254b390a75309f0df15bcac985fe9fc32075f943117b9dc79f20d0405c447fc",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a26156b9cd07f62f31b2fef538e52b0b9e6cce725758283edd09f0411b6238e3",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a421673592f343df1be82038e745fb6ad6f5a05fca971bc59ec6bd5edca1f185",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "a44d441b4dc5adda8284705d4e73494c9e6922a048371b28bc4f1b156b60ca04",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a64b28f60cfae809f000bf0f0b457e731f14709afa09c87f36e862211e9de6df",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a861e46e1d58c47879e790e595438980c8f2c541bd578d5ec204e6e84cf87e18",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "a9843b80f35929586d0ffaee6e28f6f3b815c0fe4c69e0d80e02bd43b345618e",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "a9d9ff03a88cb4d4adc0346867f0814d83f9bd2245c2bf9f8060d2f1a553dcbe",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "aad558f2c93065d10c178cb5b60fccd2bb248fe1a68f8d340c90ae0c12edf8d4",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ac2b52b2b4e42d8257ec01f72863388e9afcbcbedfd0c43bde5bf75d494ed8d8",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ace01355143443119f8e5c59ac02d44c0d04969898a1d235858777f559f9a43d",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "adca58c28766d7cd1c33007e76965d6b98039fc603044f80bab0de17b42db3c0",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "af8037ce5d7060174cc51e77399041e6188fb22b4b0a57325a43e59174b54197",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "afa37864e24b1fb18d9ae97c981219f5954955f768e922e8fdf1cfd1bb93497c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "afb0c3c9806b536ced815f4b0a79ada22ecb0ac1ce9456760fb50f4ecf5b5354",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "b0891b73c2813f0d941475f88adbf1d82429a4f69db5447b512f7743fb6fc15c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "b344959b957e4bcc2966c43165dd44917840dad4448c38a383d741f863f6249f",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "b3a128b6cfa34bf0be0639c8c617f61b04f4c6cf8910e93db54d50b72e52aa18",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "b4ae2754df9a52e8aae439a148013274bbeb0a0a1bb6093b0237e550e23a88a0",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "b71a26625e450c503ef1964d2f9e80b23c2515bbec016fdfcdf097bc0b60e17a",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "b7b73ecac11cf7ca5fedf85226f1b1215b14ddd8f5c15240af33fe1bee8e24c8",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "b7dd142081a450c9eaad75cf78c6da0565aa70361ecbe75525333be3e7541321",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "b802cc3c8569242f64e2460e2bb6e1eb3f0bd3592256e22c4e4343a4de4073d6",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ba53b5a9e1b29378188c7346e5f77f291e92e54b9b89137ff2108790686665bc",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "ba75d83a20b4d4dedce0df139c272530a9ce47587a254137c5c2c4dff1980cc0",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "bc9d96ff123c5d42182ee6d046983c8c66a77da7335cb34b33aa57fe89978788",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "bee1ac5753b5087eecd5eb24b88ec782310fe439950d627befe883e505efcb58",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "bfe1779e51155e5975c880093f212cf14467c9f1c899d2b1a35a6912a6b3965f",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "bff479d23d167e04e64852671f6897533bcb7807d5a65ee27fe6cb30272f66a5",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "c0642d2886bc3f2f3957ae40ad7f5f565eeb8e6309f4d712df72a9935c940d9f",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "c164534535233f66d0b6d0f24afac78ae6c6e3b058818cfe92ec0702bde7567b",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "c1f7aa92b59b318108b15f3952c931c3862452cfb1dfc5d11204e4cd7690f4e1",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "c4e77eebe4c7c0d090d3e0f727138915b42b8540c0442b477a5c3334f67eda11",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "c6b685e87f46264cb1eb9e61047e0bd3a0416c7e1d9376778f7b4ab4d7a104ad",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "c777dba12184372ae0680e3a9d82cafe538bf06f29e6df022e893391f45978f2",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "c854e1333cb8ab654c3f95c42d12566e6198dd464f60c86f075b3ab07cea300c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "c915fb783b9cb702ea625a7f8b61f28d118112afdf97f32a303d2821aebedb2c",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "cb65406f9f3daca9fca5822581daf1450e72c8a00e90d84e70884f929d7a8911",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "cc555f4295988820f6afe606e60a36b157d4877102ebc04c8f32f890035ecd07",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "cdea0e8607757e73aa5b632fa6d42c8a965ee546b2ff282e27c22113e12127dd",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ce0f6003c43dd6fb8f2e0b034c5b26955a8001d5e6ae8da3ed7a365d6ec68e6c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ceb3604a31a59eb315749c6e3aee39ea5a22249d246990a0d711ce8bf279eddc",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ced8c8ae551d4668dcdec7da972834c584fe5ea8a2409bf414068b7cab69b77b",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "cf07947d3bf5c44aa25088c7d999a833a05222f7a29c81e0a30f0f0f8525728a",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "d0570651ad3fb7d310b8b2b6103182ab30edbc29bad51e30a00469eaf83045c8",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "d0ef290288ffe6781e9fec426dfab3d66cc5e8f91eee1d43f068ae8eef5d0d46",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "d214c7d1e0455a65a3e4169d38d386a04448ad11ed5f46c7c7064e2f214813a8",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "d2fc91105c7f283e092c97d3a38f2f273d77f3fda6bc4cb36fccfd04e3862e55",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "d309f7cf44ac168ed7df45600ae85f87f6d1f35469122fe50943460b4280f2ae",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "d31f3e7ac358156bf435778732943ba6664f5e70e77a7853af746b00298c6dd4",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "d55b04e6cc29d1a7ad8c006f53c00459843ed04410a2ffd6e09e89bb32a45972",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "d73075eb9541faa6e0468840aff897bca7ee3e541d1f63178ec46ae69813f16f",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "d743ba35935b3c0afb93568f27689c78f70fd26eb7338f6524531c7195af1ba0",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "d91db608fd7894557dc4c5280b1d82d345c9937f5fb0431ae86f58812058584d",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "d94f45a1ea77beebcaad9dd9e8d3612ca83266a985e27bdf1ba422a0cf5c7816",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "db7a6fcc6eb6a2ccaf0348086d8af238dce3a9c49fbf239d66d139bd3efeb384",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "dbae33e36b3edce66ee4548dc85ebb96a94af34e807ab49ab33ad5093502ca58",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "dc5e8bdca71e6863c0435fc4b06680a4281a9552c338717ae631d58da9bb8727",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "dcfe458f7e1eb38974e78cefcc3a918e53f34a14a47132eb2e63d942cdb30522",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "dd8dded395374b85545e13c2bc5ca518ed05f947578cde22a167755d8511bdd2",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e0ca70c98b63217d8295d1fdeb571cefcd50888fb79b426f3e88e8d4edb68906",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "e1c68819ee3abb4b6eb381aaaee9b62cc76d310b414ea2ea741bcfc4e322cc64",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e2b4569703e8c4d6202ab226080cdd01febf159250393d7837ed1ecbfbc496f1",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e3242aa9ba60543b6fe55bf123b11faec6c4c3a0666eef4bd633af34e33ac651",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e4703665687ebe0d7e8b8d682e37b6228265be612965d53030401781dec3ea58",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e7404f5e1e429a1afa2261d805252ff96b8da1099e4e1b4338a0d1000e42e6fe",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e748265f5891af712b840f59550552a56a6f23db0fd4799771ddc67136526a31",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e8a76b9573e302d4d257ec81cf2bbc726df87f2e9c41dd8b975d83f887b80f8b",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e8c879c98cfde3bbb76382e6c3d7924e0170ab023fa4287d96691406f72def38",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e8f72cf67c0999425cc8a02cc09bbefbbd0719ba6e2170d30f7eeef3f4e48434",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "e97906762fcf86f5da3c6dd55d9cd65bb7c407afd09c2fad4693d823a146537c",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ea32e18a3a2f130af74a457feedac0e448f051a425c51750937cbb0f91fc1934",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ea8ce0852d9832b745a6e6c975026a9c9588ad2c45cdce090b782c422298d026",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "eaa2cbba7f74a73a4691d4998ad8b4a706ecd5b9f3760ca064aa3a4e07ebcb43",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "eaf8e9868133529a34baf974009b4e184a87054d3bbdfccc6475f683abbdd87f",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "eb0616cfad914ca08b685e4461c84ccd4b52674d019fb4397758ff5b7fc8772c",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "ee9e1c3ac6c642dde00372094cd01fe80e3cba96811fdb0c7e3f9434a1ebfc7a",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "ef378244c63bf7ac23f2587cc543ddd1bb4d801b47bc65a758214d3bef4afa48",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "ef5f16dafe8d9637d9615b40085efe5f1847c53ed3216f5f1621fb0903ba0889",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "f0274272d43c96b4d675bfba2b8a597c5858080f99ec8d8f884151e7e0e6b59a",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "f24496200a99c33a6b63316a8f3237add465069a69aee4f3d5136a55dae1b38c",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "f3208b6d696f6c63ae2059dd2df10119a22e34463b0f7c7458ad8310ee0a226e",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "f3c44af93d6122c4cbc19c2eccf931194fbfa9f0ce44adfb05190d240be590ae",
+      "size": 3,
+      "split": "validation"
+    },
+    {
+      "component_sha256": "f60bd5db5ac29b03152109cb247377d2cd9cac21d83f4cfa9d6bbc7c7d8b18a9",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "f63a840488bd4a068c02ed4c79a8a3f93d08874aa82bcc892cfe48c12c9f2ff4",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "f7415099b100390a96b79bb7964ed7a742537d3bc906cc4fe41e57339e0d6d35",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "f9a81765d12d58898384900ba1dd1d8277caf73b4f58e95d99ae65dcbaac88aa",
+      "size": 3,
+      "split": "holdout"
+    },
+    {
+      "component_sha256": "f9c81cf39e5dc2a3a4cbffbd9f4e40b4f0b877bfc48fcc44323dff381b9a72b2",
+      "size": 3,
+      "split": "train"
+    },
+    {
+      "component_sha256": "fb16d5d6baa2311b4ae04578b04f816c5b111f3c4ce87be758bdd4ffceb26b6f",
+      "size": 3,
+      "split": "holdout"
+    }
+  ],
+  "counts": {
+    "holdout": 84,
+    "train": 552,
+    "validation": 84
+  },
+  "input_sha256": "d270995204f08f2bc363fd7b6afa77576f6a5ad346b1d600c0bf9f441f973820",
+  "leakage_fields": [
+    "pattern_id",
+    "source_item_id",
+    "prompt_id",
+    "author_cluster_id"
+  ],
+  "schema_version": "1.0.0",
+  "seed": 20260764
+}

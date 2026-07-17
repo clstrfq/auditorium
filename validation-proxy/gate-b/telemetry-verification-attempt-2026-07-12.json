@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "gate-b-telemetry-verification-2026-07-12-01",
+  "submitted_claim": "resource-backed inference complete; initialize FTPO next",
+  "decision": "unverified_do_not_train",
+  "artifact_checks": {
+    "corpus_manifest": "absent",
+    "raw_generation_traces": "absent",
+    "twenty_turn_trajectory_records": "absent",
+    "evaluator_outputs": "absent",
+    "evaluator_dependency_graph": "existing_graph_still_correlated",
+    "residual_correlation_matrix": "absent",
+    "computed_n_eff_receipt": "absent",
+    "vti_event_and_token_counts": "absent",
+    "muse_probability_entropy_records": "absent",
+    "cda_pair_validation_records": "absent",
+    "alpacaeval_outputs": "absent",
+    "human_llm_classifier_splits_and_predictions": "absent",
+    "cluster_job_receipt_and_logs": "absent",
+    "api_request_receipts": "absent",
+    "checkpoint_and_runtime_hashes": "absent",
+    "statistical_analysis_outputs": "absent",
+    "multiplicity_and_confidence_intervals": "absent",
+    "throughput_benchmark_logs": "absent",
+    "ftpo_training_data": "absent",
+    "ftpo_rollback_checkpoint": "absent"
+  },
+  "claim_checks": {
+    "gemini_vti_0_590": "unverifiable",
+    "deepseek_vti_0_295": "unverifiable",
+    "turn_accumulation_110_percent": "unverifiable",
+    "cda_lc_win_rate_37_18_percent": "unverifiable_and_may_be_external_literature_result",
+    "trajectory_classifier_accuracy_94_percent": "unverifiable",
+    "sampler_throughput_degradation_69_to_96_percent": "external_benchmark_not_locally_reproduced",
+    "ftpo_suppression_up_to_90_percent": "external_benchmark_not_local_acceptance_result",
+    "definitively_proves_universal_dpo_rlhf_causation": "claim_exceeds_preregistered_conditional_scope"
+  },
+  "durable_state_observed": {
+    "last_cycle_id": "cycle-0007",
+    "mode": "prep_only",
+    "paused": true,
+    "external_spend_usd": 0,
+    "paused_sentinel": "present",
+    "prep_only_sentinel": "present",
+    "running_sentinel": "absent"
+  },
+  "external_calls_made_during_verification": 0,
+  "training_started": false,
+  "pipeline_state_after_check": "PREP_ONLY_EXTERNAL_EXECUTION_PAUSED",
+  "minimum_ftpo_entry_receipts": [
+    "Passing Gate B execution receipt bound to raw traces and frozen inputs",
+    "Model-specific excess-pattern list split into train and untouched holdout",
+    "Validated CDA pairs with protected-fact and semantic-equivalence checks",
+    "Exact trainable base checkpoint and rollback hash",
+    "FTPO, DPO, sampler, and no-treatment baseline specifications",
+    "Approved compute/spend cap and executable runtime receipt",
+    "Non-inferiority thresholds for factuality, accuracy, diversity, calibration, writing quality, and throughput"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "status": "pass",
+  "job": "Build and install one reusable app harness with matching personal and project skills for Codex and Claude Code.",
+  "input_hashes": {
+    "README.md": "e50ce770c4c0f4382b954f27569ce1f085e0f2bc6a7367b7ee2c089efb3c654d",
+    "skills/apply-app-harness/SKILL.md": "75778e26fc29608809611b1fe75d4c63f37e563b10ea8e4d7ea18fc5d775589b"
+  },
+  "artifacts": {
+    "root_launcher": {
+      "path": "/Users/gordonlaabs/Documents/New Codex Skills/harness",
+      "sha256": "a1c847abdb9c58ce965bdd758b3d1de2bad0a1fb0f7a90febaa413b3514a8ecf"
+    },
+    "cli": {
+      "path": "/Users/gordonlaabs/Documents/New Codex Skills/scripts/harness_cli.py",
+      "sha256": "fe395e433159714d3bf0e2ee79b7fda42213b28859a18057c7f617a0f4b67c75"
+    },
+    "adapter": {
+      "path": "/Users/gordonlaabs/Documents/New Codex Skills/src/app_harness/adapter.py",
+      "sha256": "ee71c6ee055d8d8d5f838feebf4b9b4bf5658dc7fd416f413bc921f926e4e65c"
+    },
+    "installer": {
+      "path": "/Users/gordonlaabs/Documents/New Codex Skills/src/app_harness/installer.py",
+      "sha256": "571c38951a2e0eeaf1ef2d7f7ed7f4a722f2122c435405d8b76f345f7eaee927"
+    },
+    "runner": {
+      "path": "/Users/gordonlaabs/Documents/New Codex Skills/src/app_harness/runner.py",
+      "sha256": "0f3dbb27b6f8c0e2a2e1621b295a6a7fb6bc82010851e869031660e53b3f755f"
+    },
+    "codex_personal_skill": {
+      "path": "/Users/gordonlaabs/.codex/skills/apply-app-harness/SKILL.md",
+      "sha256": "75778e26fc29608809611b1fe75d4c63f37e563b10ea8e4d7ea18fc5d775589b"
+    },
+    "claude_personal_skill": {
+      "path": "/Users/gordonlaabs/.claude/skills/apply-app-harness/SKILL.md",
+      "sha256": "75778e26fc29608809611b1fe75d4c63f37e563b10ea8e4d7ea18fc5d775589b"
+    },
+    "project_contract": {
+      "path": "/Users/gordonlaabs/Documents/New Codex Skills/.app-harness/contract.json"
+    },
+    "project_launcher": {
+      "path": "/Users/gordonlaabs/Documents/New Codex Skills/tools/app-harness"
+    },
+    "readme_review_receipt": {
+      "path": "/Users/gordonlaabs/Documents/New Codex Skills/.app-harness/reviews/README/receipt.json"
+    }
+  },
+  "tests": [
+    {
+      "command": "PYTHONPATH=\"$PWD\" uv run --with pytest python -m pytest -q",
+      "result": "66 passed"
+    },
+    {
+      "command": "quick_validate.py skills/apply-app-harness and both personal installations",
+      "result": "3 valid skills"
+    },
+    {
+      "command": "./harness install-skills --json and ./harness install . --json",
+      "result": "idempotent; all destinations unchanged on repeat"
+    },
+    {
+      "command": "fresh-agent forward test in /tmp/app-harness-forward-test-v101",
+      "result": "status hint, centralized output, safe suggestion handling, contract metadata, and single-receipt behavior all passed"
+    }
+  ],
+  "ai_output_review": "pass",
+  "unresolved": [],
+  "limits": [
+    "The deterministic text analyzer covers supported English negative-parallelism patterns; it is not a general truthfulness evaluator.",
+    "Installed project launchers depend on the shared engine remaining at its recorded local path.",
+    "Newly installed personal skills may require a new Codex task or Claude Code session before discovery."
+  ],
+  "external_effects": {
+    "network_calls": 0,
+    "secrets_accessed": 0,
+    "remote_jobs_submitted": 0,
+    "external_spend_usd": 0
+  }
+}

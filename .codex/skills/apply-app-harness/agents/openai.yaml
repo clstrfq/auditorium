@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apply App Harness"
+  short_description: "Install and run the reusable app trust harness"
+  default_prompt: "Use $apply-app-harness to install or run the evidence harness for this app."

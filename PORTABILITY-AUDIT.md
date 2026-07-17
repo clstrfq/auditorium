@@ -1,0 +1,380 @@
+# Plug-and-Play Audit — Harness & Skills
+
+<!-- artifact-id: portability-audit | schema: v1 -->
+
+**Date:** 2026-07-17
+**Principle under test:** skills perform independently of the harness; the harness lifts and shifts across models and apps.
+**Scope:** audit, implementation, and verification.
+
+---
+
+> **Status: implemented (v4, 2026-07-17).** Steps 1–7c are complete. All catalog
+> artifacts—including the web snapshots, Solene cache, and Clarvoy baseline—are vendored
+> and hash-verified; `--require-offline` is now a mandatory gate. See
+> [§Implementation record](#implementation-record).
+
+## Verdict
+
+**Skills: pass.** The skill layer is genuinely independent. Five of six skills contain zero references to the harness, launcher, or `APP_HARNESS_*`. The linter enforces the guarantees mechanically and runs on a bare interpreter with no dependencies. 6/6 pass.
+
+**Harness: pass after remediation.** The engine and generated launcher are portable and
+covered by relocation tests. The original failure was concentrated in the generated
+launcher; runtime discovery, the relative contract, and executable relocation tests now
+close that gap.
+
+The engine remains stdlib-only and free of frozen machine paths. Generated bindings now
+bind at invocation, and failure states name the recovery action.
+
+---
+
+## Method
+
+I did not read for portability; I tested it. I copied the repo to `/tmp/relo` (different path, different OS, different interpreter — a real lift and shift) and ran it.
+
+| Test | Result |
+|---|---|
+| Engine relocated, run on stock Linux `python3` | **works** — `harness --help`, `harness analyze` both succeed, zero deps |
+| Generated launcher `tools/app-harness` after relocation | **dead** — `exec: /opt/homebrew/opt/python@3.14/bin/python3.14: not found` |
+| `lint_skills.py` on stock `python3` | **works** — 6/6 skills pass all five guarantees |
+| `generate_claude_skills.py`, run twice | **deterministic + idempotent** — byte-stable, reports `unchanged` |
+| Installed skill copies vs canonical | **byte-identical** (one `.DS_Store` exception, see F-6) |
+| README's documented test command on a clean machine | **fails** — `ModuleNotFoundError: No module named 'pytest'` |
+| `install_project` run twice | **idempotent** — reports `unchanged` |
+| `install_project` over a pre-existing clean copy | **spurious `FileExistsError`** (see F-6) |
+
+---
+
+## What already holds (do not regress these)
+
+1. **The engine resolves its own root relatively.** `Path(__file__).resolve().parents[1]` in `harness_cli.py` and `generate_claude_skills.py`. This is why the relocation test passed at all.
+2. **Zero runtime dependencies.** The whole engine runs on a stock stdlib interpreter. This is the single biggest portability asset in the repo and it should be treated as a hard constraint, not an accident.
+3. **The skill layer is decoupled.** `agent-memory-architect`, `agent-shape-selector`, `handoff-ticket-designer`, `model-routing-economist`, `trust-verification-architect` — zero harness references. They are portable markdown.
+4. **Surfaces are data, not branches.** `providers.py` makes adding a host a one-dataclass-entry change. The registry pattern is correct and should be the model for the fix below.
+5. **Agent surfaces and model families are properly separated.** The host that *runs* a skill and the lineage that *produced* text are different axes, and the code knows it. Conservative attribution (`unattributed`/`ambiguous`, never guess) is right.
+6. **The generator self-verifies before writing** — it lints and refuses to emit a skill that fails the contract. That is the correct shape for every generator here, including the launcher generator, which currently has no such check.
+
+---
+
+## Findings
+
+### P0-1 — The generated launcher bakes three machine facts
+
+`src/app_harness/installer.py:_launcher_bytes()` emits:
+
+```sh
+export APP_HARNESS_PROJECT_ROOT='/Users/gordonlaabs/Documents/New Codex Skills'
+exec /opt/homebrew/opt/python@3.14/bin/python3.14 '/Users/.../scripts/harness_cli.py' "$@"
+```
+
+Three hard-coded facts, each independently fatal: **interpreter path**, **engine root**, **project root**. This is by design — the code comments justify preserving `sys.executable` "exactly so the launcher delegates with the same interpreter/environment." That reasoning is sound for reproducibility within one machine and wrong for lift and shift. It optimizes for the wrong invariant.
+
+Note the interpreter it captured (Homebrew `python@3.14`) isn't even the one in `.venv` (uv `cpython-3.13.9-macos-aarch64`). The launcher is pinned to whatever interpreter happened to run `install` once.
+
+**This is the whole failure.** Everything the launcher delegates to is portable.
+
+### P0-2 — The contract records absolute paths
+
+`.app-harness/contract.json` stores `project_root` and `shared_engine_root` as absolute paths, and `SKILL.md` Step 1 instructs agents to "treat it as authoritative for installation facts." After a move it is authoritatively wrong. Generated by `_contract()`, so it's fixable at the source.
+
+### P0-3 — No test covers the generated launcher
+
+`tests/app_harness/test_registries.py` covers install paths, byte-identity, idempotency, and conflict refusal — thoroughly. It never executes the launcher and never asserts relocatability. **The one artifact that breaks lift and shift is the one artifact with no test.** That is why this survived. The fix isn't only the launcher; it's the missing test class.
+
+### P1-4 — `APP_HARNESS_HOME` is documented but does not exist
+
+`SKILL.md` tells every agent on every surface:
+
+> 2. Otherwise use `${APP_HARNESS_HOME}/harness` when `APP_HARNESS_HOME` is set.
+
+No code anywhere reads or sets it. The skill→harness discovery ladder is:
+
+1. `./tools/app-harness` — **broken after a move** (P0-1)
+2. `$APP_HARNESS_HOME/harness` — **never set by anything**
+3. Ask the user
+
+So on any relocated install, discovery degrades to "ask the user." The skill's documented contract with the harness is fiction. This is the one place the *skill* layer is coupled to the harness — and the coupling is to a rung that isn't there.
+
+### P1-5 — The documented test command fails on a clean machine
+
+README says:
+
+```bash
+python3 -m unittest discover -s tests/e2e -v
+```
+
+`tests/e2e/test_easy_harness.py` imports `pytest`. `pyproject.toml` declares **no** `dependencies` and no dev extra; `uv.lock` contains zero packages. Verified: 6 tests ran, 1 error, `ModuleNotFoundError: No module named 'pytest'`. A harness whose own verification can't be reproduced on a fresh machine cannot ask apps to trust its receipts.
+
+### P1-6 — There is no defined shippable unit
+
+The git repo has **zero commits** and **no `.gitignore`**. Sitting undifferentiated in the working tree: `.venv/` (macOS-aarch64, pinned to `/Users/gordonlaabs/.local/share/uv/...`), `.DS_Store`, `.pytest_cache/`, `artifacts/`, a stale `agent-memory-architect.skill.tmp`, and the two machine-specific generated files from P0-1/P0-2. Nothing declares what travels and what stays. "Lift and shift" has no defined object to lift.
+
+### P2-7 — Evidence references point outside the repo *(decision taken: re-root, see §3.6)*
+
+`evals/references/ftpo-evidence-catalog-1.0.0.json` cites `/Users/gordonlaabs/Downloads/...pdf` and four receipt paths inside an unrelated project (`.../Active/Solene/...`). `validation-proxy/controls/clarvoy-crosswalk.md` cites two more in `.../Developer/Clarvoy/...`.
+
+Receipts recording absolute paths is *correct* — a receipt describes one run on one machine, and freezing that is the point. But the **catalog** is not a receipt. It is the resolution layer that claims are checked against, and a resolution layer whose references leave the shipped unit cannot be checked after a move.
+
+The catalog is otherwise careful work: every local source already carries a `sha256`, plus explicit `supports` / `does_not_support` and a `claim_policy.forbidden` list. **That `sha256` is the fix.** A hash is content-addressed and machine-independent — it is already the self-reference. The absolute path was never the identifier; it was a hint about where one copy happened to sit, promoted to a dependency. Same error as the launcher (P0-1), same remedy: demote the machine fact to a hint, make the durable identifier authoritative.
+
+### P2-8 — A `.DS_Store` makes the idempotent installer report a false conflict
+
+`skills/apply-app-harness/.DS_Store` is inside the canonical skill. `_copy_tree_exact` copies it into every surface; `_same_tree` then compares it. Verified against a pre-existing clean install:
+
+```
+install #3 -> FileExistsError: conflicting harness skill: .../.codex/skills/apply-app-harness
+```
+
+macOS metadata makes a correct idempotent installer refuse a correct install. The canonical skill tree needs a declared allowlist of what constitutes a skill, not "whatever is in the directory."
+
+---
+
+## Design: the portability boundary
+
+The repo has four layers with **different and opposed** portability obligations. None of them are named anywhere, which is the root cause: `contract.json`'s absoluteness (a Layer 4 property) leaked into Layer 3, where it is fatal.
+
+| Layer | Contents | Obligation | Status |
+|---|---|---|---|
+| **1. Engine** | `harness`, `scripts/`, `src/` | Relocatable, stdlib-only, no absolute paths | ✅ holds |
+| **2. Skills** | `skills/*/SKILL.md` | Host-portable, no engine assumptions, standalone | ✅ holds |
+| **3. Bindings** | `tools/app-harness`, `.app-harness/contract.json` | **Resolve at runtime, not install time** | ❌ **all violations here** |
+| **4a. Receipts** | `artifacts/`, `**/receipt.json` | Machine-specific by design; frozen provenance of one run | ✅ correct as-is |
+| **4b. Evidence refs** | `evals/references/`, `validation-proxy/controls/` | **Self-referencing: hash is the identifier, path repo-relative** | ❌ absolute + external |
+
+Layers 4a and 4b were conflated, which is why P2-7 exists. A **receipt** records what happened on one machine — absolute paths are correct there and must stay. A **reference** is what a claim is resolved against — it must resolve inside the shipped unit forever.
+
+**The rule to adopt:** *A machine fact may be recorded only as a hint that a durable identifier overrides. It may never be recorded as a dependency.*
+
+The durable identifier differs by layer but the rule is one rule: Layer 3 overrides its recorded path with a **runtime lookup** (`$0`, `APP_HARNESS_HOME`, `command -v python3`); Layer 4b overrides its recorded path with a **content hash**. Both are the same move — bind late, to something that travels.
+
+### Design principle: bind late
+
+The current launcher binds the interpreter and engine at **install time**, freezing one machine's truth into a file that outlives that truth. Every fix below is the same move: **defer the binding to invocation.**
+
+### 3.1 Launcher — discover instead of freeze
+
+```sh
+#!/bin/sh
+# Generated by the reusable app harness installer. Portable by construction.
+set -eu
+
+# Project root: derived from this file's own location. Survives any move.
+here=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+export APP_HARNESS_PROJECT_ROOT="$here"
+
+# Engine root: env override wins, then the recorded hint.
+engine="${APP_HARNESS_HOME:-<recorded_engine_hint>}"
+[ -f "$engine/scripts/harness_cli.py" ] || {
+  echo "app-harness: engine not found at '$engine'." >&2
+  echo "Set APP_HARNESS_HOME to the harness engine root, or re-run: <engine>/harness install '$here'" >&2
+  exit 127
+}
+
+# Interpreter: resolved at runtime, version-checked, never path-pinned.
+py=$(command -v python3 || command -v python) || {
+  echo "app-harness: no python3 on PATH (need >=3.11)." >&2; exit 127; }
+
+exec "$py" "$engine/scripts/harness_cli.py" "$@"
+```
+
+Four changes, each removing one frozen fact:
+
+- **Project root** — derived from `$0`. Never wrong, never recorded.
+- **Interpreter** — `command -v python3` at runtime, with the `requires-python >=3.11` floor enforced by the CLI on startup. Pin the *contract* (a version floor), not the *path*.
+- **Engine root** — `APP_HARNESS_HOME` overrides a recorded hint. This makes P1-4 real: the SKILL.md rung that discovery already assumes exists starts existing. Record the hint **relative** when the engine lives under the project; absolute only as a last-resort hint that the env var can always beat.
+- **Failure** — exits 127 with the remedy, instead of a bare `exec: not found`. A portable tool must fail *legibly* on the machine it was moved to.
+
+### 3.2 Contract — relative paths plus a portability declaration
+
+```json
+{
+  "schema_version": "1.2.0",
+  "installation": {
+    "project_root": ".",
+    "engine_hint": "../shared/harness",
+    "engine_hint_kind": "relative",
+    "engine_env_override": "APP_HARNESS_HOME",
+    "launcher": "tools/app-harness",
+    "interpreter": { "requires_python": ">=3.11", "resolution": "runtime-path-lookup" }
+  }
+}
+```
+
+Every path relative to the contract's own location. Consumers resolve against the contract file. Bump `schema_version` to 1.2.0 — the meaning of `project_root` changes, and silently repurposing a field is how consumers break quietly.
+
+### 3.3 Make `APP_HARNESS_HOME` real
+
+Read it in `harness_cli.py` alongside `APP_HARNESS_PROJECT_ROOT`; honor it in the launcher; add it to `harness status` output so an agent can diagnose discovery without guessing. Either implement the rung or delete it from SKILL.md — a documented fallback that does nothing is worse than one that isn't offered, because an agent will report having tried it.
+
+### 3.4 Declare the skill tree
+
+Replace "copy the directory" with an explicit manifest of what a skill is (`SKILL.md`, `references/`, `agents/`), so `_copy_tree_exact` and `_same_tree` agree on a canonical set. Fixes P2-8 permanently rather than deleting one `.DS_Store` that will come back.
+
+### 3.5 Evidence — the hash is the reference, the path is a hint
+
+**Decision (2026-07-17): re-root everything; every reference must be self-referencing.**
+
+Catalog schema → 1.1.0. Per source:
+
+```json
+{
+  "id": "negative-parallelism-design-report",
+  "content_id": "sha256:8988162ab48e2a87b9c86ebeb13fe0f87049e1627380ea66aafc6d3a484e3ea6",
+  "path": "evals/references/vendored/negative-parallelism-design-report.pdf",
+  "path_kind": "repo-relative",
+  "resolution": "vendored",
+  "origin_note": "ingested 2026-07-13 from a local Downloads copy; origin is provenance, not a dependency"
+}
+```
+
+- **`content_id` is the identifier.** Machine-independent, permanent, already recorded.
+- **`path` is repo-relative**, resolved against the catalog's own location. Survives any move.
+- **`resolution`** is `vendored` (bytes present, hash-checked) or `external-unverifiable` (URL-only or absent). Never silently in between.
+- **`origin_note`** demotes the absolute path from dependency to prose provenance.
+
+**Enforced, not asserted.** Add `scripts/verify_evidence.py`, modeled directly on `lint_skills.py` — walk the catalog, hash every `vendored` file, compare to `content_id`, exit non-zero on mismatch or missing bytes. Wire it into CI next to the linter. A catalog that *claims* self-reference without a program that checks it is exactly the class of assertion this repo already refuses to accept in skills.
+
+**All three formerly URL-only sources are now local and hashed.** Antislop is vendored as
+the versioned arXiv PDF; Liquid is vendored as the publisher's HTML response. OpenAI's
+server allowed inspection but returned HTTP 403 to direct archival download, so that
+artifact is a claim-focused evidence extract and is explicitly not represented as a
+byte-for-byte page snapshot.
+
+#### Resolution — the evidence set is self-contained
+
+The negative-parallelism report and every pre-hashed Solene artifact matched its recorded
+content id before promotion. The Solene cache is included so the runtime receipt bundle is
+complete offline. The Clarvoy `.docx` and ingested Markdown had no prior hashes, so their
+catalog entries correctly state that 2026-07-17 is the first baseline rather than
+backdating verification.
+
+`python3 scripts/verify_evidence.py --require-offline` now verifies 10 artifacts across
+6 sources. `scripts/check.sh` runs that strict mode as a mandatory gate.
+
+### 3.6 Declare the shippable unit
+
+Add `.gitignore` (`.venv/`, `.DS_Store`, `.pytest_cache/`, `__pycache__/`, `*.tmp`, `tools/app-harness`, `.app-harness/contract.json`, `artifacts/`) and make the first commit. **Layers 3 and 4 are generated, machine-specific outputs — they must not be in the shipped unit.** Right now they're the reason a fresh clone would inherit another machine's Homebrew path.
+
+Declare test deps in `pyproject.toml` (`[project.optional-dependencies] dev = ["pytest>=8"]`) and either fix the README command or make `tests/e2e` stdlib-only. Given the engine's zero-dependency discipline, **stdlib-only tests are the more consistent choice** and preserve the "runs anywhere" property for verification too.
+
+---
+
+## The test that should exist
+
+The design is worth little without this. P0-3 is the finding that lets the others recur.
+
+```python
+class TestLauncherIsPortable:
+    def test_launcher_contains_no_absolute_machine_paths(self, tmp_path):
+        # no /Users/, /home/, /opt/, sys.executable, or engine absolute path
+
+    def test_launcher_runs_after_the_project_is_moved(self, tmp_path):
+        # install -> move the whole tree -> execute -> assert exit 0
+
+    def test_launcher_runs_when_the_engine_is_moved(self, tmp_path):
+        # install -> move engine -> APP_HARNESS_HOME=<new> -> assert exit 0
+
+    def test_launcher_fails_legibly_when_the_engine_is_gone(self, tmp_path):
+        # assert exit 127 AND the message names APP_HARNESS_HOME
+
+    def test_contract_paths_resolve_after_relocation(self, tmp_path):
+
+    def test_installer_is_idempotent_despite_os_metadata(self, tmp_path):
+        # plant .DS_Store; assert 'unchanged', not FileExistsError
+```
+
+Plus a **relocation smoke test in CI**: install into `$TMPDIR/a`, move to `$TMPDIR/b`, run `analyze`, assert a valid receipt. That single test is the executable form of "lift and shift," and it is the one the repo is missing.
+
+---
+
+## Sequenced plan
+
+| # | Change | Fixes | Risk |
+|---|---|---|---|
+| 1 | Add the portability test class + CI relocation smoke test (**red first**) | P0-3 | none — proves the bug before the fix |
+| 2 | Rewrite `_launcher_bytes()` to discover late | P0-1 | low, generated file |
+| 3 | Relative paths + `engine_hint` in `_contract()`; schema → 1.2.0 | P0-2 | **consumer-visible** — check receipt readers |
+| 4 | Implement `APP_HARNESS_HOME` in CLI + `status` | P1-4 | low, additive |
+| 5 | Declare skill-tree manifest in the installer | P2-8 | low |
+| 6 | `.gitignore` + first commit + declare test deps / de-pytest `tests/e2e` | P1-5, P1-6 | complete |
+| 7a | Catalog schema → 1.1.0 (`content_id` + repo-relative `path` + `resolution`) | P2-7 | low — additive |
+| 7b | `scripts/verify_evidence.py` + CI wiring, mirroring `lint_skills.py` | P2-7 | low |
+| 7c | Vendor and hash-check the full evidence set | P2-7 | complete |
+
+Steps 1–2 are the whole headline: they turn the principle from an aspiration into something a test enforces. Step 3 is the only consumer-visible schema change. Steps 7a–7c make every current evidence claim replayable from the shipped unit.
+
+---
+
+## Implementation record
+
+Proven by relocation, not by reading. `/tmp/proof`: install from engine, then move the
+project and the engine to unrelated paths, independently.
+
+| Scenario | Before | After |
+|---|---|---|
+| Launcher after relocation | `exec: /opt/homebrew/.../python3.14: not found` | runs |
+| Engine vendored in-project, whole tree moved, **no env var** | dead | `status: complete` |
+| Project + engine moved apart, `APP_HARNESS_HOME` set | dead | `status: complete`, packet under the **new** root |
+| Engine genuinely gone | `exec: not found` | exit **127**, names `APP_HARNESS_HOME` |
+| README's `unittest discover -s tests/e2e` on a clean machine | `ModuleNotFoundError: pytest` | 14 tests, OK, zero deps |
+| `install` over a tree with OS metadata | spurious `FileExistsError` | `unchanged` |
+
+**Gates now enforcing this** — `sh scripts/check.sh`, all green on a stock interpreter:
+skills 6/6 · surface sync · evidence catalog · portability 15/15 · evidence verifier 12/12
+· e2e 14/14. Pytest suites are reported **skipped**, never as passed.
+
+**Not regressed** (the properties the audit said already held): five domain skills still
+carry zero harness references; lint 6/6; the Claude generator still deterministic and
+idempotent; all five surfaces still receive a byte-identical `SKILL.md`; the golden
+prototype still emits `release_receipt: null` and a blocked comparison probe.
+
+### Three decisions that departed from the design
+
+1. **Runtime floor is `>=3.10`, not pyproject's `>=3.11`.** The design said the CLI would
+   enforce `requires-python`. Enforcing it revealed there is no 3.11-only construct
+   anywhere in `src/` or `scripts/` — the engine imports and runs a full analyze on
+   3.10.12. A runtime gate must refuse what *cannot execute*; `requires-python` states
+   which interpreters the project *intends to support*. Gating execution on support policy
+   would break working installs for nothing, so the two are now deliberately separate and
+   documented as such. **pyproject was left at `>=3.11` — that policy is yours, not mine
+   to relitigate.**
+2. **The absolute engine hint survives, as the last of three candidates.** "Everything
+   self-referenced" is fully achievable when the engine lives inside the project (proven:
+   moved with zero configuration). When it lives outside, no purely self-referencing path
+   to it exists — so the launcher tries `$APP_HARNESS_HOME`, then the relative hint, then
+   an absolute hint clearly labelled machine-specific. Claiming otherwise would be the
+   fake re-root this document warns about.
+3. **Catalog 1.0.0 was versioned forward, not edited.** `build-receipt.json` records its
+   sha256 as a build input. Rewriting it in place would silently make that receipt's
+   provenance claim false — the exact failure mode the catalog exists to prevent. 1.0.0 is
+   frozen and remains correct for cycle-0010; `1.1.0` carries the self-referencing schema,
+   and a test asserts 1.0.0 still hashes to the receipt's recorded value.
+
+### Closure
+
+- Step 7c is complete: 10 artifacts across 6 sources verify offline.
+- The Solene cache is included; Clarvoy's first-baseline date is explicit.
+- The stale zero-byte Git lock is held by a separate Claude virtual machine and macOS
+  would not unlink it. The shippable unit was committed through an isolated Git index,
+  without terminating or mutating that external session.
+
+---
+
+## Change log
+
+- v4 (2026-07-17): completed step 7c; vendored and verified all local evidence,
+  versioned web evidence, the Solene cache, and the Clarvoy baseline. Enabled the strict
+  offline gate, corrected macOS `/var` versus `/private/var` test aliases, ran all suites,
+  and created the repository's first commit.
+- v3 (2026-07-17): implemented steps 1–7b. Launcher binds late; contract at 1.2.0;
+  `APP_HARNESS_HOME` real and reported by `status`; skill manifest replaces directory
+  copy; `tests/e2e` de-pytested so the README's command works on a clean checkout;
+  `.gitignore`, `scripts/check.sh`, `scripts/verify_evidence.py`, catalog 1.1.0 added.
+  Three departures from the design recorded above. At that point, 7c and the first commit
+  were still blocked.
+- v1 (2026-07-17): initial audit and design. Findings verified by relocation to `/tmp/relo`; no source modified.
+- v2 (2026-07-17): step 7 decided — re-root, everything self-referencing (§3.5). Layer 4 split into receipts (4a, stays absolute) vs references (4b, must self-reference); the two were conflated, which is the root of P2-7. Recorded the vendoring blocker: six files sit outside the readable folder, so the bytes cannot be moved or hash-verified from this session.
+
+## Next steps
+
+No audit finding remains open. Continue to run `sh scripts/check.sh` before changes land;
+it now requires the evidence set to remain fully verifiable offline.

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "PREP-cycle-0007",
+  "cycle_id": "cycle-0007",
+  "mode": "prep_only",
+  "banner": "PREP_ONLY_NOT_GATE_EVIDENCE",
+  "status": "done",
+  "changes": [
+    "Added two-lane PAUSED/PREP_ONLY sentinel semantics.",
+    "Added Python project and pytest configuration.",
+    "Made tests/detect a package so its relative fixture import resolves."
+  ],
+  "verification": {
+    "command": "uv run --with pytest pytest -q",
+    "result": "34 passed in 0.41s",
+    "sentinels": {"pipeline/PAUSED": "present", "pipeline/PREP_ONLY": "present", "pipeline/RUNNING": "absent"}
+  },
+  "external_inference_calls": 0,
+  "remote_jobs_submitted": 0,
+  "secrets_accessed": 0,
+  "external_spend_usd": 0,
+  "gate_evidence": false
+}

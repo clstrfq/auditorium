@@ -1,0 +1,9 @@
+mode=BUILD_COMPLETE
+cycle_id=cycle-0010
+receipt=pipeline/receipts/FTPO-cycle-0010.json
+build_receipt=artifacts/ftpo-build-cycle-0010/build-receipt.json
+build_receipt_sha256=b00af92539c0bd5387fa04dc30a2ce9655b93d476cb32d26cb356d2f344b9ca1
+receipt_classification=MODEL_CORROBORATED_BUILD_VERIFICATION
+engineering_acceptance=pass
+empirical_ftpo_acceptance=not_evaluated
+external_spend_usd=0
