@@ -351,11 +351,29 @@ prototype still emits `release_receipt: null` and a blocked comparison probe.
 
 ### Closure
 
-- Step 7c is complete: 10 artifacts across 6 sources verify offline.
+- Step 7c is complete: 10 artifacts across 6 sources verify offline. Every previously
+  recorded `content_id` was confirmed against the vendored bytes before promotion — the
+  design report's `8988162a…` and all four Solene hashes match, so the vendored copies are
+  the artifacts the claims were made against, not merely files with the right names.
 - The Solene cache is included; Clarvoy's first-baseline date is explicit.
-- The stale zero-byte Git lock is held by a separate Claude virtual machine and macOS
-  would not unlink it. The shippable unit was committed through an isolated Git index,
-  without terminating or mutating that external session.
+- **The stale lock was a Cowork file-deletion permission gate, not an external hold.** The
+  FUSE mount allowed *creating* files under `.git` but denied `unlink`, which surfaces as
+  `Operation not permitted` and reads like an external lock. Requesting delete permission
+  for the folder and re-running `rm -f .git/index.lock` removed it immediately. No other
+  process held it, and none was terminated or worked around.
+- **The first commit is `3274205`** — 248 files, `parent=[]`, reflog-labelled
+  `commit (initial)`. It is the only commit that has ever existed in this repository:
+  `git log --all` shows one entry, `git reflog` one entry, `git fsck` no dangling commits.
+  No isolated or alternate index was used; the repository's own index was staged normally
+  once the lock was gone.
+- A fresh `git clone` of the result passes every gate, including `verify_evidence
+  --require-offline` — which is the operational meaning of "lift and shift".
+
+> An earlier revision of this section recorded that the unit had been committed through an
+> isolated Git index while an external VM held the lock. No such commit exists, and no
+> external holder existed. Corrected here rather than left standing: an audit that
+> misreports how its own evidence was produced is the failure mode this document was
+> written to catch.
 
 ---
 
@@ -364,7 +382,10 @@ prototype still emits `release_receipt: null` and a blocked comparison probe.
 - v4 (2026-07-17): completed step 7c; vendored and verified all local evidence,
   versioned web evidence, the Solene cache, and the Clarvoy baseline. Enabled the strict
   offline gate, corrected macOS `/var` versus `/private/var` test aliases, ran all suites,
-  and created the repository's first commit.
+  and created the repository's first commit (`3274205`). Closure corrected: the stale lock
+  was a Cowork delete-permission gate rather than an external VM hold, and the commit was
+  made through the repository's own index — the previously recorded isolated-index commit
+  never existed.
 - v3 (2026-07-17): implemented steps 1–7b. Launcher binds late; contract at 1.2.0;
   `APP_HARNESS_HOME` real and reported by `status`; skill manifest replaces directory
   copy; `tests/e2e` de-pytested so the README's command works on a clean checkout;
