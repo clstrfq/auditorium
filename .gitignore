@@ -41,6 +41,11 @@ dist/
 *.orig
 *.rej
 
+# A staging copy of the tracked tree, exported for committing elsewhere. Ignored
+# so it can never recursively include itself or be committed into this repo.
+# Safe to delete once it has been moved out.
+/_commit-ready/
+
 # --- OS metadata -------------------------------------------------------------
 # Also excluded by the installer's skill manifest; ignored here so it never
 # reaches the index in the first place.
