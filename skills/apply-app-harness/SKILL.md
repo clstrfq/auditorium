@@ -117,6 +117,7 @@ Optional downstream skills (this report is complete without them):
 - model-routing-economist — cost out the model tiers behind this app's inference
 - handoff-ticket-designer — design tickets if this build hands work between agents
 - agent-memory-architect — persist unresolved items and receipt history across a multi-cycle build
+- qa-companion — build a full test suite whose measured results back this receipt's tests-actually-run evidence
 ```
 
 ## Idempotency contract
@@ -133,7 +134,7 @@ This skill runs fully standalone: Step 1 elicits the contract directly from the 
 
 **Bridges in (optional, opt-in):** `./agentic-artifacts/trust-architecture.md` (from `trust-verification-architect`). If present at that canonical path, offer to align Step 4's verification with its declared gates and Step 6's receipt with its citation contracts — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, verify from the contract alone; completeness is unaffected. **Hook (Step 4):** `slop-pattern-auditor`'s report, described above, when the deterministic launcher is unavailable — opt-in and only as the fallback review method, never required.
 
-**Bridges out (optional, opt-in):** the `## Next steps` block offers `trust-verification-architect` (consumes this report's unresolved items to place gates), `model-routing-economist` (consumes the model attribution to build a cost model), `handoff-ticket-designer` (consumes the workflow if this build spans multiple agents), and `agent-memory-architect` (consumes a long-running build's unresolved items and receipt history as a durable `state.md`/`decisions.md` store, so a multi-cycle build does not re-derive its own history each session). Offer these; never auto-run them. The report and receipt must be complete and useful even if every bridge is declined.
+**Bridges out (optional, opt-in):** the `## Next steps` block offers `trust-verification-architect` (consumes this report's unresolved items to place gates), `model-routing-economist` (consumes the model attribution to build a cost model), `handoff-ticket-designer` (consumes the workflow if this build spans multiple agents), `agent-memory-architect` (consumes a long-running build's unresolved items and receipt history as a durable `state.md`/`decisions.md` store, so a multi-cycle build does not re-derive its own history each session), and `qa-companion` — **Hook:** its suite turns this skill's Step 4 from "run the repository's relevant tests" into a designed, counted inventory with false-green coverage, and its `measured` results are exactly what Step 6's receipt may cite as tests actually run. Offer these; never auto-run them. The report and receipt must be complete and useful even if every bridge is declined.
 
 ## Finish
 

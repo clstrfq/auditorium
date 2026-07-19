@@ -1,15 +1,15 @@
 # Skills
 
 > **This folder is a duplicated snapshot.** It holds a byte-identical copy of every
-> Codex and Claude skill from the main project — `codex-skill-packages/` (the seven
-> `.skill` archives for Codex), `claude-skill-packages/` (the same seven for Claude),
+> Codex and Claude skill from the main project — `codex-skill-packages/` (the eight
+> `.skill` archives for Codex), `claude-skill-packages/` (the same eight for Claude),
 > and `skills/` (the canonical, unpacked `SKILL.md` source directories). The live,
 > lintable source of truth stays in the main project's `skills/`,
 > `chatgpt-skill-packages/`, and `claude-skill-packages/`; regenerate and verify there
 > (`scripts/lint_skills.py`, `scripts/generate_claude_skills.py`, `scripts/check.sh`),
 > then re-copy into this folder — it has no scripts of its own.
 
-Seven portable Codex skills, canonical here as `skills/*/SKILL.md`. Each carries the
+Eight portable Codex skills, canonical here as `skills/*/SKILL.md`. Each carries the
 five design guarantees checked by `python3 scripts/lint_skills.py skills`: an ordered
 five-plus-step workflow, file-based outputs at a stable canonical path, a final
 self-verification step, an explicit idempotency contract (unchanged input →
@@ -17,10 +17,11 @@ identical output; changed input → in-place update; new input → new record; n
 duplicate file), and standalone operation with optional, opt-in bridges to other
 skills.
 
-All seven require nothing beyond their own `SKILL.md` to produce a complete,
-correct output: none reads another `.md` file as part of its required workflow. Six
-have no reference to any harness, launcher, or `APP_HARNESS_*` variable at all — they
-run in any agent host from the file alone. `apply-app-harness` is the one skill that
+All eight require nothing beyond their own `SKILL.md` to produce a complete,
+correct output: none reads another `.md` file as part of its required workflow. Seven
+have no dependence on any harness, launcher, or `APP_HARNESS_*` variable — they
+run in any agent host from the file alone (`qa-companion` names the harness's
+receipt folder only inside an optional bridge-in it works fully without). `apply-app-harness` is the one skill that
 *can* operate a deterministic review engine in this repository when it is installed
 (`./tools/app-harness`), but its evidence vocabulary, receipt schema, and contract
 rules are written directly into its own `SKILL.md`, not read from a sibling
@@ -43,6 +44,7 @@ byte-identically across every agent surface, so its `codex-skill-packages/` and
 | **handoff-ticket-designer** | A handoff protocol: ticket schema, queue topology, receipt rules | Multiple agents (or agent + human) pass work between each other and a person is manually bridging the gap |
 | **model-routing-economist** | A routing policy and cost model (frontier planner, commodity executors) | Inference spend is too high and tasks could route to cheaper models without losing quality |
 | **trust-verification-architect** | A Trust Architecture document with enforced verification gates | Deploying agents on work where a wrong or hallucinated output is costly, and you need human checkpoints placed at the right altitude |
+| **qa-companion** | A QA Companion Suite with four counted test dimensions: false-green tests that seed defects and require checks to fail (FG), idempotency tests for every mutation (IP), full CRUD lifecycle chains for every entity (LC), and novice/expert progressive-disclosure UX probes (UX) — coverage always reported against a named denominator | Accepting work from an agent or shipping a system whose gates have only ever been seen green, and you want tests that can prove the checks actually fail when they should |
 
 ## Using a skill
 
@@ -72,7 +74,7 @@ supported agent surfaces and how to install the harness across all of them at on
 Run these from the main project root (this folder has no `scripts/` of its own):
 
 ```bash
-python3 scripts/lint_skills.py skills        # all seven pass the five guarantees
+python3 scripts/lint_skills.py skills        # all eight pass the five guarantees
 sh scripts/check.sh                          # every mechanical gate this repo can run
 ```
 
@@ -101,6 +103,9 @@ bridges` section what it does when the hook is not taken.
 | `apply-app-harness` → `agent-memory-architect` | A multi-cycle build's receipt history and unresolved items seed a durable `state.md`/`decisions.md` store, so a long-running build stops re-deriving its own history at the start of every session. |
 | `agent-shape-selector` → `model-routing-economist` / `handoff-ticket-designer` / `trust-verification-architect` | A Shape Decision Record's roles, tiers, and communication pathways seed the workload inventory, ticket routes, and gate placement of the three downstream skills, instead of each one re-eliciting the same architecture from scratch. |
 | `handoff-ticket-designer` ↔ `agent-memory-architect` / `trust-verification-architect` | A handoff protocol's ticket schema seeds memory stores for ticket state and receipts, and its transitions become the attachment points for verification gates. |
+| `trust-verification-architect` ↔ `qa-companion` | Every `VG-NNN` gate the architecture declares becomes a seeded-defect false-green test proving the gate actually fails when it should; in return, the suite's false-green findings and uncovered items are exactly where the next gates belong. |
+| `apply-app-harness` ↔ `qa-companion` | The build receipt's tests list and `not_evaluated` fields seed the suite's check inventory; the suite's `measured` results become the receipt's tests-actually-run evidence — a receipt backed by a suite that has proven its own checks can fail. |
+| `slop-pattern-auditor` → `qa-companion` | Audited text surfaces become UX probe targets, so the novice/expert walks cover the same user-facing copy the pattern audit flagged. |
 
 None of these hooks changes what a skill needs to run — they only describe what
 becomes possible, faster, when the upstream artifact already exists at its
