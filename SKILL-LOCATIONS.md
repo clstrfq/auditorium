@@ -3,8 +3,9 @@
 <!-- artifact-id: skill-locations | schema: v1 -->
 
 Where every one of the eight skills lives, in every form, across this project.
-The consolidated, share-ready set is the **`Negative Parallelism Skills/`** folder;
-the live, lintable sources stay in the main project tree.
+The consolidated, share-ready set is **`The Auditorium/`** — named for what the
+eight skills have in common: every one of them audits, verifies, gates, or
+receipts. The live, lintable sources stay in the main project tree.
 
 ## The eight skills
 
@@ -14,14 +15,14 @@ the live, lintable sources stay in the main project tree.
 
 ## Consolidated set (share this folder)
 
-Everything a user needs, for both hosts, lives in `Negative Parallelism Skills/`:
+Everything a user needs, for both hosts, lives in `The Auditorium/`:
 
 | Path | Contents | Use it for |
 |---|---|---|
-| `Negative Parallelism Skills/claude-skill-packages/` | Eight installable `.skill` archives with the Claude banner | Claude / Claude Code / Cowork — install directly (Save skill), or unzip into `~/.claude/skills/` or `.claude/skills/`; invoke as `/<name>` |
-| `Negative Parallelism Skills/codex-skill-packages/` | The same eight as Codex-banner `.skill` archives | Codex — unzip into `~/.codex/skills/` or `.codex/skills/`; invoke as `$<name>` |
-| `Negative Parallelism Skills/skills/` | The eight unpacked `SKILL.md` source directories (Claude-banner text; `apply-app-harness` carries its host-neutral portable banner by design) | Reading, reviewing, or referencing from `AGENTS.md` in any other agent host |
-| `Negative Parallelism Skills/README.md` | Full index: what each skill produces, when to reach for it, the five design guarantees, and the cross-skill hooks table | Orientation |
+| `The Auditorium/claude-skill-packages/` | Eight installable `.skill` archives with the Claude banner | Claude / Claude Code / Cowork — install directly (Save skill), or unzip into `~/.claude/skills/` or `.claude/skills/`; invoke as `/<name>` |
+| `The Auditorium/codex-skill-packages/` | The same eight as Codex-banner `.skill` archives | Codex — unzip into `~/.codex/skills/` or `.codex/skills/`; invoke as `$<name>` |
+| `The Auditorium/skills/` | The eight unpacked `SKILL.md` source directories (Claude-banner text; `apply-app-harness` carries its host-neutral portable banner by design) | Reading, reviewing, or referencing from `AGENTS.md` in any other agent host |
+| `The Auditorium/README.md` | Full index: what each skill produces, when to reach for it, the five design guarantees, and the cross-skill hooks table | Orientation |
 
 This folder is a verified snapshot: every file byte-matches the main-tree original
 it was copied from, and its `skills/` tree lints 8/8 against the five guarantees.
@@ -43,7 +44,8 @@ For the six skills that flow through the generator, the pipeline is:
 self-linting). `apply-app-harness` is maintained directly in `skills/` and packaged
 byte-identically for both hosts. After any regeneration, refresh the consolidated
 folder by copying the changed files and re-running
-`python3 scripts/lint_skills.py "Negative Parallelism Skills/skills"`.
+`python3 scripts/lint_skills.py "The Auditorium/skills"`.
 
 ## Change log
 - v1 (2026-07-19): initial map; eight skills across consolidated and live locations
+- v2 (2026-07-19): consolidated folder renamed "Negative Parallelism Skills" → "The Auditorium"; naming policy recorded in the folder README

@@ -1,4 +1,7 @@
-# Skills
+# The Auditorium
+
+Eight skills for Codex and Claude with one shared reflex: audit, verify, gate,
+receipt. Hence the name.
 
 > **This folder is a duplicated snapshot.** It holds a byte-identical copy of every
 > Codex and Claude skill from the main project — `codex-skill-packages/` (the eight
@@ -110,3 +113,20 @@ bridges` section what it does when the hook is not taken.
 None of these hooks changes what a skill needs to run — they only describe what
 becomes possible, faster, when the upstream artifact already exists at its
 canonical path and the user confirms using it.
+
+## Naming policy
+
+Reviewed 2026-07-19; three deliberate decisions:
+
+1. **Nothing code-wired gets renamed.** `apply-app-harness` is the weakest name
+   for a human reader, but it is wired into the harness engine (installer,
+   launcher, installed surface directories, existing receipts), so it keeps its
+   name and this README carries the human explanation instead.
+2. **`slop-pattern-auditor` keeps its name for an AI-literate audience.** If you
+   share these skills with non-technical readers, rename it `ai-tell-auditor` at
+   share time — the skill body needs no other change.
+3. **Frontmatter descriptions are written for agents, on purpose.** They are
+   long and trigger-phrase-dense so hosts invoke the right skill at the right
+   moment. Humans should read the Skill index table above instead — that is the
+   human surface, and the two are maintained to say the same thing in different
+   registers.
