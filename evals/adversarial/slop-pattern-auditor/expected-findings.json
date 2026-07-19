@@ -1,0 +1,29 @@
+{
+  "corpus": "adversarial-corpus.md",
+  "grading": "Each case lists required outcomes and forbidden outcomes. 'any' in labels means any label is acceptable as long as the finding is detected. Detection line numbers refer to the corpus file (1-indexed).",
+  "cases": [
+    {"id": "T01", "line": 3, "must_detect": "negative_parallelism/not_but", "labels_ok": ["harmful"], "labels_forbidden": ["legitimate"]},
+    {"id": "T02a", "line": 4, "must_not_flag": "cross-sentence \"didn't remove. Instead,\" as negative_parallelism (negation and pivot in different sentences)"},
+    {"id": "T02b", "line": 4, "must_detect": "negative_parallelism/not_instead in \"not block the scheduler; instead it drains lazily\"", "labels_ok": ["harmful", "uncertain", "legitimate"]},
+    {"id": "T03", "line": 5, "must_detect": "negative_parallelism/rather_than", "labels_ok": ["harmful", "uncertain"]},
+    {"id": "T04", "line": 6, "must_detect": "negative_parallelism/not_but", "labels_ok": ["legitimate"], "labels_forbidden": ["harmful"], "note": "correction context: correct/difference/true-false cues; numbers 42, 41, 2019 protected"},
+    {"id": "T05", "line": 7, "must_detect": "tricolon", "labels_ok": ["harmful"], "labels_forbidden": ["legitimate"]},
+    {"id": "T06", "line": 8, "either": "unflagged OR tricolon labeled legitimate", "labels_forbidden": ["harmful"], "note": "genuine three-item enumeration"},
+    {"id": "T07", "line": 9, "must_detect": "em_dash", "labels_ok": ["harmful"], "labels_forbidden": ["legitimate"]},
+    {"id": "T08", "line": 10, "must_not_flag": "state-of-the-art hyphens or the 3–7 numeric range as em_dash"},
+    {"id": "T09", "line": 11, "either": "unflagged OR bold_lead_in labeled legitimate/uncertain (single occurrence, not a repeated formula)", "labels_forbidden": ["harmful"]},
+    {"id": "T10", "line": 12, "must_detect": "colon_lead_in", "labels_ok": ["harmful"], "labels_forbidden": ["legitimate"]},
+    {"id": "T11", "line": 13, "must_not_flag": "3:30 time colon or URL colon as colon_lead_in", "semicolon": "unflagged or legitimate/uncertain; forbidden harmful"},
+    {"id": "T12", "line": 14, "must_detect": "transition_pileup", "labels_ok": ["harmful"], "labels_forbidden": ["legitimate"]},
+    {"id": "T13", "line": 15, "must_detect": "trailing_participle", "labels_ok": ["harmful"], "rewrite_constraint": "rewrites must preserve 12% and Q3 and must not introduce catalog patterns"},
+    {"id": "T14", "line": 16, "must_not_flag": "semicolons inside backticked code as semicolon_splice"},
+    {"id": "T15", "line": 17, "must_detect": "semicolon_splice", "labels_ok": ["harmful", "uncertain"], "labels_forbidden": ["legitimate"]},
+    {"id": "T16", "line": 18, "either": "unflagged OR em_dash labeled legitimate (verbatim quotation)", "labels_forbidden": ["harmful"]},
+    {"id": "T17", "line": 19, "either": "unflagged (English rules do not match French) OR flagged with label uncertain and rationale citing non-English context", "labels_forbidden": ["harmful", "legitimate"]},
+    {"id": "T18", "line": 20, "must_detect": "curly_quote", "labels_ok": ["harmful", "uncertain"]},
+    {"id": "T19", "line": 21, "must_not_flag": "anything on this line; modal 'should' and negation 'must not' are not patterns"},
+    {"id": "G01", "global": "every harmful finding has >=2 distinct rewrite proposals, none sharing the same first four words, none containing a catalog pattern"},
+    {"id": "G02", "global": "review mode is labeled agent_review; source file never modified"},
+    {"id": "G03", "global": "attribution is not_applicable (no provenance given for this corpus)"}
+  ]
+}
