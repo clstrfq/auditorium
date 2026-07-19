@@ -25,7 +25,7 @@ Follow these steps in order. Each writes auditable content to a file; none depen
 
 ### Step 1 — Contract
 
-State the app job, user, smallest input, primary output, scope cap, exclusions, and success proof in a compact working note. Read `.app-harness/contract.json` when present and treat it as authoritative for installation facts. Make only reversible assumptions that do not materially change the product. Record every assumption explicitly — an unrecorded assumption is the most common source of a false receipt.
+State the app job, user, smallest input, primary output, scope cap, exclusions, and success proof in a compact working note. Read `.app-harness/contract.json` when present and treat it as authoritative for installation facts. An assumption is admissible only if both hold: (a) reversible — it can be undone by a later change without discarding delivered work, and (b) immaterial — it does not alter the contract's stated primary output, user, or success proof. If either fails, stop and ask the user rather than assuming. Record every admissible assumption explicitly — an unrecorded assumption is the most common source of a false receipt.
 
 ### Step 2 — Inspect
 
@@ -37,15 +37,15 @@ Implement the smallest contract-complete slice. Keep external effects, credentia
 
 ### Step 4 — Verify
 
-Run the repository's relevant tests and inspect real output. When the app produces prose or model responses, save a representative TXT, MD, CSV, JSONL, or NDJSON artifact and run:
+Run the repository's relevant tests and inspect real output. Here and in the output template's "Artifacts:" field, "artifact" means a file the app under test produces or is analyzed against — distinct from this skill's own outputs (the "report" and the "receipt"), which are never called artifacts in this file. When the app produces prose or model responses, save a representative TXT, MD, CSV, JSONL, or NDJSON artifact and run:
 
 ```bash
 ./tools/app-harness analyze <artifact>
 ```
 
-Treat `harmful`, `legitimate`, and `uncertain` findings differently. Suggest non-destructive rewrites only for harmful findings. Preserve numbers, names, citations, modality, URLs, and negation scope. Never auto-accept uncertain findings or overwrite source text.
+Treat `harmful`, `legitimate`, and `uncertain` findings differently: `legitimate` is a real correction or is syntactically required (quotation, code, data); `harmful` is formulaic rhetorical use with no such justification; `uncertain` is any case that doesn't resolve cleanly, and is never auto-accepted. Suggest non-destructive rewrites only for harmful findings. Preserve numbers, names, citations, modality, URLs, and negation scope. Never overwrite source text.
 
-If the deterministic launcher is unavailable, mimic the same review manually and label it `agent_review`, not a deterministic harness result. This distinction is not cosmetic: a deterministic result is replayable and an agent judgment is not. **Hook — standardized manual review:** run the `slop-pattern-auditor` skill against the artifact for this fallback rather than improvising a review; it defines the same harmful/legitimate/uncertain rubric and the `agent_review` label independently, so the fallback stays consistent across every app that uses this skill. This hook is opt-in — `slop-pattern-auditor` runs standalone and this skill's Step 4 is complete without it, using its own bare rubric above.
+If the deterministic launcher is unavailable, mimic the same review manually and label it `agent_review`, not a deterministic harness result. This distinction is not cosmetic: a deterministic result is replayable and an agent judgment is not. **Hook — standardized manual review:** run the `slop-pattern-auditor` skill against the artifact for this fallback rather than improvising a review; that skill defines the same harmful/legitimate/uncertain rubric and the `agent_review` label independently, so the fallback stays consistent across every app that uses this skill. This hook is opt-in — `slop-pattern-auditor` runs standalone, and if it is declined this skill's Step 4 is complete on the three-line rubric stated above.
 
 ### Step 5 — Attribute
 
@@ -120,6 +120,10 @@ Optional downstream skills (this report is complete without them):
 - qa-companion — build a full test suite whose measured results back this receipt's tests-actually-run evidence
 ```
 
+## Model tier notes
+
+This skill's steps are not uniformly demanding. Frontier-tier judgment is worth spending on Step 1 (the reversible/immaterial assumption test) and Step 4's classification when the `slop-pattern-auditor` hook is declined — both now have the operational test stated above, but applying a stated test to a novel case still benefits from stronger reasoning. Mid-tier is reliable for Step 2 (inspect), Step 4 when the hook is taken, and Step 6 (receipt assembly) once every field is gathered. Commodity tier is safe, unsupervised, for Step 5 (attribute — a lookup against a fixed family list, never a guess) and formatting the output template once its fields are known. Which concrete model sits in which tier changes over time and by vendor; bind that mapping in the project README, not in this file.
+
 ## Idempotency contract
 
 - **Unchanged inputs → identical output.** Re-running `analyze` on byte-identical source produces a byte-identical packet: the runner detects the existing run and reports `reused`. The report body carries no run timestamps, so an unchanged re-run adds no change-log entry and rewrites nothing.
@@ -132,9 +136,9 @@ Optional downstream skills (this report is complete without them):
 
 This skill runs fully standalone: Step 1 elicits the contract directly from the user, and the report plus receipt are complete without any sibling artifact.
 
-**Bridges in (optional, opt-in):** `./agentic-artifacts/trust-architecture.md` (from `trust-verification-architect`). If present at that canonical path, offer to align Step 4's verification with its declared gates and Step 6's receipt with its citation contracts — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, verify from the contract alone; completeness is unaffected. **Hook (Step 4):** `slop-pattern-auditor`'s report, described above, when the deterministic launcher is unavailable — opt-in and only as the fallback review method, never required.
+**Bridges in (optional, opt-in):** `./agentic-artifacts/trust-architecture.md` (from `trust-verification-architect`). If present at that canonical path, offer to align Step 4's verification with its declared gates and Step 6's receipt with its citation contracts — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, verify from the contract alone; completeness is unaffected. **Hook (Step 4):** `slop-pattern-auditor`'s report, described above, when the deterministic launcher is unavailable — opt-in and only as the fallback review method, never required; if declined, Step 4 uses the three-line rubric already stated in that step.
 
-**Bridges out (optional, opt-in):** the `## Next steps` block offers `trust-verification-architect` (consumes this report's unresolved items to place gates), `model-routing-economist` (consumes the model attribution to build a cost model), `handoff-ticket-designer` (consumes the workflow if this build spans multiple agents), `agent-memory-architect` (consumes a long-running build's unresolved items and receipt history as a durable `state.md`/`decisions.md` store, so a multi-cycle build does not re-derive its own history each session), and `qa-companion` — **Hook:** its suite turns this skill's Step 4 from "run the repository's relevant tests" into a designed, counted inventory with false-green coverage, and its `measured` results are exactly what Step 6's receipt may cite as tests actually run. Offer these; never auto-run them. The report and receipt must be complete and useful even if every bridge is declined.
+**Bridges out (optional, opt-in):** the `## Next steps` block offers `trust-verification-architect` (consumes this report's unresolved items to place gates), `model-routing-economist` (consumes the model attribution to build a cost model), `handoff-ticket-designer` (consumes the workflow if this build spans multiple agents), `agent-memory-architect` — **Hook:** consumes a long-running build's unresolved items and receipt history as a durable `state.md`/`decisions.md` store, so a multi-cycle build does not re-derive its own history each session, and `qa-companion` — **Hook:** its suite turns this skill's Step 4 from "run the repository's relevant tests" into a designed, counted inventory with false-green coverage, and its `measured` results are exactly what Step 6's receipt may cite as tests actually run. Offer these; never auto-run them. If declined or absent, proceed exactly as the standalone workflow above specifies — the report and receipt are complete and useful either way.
 
 ## Finish
 

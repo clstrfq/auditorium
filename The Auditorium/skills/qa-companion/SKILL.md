@@ -121,6 +121,10 @@ Optional downstream skills (this suite is complete without them):
 - agent-memory-architect — persist suite state and findings across a long-running build's cycles
 ```
 
+## Model tier notes
+
+Frontier-tier judgment matters most for Step 3 (naming a false-green seed precisely enough to replay), Step 4's lifecycle edge cases (orphan and cascade rules), and both halves of Step 5's UX pair. Mid-tier is reliable for Step 2 once the system's boundary is fixed. Commodity tier is safe, unsupervised, for Step 6's mechanical work: executing already-designed probes and assembling the output template from results already produced. Step 5's own instruction to run the novice probe on a small model is deliberate — genuine ignorance beats simulated ignorance for that one probe specifically, which is the exception to "commodity tier only does mechanical work" in this skill. Which concrete model sits in which tier changes over time and by vendor; bind that mapping in the project README, not in this file.
+
 ## Idempotency contract
 
 This skill obeys the contract it tests others against.

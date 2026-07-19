@@ -69,6 +69,10 @@ Optional downstream skills (each works without them):
 - agent-memory-architect — persist ticket state and receipts as durable agent memory
 ```
 
+## Model tier notes
+
+Frontier or mid-tier judgment is worth spending on Step 1 (mapping which human bridges are real defects vs. deliberate approvals) and Step 5 (the eliminate-or-keep decision for each hallway) — these are judgment calls about organizational reality, not schema mechanics. Commodity tier is safe, unsupervised, for Step 2's schema formatting and Step 6's templating once the chain and schema are already decided. Which concrete model sits in which tier changes over time and by vendor; bind that mapping in the project README, not in this file.
+
 ## Idempotency contract
 
 - **Unchanged inputs → identical output.** Same handoff chain re-run produces a byte-identical file: same route/ticket IDs, same order, no new change-log entry, no embedded run timestamps.

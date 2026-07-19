@@ -115,3 +115,84 @@ Reviewed 2026-07-19; three deliberate decisions:
 
 The consolidated, share-ready copy of all eight skills lives in
 `The Auditorium/` at the project root; see `SKILL-LOCATIONS.md` for the full map.
+
+## Lexical-precision audit (2026-07-19)
+
+A cascade of three subagent tiers (Haiku for a mechanical hedge-word/pronoun scan,
+Sonnet for cross-skill terminology consistency, Opus for definitional ambiguity in
+rubrics and thresholds) read all eight skills independently and reported findings
+without editing anything, so the fixes below are triaged from evidence rather than
+guessed. The most serious finding: `slop-pattern-auditor`'s own worked example
+contradicted its stated rubric — the rule said `legitimate` requires "a material
+distinction," but every negative-parallelism pivot asserts *some* distinction, so
+the rule couldn't discriminate, and the example it shipped ("not speed but
+correctness") cited the exact cue word ("correct...ness") the rule listed as a
+`legitimate` signal while labeling the finding `harmful`. Fixed.
+
+**Fixed:** `slop-pattern-auditor`'s classification rubric now uses an operational
+correction test ("does the sentence disprove a belief a reader plausibly held?")
+instead of an unfalsifiable "material distinction" standard; its `tricolon`,
+`trailing_participle`, and `bold_lead_in` catalog rows gained the same treatment
+(a removability test, a defined "load-bearing," and a 3-occurrence count,
+respectively); its two length thresholds (160 characters, 30 words) were
+reconciled into one rule. `apply-app-harness` Step 4 referenced "its own bare
+rubric above" that didn't exist in the file — a three-line rubric is now inlined.
+`apply-app-harness`'s "reversible assumption" test and `agent-shape-selector`'s
+Step 3 scoring (which had no tie-break rule) and Step 2 (no operational
+single-vs-multi-agent test) are now concrete. `trust-verification-architect`'s
+gate-altitude assignment and `model-routing-economist`'s mid-tier/commodity
+boundary each gained the stated threshold they were missing.
+`agent-memory-architect`'s volatility-class rule was self-contradictory (Step 1
+names three lifetime classes, Step 2 stated the merge rule as a two-way split) —
+now one rule. An ambiguous pronoun in `apply-app-harness`, a hedge word each in
+`agent-memory-architect` and `agent-shape-selector`, an "artifact" term that meant
+two different things in `apply-app-harness`/`slop-pattern-auditor` versus
+everywhere else, one asymmetric `Hook` label, and two missing reciprocal
+bridge-out entries were all corrected. Every `Hook` bridge now states its decline
+behavior explicitly rather than leaving it to the umbrella "opt-in" to imply.
+Verified with two follow-up subagent tests after the fix: Sonnet correctly applied
+the new negative-parallelism test to five held-out sentences it hadn't seen
+before (including one designed to require the "contrary to what you might
+assume" test explicitly), and Opus confirmed `agent-shape-selector`'s new
+tie-break rule resolved an unplanned tie in test data without needing to invent
+its own logic.
+
+**Deliberately not fixed:** the audit also found that five skills
+(`agent-memory-architect`, `agent-shape-selector`, `model-routing-economist`,
+`trust-verification-architect`, `handoff-ticket-designer`) define their
+idempotency "unchanged input" boundary against the user's elicited task
+description in prose, rather than a byte fingerprint the way
+`slop-pattern-auditor` and `qa-companion` do. This is real but lower-severity —
+these five skills' inputs are conversational by design, and fingerprinting a
+normalized digest of confirmed field values is a legitimate fix but a
+five-file change with limited practical payoff, so it's recorded here rather
+than applied.
+
+## Model tiers
+
+Skill bodies name tiers (frontier / mid / commodity), never vendor models — this
+matches the harness's own "bind late" principle (see `PORTABILITY-AUDIT.md`):
+a machine or vendor fact may be a hint, never a frozen dependency. Bind today's
+models to those tiers here, and update this table as models change without
+touching any skill file.
+
+| Tier | Current examples (July 2026) | What it's for in these skills |
+|---|---|---|
+| **Frontier** | Claude Opus 4.8 · GPT-5.6 Sol (OpenAI's flagship, in Codex and ChatGPT) · Grok 4.3 (xAI's flagship) | Rubric application on novel/ambiguous cases, threshold judgment calls, naming the real bottleneck or tie-break — the steps every skill's Model tier notes section flags as judgment-load-bearing |
+| **Mid** | Claude Sonnet · GPT-5.6 Terra (OpenAI's cost-competitive mid tier) | Reliable once a step states its operational test explicitly, which this audit's fixes now do throughout — confirmed empirically below |
+| **Commodity** | Claude Haiku · GPT-5.6 Luna (OpenAI's fastest/cheapest tier) | Mechanical, enumerable work: punctuation sweeps, templating once fields are decided, executing already-designed test probes |
+
+Verified only for Claude's own tiers in this environment: a Sonnet subagent given
+only the fixed rubric correctly classified five held-out sentences with no
+contradictions, and an Opus subagent confirmed a previously-missing tie-break
+rule resolved cleanly. The same reasoning — explicit, quotable operational tests
+reduce judgment variance for any capable instruction-following model — extends
+to GPT-5.6's and Grok's tiers by the same logic, but no test was run against
+those vendors' models in this environment; treat that extension as reasoned,
+not measured.
+
+Sources for the current model lineup: [GPT-5.6: Frontier intelligence that
+scales with your ambition](https://openai.com/index/gpt-5-6/) (OpenAI, confirms
+the Sol/Terra/Luna three-tier split), [Grok 4.3: xAI's Cheap Frontier
+Model](https://codersera.com/blog/grok-4-3-launch-guide-2026/) (confirms Grok
+4.3 as xAI's current flagship).

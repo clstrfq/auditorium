@@ -24,7 +24,7 @@ For each high-stakes output point, define what the agent must externalize before
 Before the agent gets real access, specify a 4-question behavioral test it must pass, tailored to this workflow: (1) boundary adherence — does it refuse out-of-scope actions? (2) constraint retention — does it still honor instructions late in a long context? (3) injection resistance — does adversarial content in its inputs redirect it? (4) failure honesty — does it say "I can't" rather than fabricate? Define concrete pass/fail probes for each, not vibes.
 
 ### Step 5 — Place human checkpoints at the right altitude
-Position humans as mission control, not micro-managers: strategic approval gates (`VG-NNN`) at the highest-stakes transitions, sampling review for the middle, and full autonomy where failure is cheap and reversible. For each gate record: trigger, reviewer, what they check (tie it to the Step 3 citation contract), and expected review cost. A gate nobody can staff is a gate that won't happen — check staffing realism.
+Position humans as mission control, not micro-managers. Tie the altitude to the Step 1 ranking with a stated threshold: assign a full approval gate (`VG-NNN`) to any point whose wrong output is irreversible or exceeds a user-set money/legal/safety threshold; sampling review to points that are reversible but costly to unwind; full autonomy only where a wrong output is both reversible and cheap to recover with no external effect. Record the threshold values used, not just the tier assigned. For each gate record: trigger, reviewer, what they check (tie it to the Step 3 citation contract), and expected review cost. A gate nobody can staff is a gate that won't happen — check staffing realism.
 
 ### Step 6 — Write the Trust Architecture artifact
 Write `./agentic-artifacts/trust-architecture.md` using the output template below. Gates carry stable `VG-NNN` IDs; behavioral test probes carry `BT-NNN`.
@@ -70,6 +70,10 @@ Optional downstream skills (each works without them):
 - model-routing-economist — budget the review costs and gate-triggered escalations
 ```
 
+## Model tier notes
+
+Frontier or mid-tier judgment is worth spending on Step 2 (naming the real bottleneck, not a comfortable one) and Step 5 (altitude and threshold assignment) — this is the skill's single highest-stakes decision, now tied to an explicit reversible/cheap test, but drawing that line on a novel workflow still benefits from stronger reasoning. Commodity tier is safe, unsupervised, for Step 6's templating once gates are already decided. Which concrete model sits in which tier changes over time and by vendor; bind that mapping in the project README, not in this file.
+
 ## Idempotency contract
 
 - **Unchanged inputs → identical output.** Re-running on the same workflow yields a byte-identical file: same IDs and ordering, no new change-log entry, no run timestamps in the body.
@@ -83,4 +87,4 @@ This skill runs fully standalone: Step 1 elicits the workflow directly, and the 
 
 **Bridges in (optional, opt-in):** `./agentic-artifacts/shape-decision.md` (from `agent-shape-selector`) — offer to seed output points from its roles and risks; `./agentic-artifacts/handoff-protocol.md` (from `handoff-ticket-designer`) — offer to attach gates to its ticket transitions; and `./agentic-artifacts/slop-pattern-review.md` (from `slop-pattern-auditor`) — **Hook:** offer to place a verification gate at any output point whose audited text carries recurring `harmful` findings or an unresolved `uncertain` backlog, using that report's counts as the trigger condition rather than a fresh elicitation. Use any of these only if it exists at its canonical path **and** the user confirms. If absent or declined, elicit everything manually; the deliverable is equally complete.
 
-**Bridges out (optional, opt-in):** the `## Next steps` block offers `handoff-ticket-designer` and `model-routing-economist`; additionally offer `qa-companion` — **Hook:** every `VG-NNN` gate this architecture declares is a check that skill turns into a seeded-defect false-green test, proving the gate actually fails when it should. Offer, never auto-run. The architecture must stand alone if every bridge is declined.
+**Bridges out (optional, opt-in):** the `## Next steps` block offers `handoff-ticket-designer` and `model-routing-economist`; additionally offer `qa-companion` — **Hook:** every `VG-NNN` gate this architecture declares is a check that skill turns into a seeded-defect false-green test, proving the gate actually fails when it should. Offer, never auto-run. If declined or absent, proceed exactly as the standalone workflow above specifies — the architecture stands alone either way.

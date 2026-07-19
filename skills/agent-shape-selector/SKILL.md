@@ -29,13 +29,13 @@ Follow these steps in order. Each produces auditable content in the output file.
 Gather from the user (ask only for what's missing): the objective in one sentence; whether sub-tasks are independent, sequential, or adversarial; failure cost (what happens if the output is wrong); expected duration/recurrence; budget sensitivity; and compliance/visibility requirements. If the user pasted a task description, extract these and confirm rather than re-asking.
 
 ### Step 2 — Run the 1-minute test
-Classify the task: could a competent human do it in under a minute with a search box? Then no agents — recommend simple chat or nothing. Is it bounded and single-context? Single agent. Only proceed to multi-agent shapes when the task genuinely exceeds one agent's cognitive breadth, tooling, or context window. Record the classification and reasoning verbatim in the decision record — this is the cheapest place to stop a bad build.
+Classify the task: could a competent human do it in under a minute with a search box? Then no agents — recommend simple chat or nothing. Is it bounded and single-context? Single agent. Proceed to multi-agent shapes only if at least one holds: (a) the task's required context provably exceeds the model's window, (b) it needs tools no single agent can hold simultaneously, or (c) it contains independent sub-tasks that can run in parallel. If none hold, choose single agent and record which test, if any, was checked. Record the classification and reasoning verbatim in the decision record — this is the cheapest place to stop a bad build.
 
 ### Step 3 — Score candidate shapes
-Score each catalog shape 1–5 against the task profile on: fit to dependency structure, failure-cost handling, debuggability, and cost profile. Present the top two candidates to the user with trade-offs before committing. Don't skip the runner-up: naming what you rejected and why is half the audit value.
+Score each catalog shape 1–5 against the task profile on: fit to dependency structure, failure-cost handling, debuggability, and cost profile. Rank shapes by the sum of the four scores; break ties by failure-cost handling, then cost profile. Present the top two by that ranking to the user with trade-offs before committing, and record each shape's score vector so the ranking is auditable. Don't skip the runner-up: naming what you rejected and why is half the audit value.
 
 ### Step 4 — Specify the chosen shape
-For the winner, define: each role (planner, workers, critic, monitor…), which model tier each role needs (premium reasoning vs. commodity execution — only the planning/goal-harness role usually needs the frontier model), the communication pathways between roles, parallelism limits, and iteration caps for any review loops.
+For the winner, define: each role (planner, workers, critic, monitor…), which model tier each role needs (premium reasoning vs. commodity execution — the planning/goal-harness role is the one place frontier pricing consistently earns its keep; state explicitly if another role also needs it and why), the communication pathways between roles, parallelism limits, and iteration caps for any review loops.
 
 ### Step 5 — Write the Shape Decision Record
 Write the artifact to the canonical path `./agentic-artifacts/shape-decision.md` using the output template below. Every decision gets a stable ID (`SD-001`, `SD-002`, …) that survives re-runs.
@@ -76,6 +76,10 @@ Optional downstream skills (each works without them):
 - handoff-ticket-designer — design the tickets that move work between these roles
 - trust-verification-architect — add verification gates where failure cost is high
 ```
+
+## Model tier notes
+
+Frontier or mid-tier judgment is worth spending on Step 2's boundary test, Step 3's scoring and tie-break, and Step 4's role and tier assignment — these are exactly the decisions this file now states operational tests for, but applying a stated test to a novel task still benefits from stronger reasoning on ambiguous cases. Commodity tier is safe, unsupervised, for Step 5's templating once the record's fields are already decided. Which concrete model sits in which tier changes over time and by vendor; bind that mapping in the project README, not in this file.
 
 ## Idempotency contract
 

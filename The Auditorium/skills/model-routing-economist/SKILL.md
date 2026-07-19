@@ -15,7 +15,7 @@ Pointing a frontier model at trivial tasks is the fastest way to make an agent s
 Elicit from the user: the task types flowing through the system (planning, coding, extraction, summarization, review…), rough monthly volume per type, token profile per task (input-heavy? output-heavy?), and quality floor per type (where is "almost as good" acceptable, and where is it not). If a shape or role breakdown already exists, map task types to roles.
 
 ### Step 2 — Classify tasks by required cognition
-Sort each task type into tiers: **frontier-required** (architectural planning, goal harnessing, ambiguous judgment), **mid-tier** (routine coding, structured analysis), **commodity** (extraction, formatting, rote transforms), **no-LLM** (deterministic — write a script instead). Be aggressive about pushing work down-tier; the planner/advisor role is usually the only place frontier pricing earns its keep.
+Sort each task type into tiers: **frontier-required** (architectural planning, goal harnessing, ambiguous judgment), **mid-tier** (routine coding, structured analysis), **commodity** (extraction, formatting, rote transforms), **no-LLM** (deterministic — write a script instead). Classify by cognition first, then adjust by the Step 1 quality floor: a task with a zero-tolerance floor moves up one tier from its cognition bin; a task explicitly marked "almost as good is fine" may move down one. Boundary test for mid-tier vs. commodity: commodity output is verifiable by exact match or schema check; mid-tier output requires judgment a schema cannot verify. Be aggressive about pushing work down-tier; the planner/advisor role is the only place frontier pricing consistently earns its keep.
 
 ### Step 3 — Assign models and write routing rules
 For each tier pick a concrete model and price point (ask the user which providers are available; use their current per-token prices — verify prices rather than assuming). Write explicit routing rules (`RR-NNN`): trigger condition → model → escalation path (when a cheap model's output fails review, who escalates to what). Include a fallback rule for refusals or outages.
@@ -67,8 +67,12 @@ SC-003 routed+cached: <math>
 ## Next steps
 Optional downstream skills (each works without them):
 - handoff-ticket-designer — encode escalation paths as ticket routes between model tiers
-- trust-verification-architect — place review gates where cheap-model output needs checking
+- trust-verification-architect — place verification gates where cheap-model output needs checking
 ```
+
+## Model tier notes
+
+Frontier or mid-tier judgment is worth spending on Step 2 (the cognition/quality-floor classification, now with an explicit boundary test) and Step 4 (economics modeling) — but Step 4's arithmetic should be independently recomputed regardless of tier, per Step 7's self-verify instruction; every tier makes arithmetic slips, and this skill's own bar is figures that trace to a stated assumption, not figures a strong model merely asserted. Commodity tier is safe, unsupervised, for Step 6's templating once rules and scenarios are already computed. Which concrete model sits in which tier changes over time and by vendor; bind that mapping in the project README, not in this file.
 
 ## Idempotency contract
 
@@ -81,6 +85,6 @@ Optional downstream skills (each works without them):
 
 This skill runs fully standalone: Step 1 elicits the workload directly, and the policy is complete without any sibling artifact.
 
-**Bridges in (optional, opt-in):** `./agentic-artifacts/shape-decision.md` (from `agent-shape-selector`). If present at that canonical path, offer to seed the workload inventory from its roles and model-tier assignments — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, elicit the inventory manually; completeness is unaffected. `./agentic-artifacts/slop-pattern-review.md` (from `slop-pattern-auditor`) — **Hook:** if it audits output from a model family already in this policy's workload inventory, offer that family's `harmful`-finding rate as one input to a tier reassignment; a persistently higher rate is weak evidence against routing more rote generation to that family, never sole justification for a change.
+**Bridges in (optional, opt-in):** `./agentic-artifacts/shape-decision.md` (from `agent-shape-selector`). If present at that canonical path, offer to seed the workload inventory from its roles and model-tier assignments — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, elicit the inventory manually; completeness is unaffected. `./agentic-artifacts/slop-pattern-review.md` (from `slop-pattern-auditor`) — **Hook:** if it audits output from a model family already in this policy's workload inventory, offer that family's `harmful`-finding rate as one input to a tier reassignment; a persistently higher rate is weak evidence against routing more rote generation to that family, never sole justification for a change. If declined or absent, proceed exactly as the standalone workflow specifies.
 
 **Bridges out (optional, opt-in):** the `## Next steps` block offers `handoff-ticket-designer` and `trust-verification-architect` as consumers of this policy. Offer, never auto-run. The policy must be fully usable if every bridge is declined.

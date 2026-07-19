@@ -15,28 +15,28 @@ Detect these families, in document order. Within one family, overlapping matches
 
 | Family | Flag when | Do NOT flag |
 |---|---|---|
-| `negative_parallelism` | A single sentence pairs a negation with a pivot: "not X but Y" (rule `not_but`), "not X … instead Y" (rule `not_instead`), or "rather than X" (rule `rather_than`), with the negation and pivot at most ~160 characters apart | "not only … but also"; negation and pivot in different sentences |
-| `tricolon` | Rhetorical rule-of-three framing: three parallel clauses or adjectives deployed for cadence ("fast, simple, and reliable"), triadic sentence runs, three-bullet emphasis | A genuine enumeration of three concrete, independently meaningful items (parts lists, three named people, three cited results) |
+| `negative_parallelism` | A single sentence pairs a negation with a pivot: "not X but Y" (rule `not_but`), "not X … instead Y" (rule `not_instead`), or "rather than X" (rule `rather_than`), with the negation and pivot within ~160 characters / ~30 words of each other | "not only … but also"; negation and pivot in different sentences; a span exceeding ~160 characters / ~30 words is `uncertain`, not dropped |
+| `tricolon` | Rhetorical rule-of-three framing: three parallel clauses or adjectives deployed for cadence ("fast, simple, and reliable"), triadic sentence runs, three-bullet emphasis | A genuine enumeration: removing or reordering any one item changes the sentence's factual claim (distinct referents — named parts, people, cited results). Cadence-driven items are near-synonyms or could be cut to one or two without losing information; when the test doesn't clearly resolve either way, `uncertain` |
 | `em_dash` | Em-dash (—), en-dash (–), or spaced hyphen (" - ") used as a clause connector or dramatic aside | Hyphenated compounds ("state-of-the-art"), numeric ranges ("pp. 3–7"), minus signs, dashes inside verbatim quotations or code |
 | `colon_lead_in` | A short dramatic setup resolved by a colon ("The verdict: ship it.") and header-style lead-ins in prose | Times ("3:30"), ratios, URLs, key: value data, list introductions before an actual list, titles |
 | `semicolon_splice` | Semicolon joining two independent clauses for rhetorical balance | Semicolons in code, in citations, or separating list items that contain commas |
-| `trailing_participle` | Sentence-final participial clause appended for gravitas (", highlighting …", ", underscoring …", ", showcasing …") | A participle that carries load-bearing new information the sentence needs |
+| `trailing_participle` | Sentence-final participial clause appended for gravitas (", highlighting …", ", underscoring …", ", showcasing …") | Load-bearing = the clause states a fact not recoverable from the main clause (a number, a named consequence, a new entity). A clause that only restates, editorializes, or gestures at significance ("highlighting", "underscoring", "showcasing", "demonstrating the importance of") is not load-bearing |
 | `curly_quote` | Typographic quotes (" " ' ') in plain technical text | Typographically curated prose where curly quotes are the document's own consistent style |
 | `transition_pileup` | Two or more stacked discourse markers opening consecutive sentences or one sentence ("However, … Moreover, … Furthermore, …") | A single transition doing real logical work |
-| `bold_lead_in` | "**Label:** text" paragraph or bullet openers repeated as a formula — a single occurrence is at most `uncertain`, never `harmful` | A document's declared glossary/definition format |
+| `bold_lead_in` | Three or more "**Label:** text" paragraph or bullet openers in one document, repeated as a formula | Fewer than three occurrences (at most `uncertain`, never `harmful`); a document's declared glossary/definition format |
 | `other_preregistered` | Any additional pattern the user names before the audit starts (record the definition in the report) | Anything not agreed before detection began — a candidate fitting no family goes in its best-fitting real family or is dropped, never parked here |
 
 ## Classification rubric
 
-Classify every finding `harmful`, `legitimate`, or `uncertain`; the abstain label is `uncertain`, and any doubt abstains.
+Classify every finding `harmful`, `legitimate`, or `uncertain`; the abstain label is `uncertain`, and any doubt abstains. Every negative-parallelism pivot asserts *some* distinction between X and Y — that alone never makes it `legitimate`. The operational test: does the sentence correct a belief a reasonable reader would otherwise hold, or would prepending "contrary to what you might assume" preserve its meaning? If X is a plausible prior the sentence is disproving, it's a correction. If X is a rhetorical foil chosen for rhythm rather than something anyone would have believed, it's formulaic. Confidence and this test are independent: the confidence gate below decides whether to abstain at all; once above it, the correction test alone decides `harmful` vs. `legitimate`, never confidence.
 
-- `legitimate` requires a material reason: the construction makes a real distinction or correction (context cues: correct, distinguish, difference, contrast, whether, true, false), is verbatim quotation, code, or data, or is syntactically required. State the reason in one sentence.
-- `harmful` is formulaic rhetorical use — a compact negative-to-positive pivot (roughly 30 words or fewer), cadence-driven triads, connector dashes replacing precise syntax. State which formula it matches.
-- `uncertain` whenever confidence is below roughly 0.7, the context is not predominantly English, or the enclosing sentence does not settle the question. Uncertain findings are never auto-accepted and never rewritten without an explicit user selection recorded in the report.
+- `legitimate` requires a real correction by the test above, or is verbatim quotation, code, or data, or is syntactically required. State the disproved prior (or the syntactic requirement) in one sentence — not just that a "distinction" exists.
+- `harmful` is formulaic rhetorical use: the pivot fails the correction test above, cadence-driven triads, connector dashes replacing precise syntax. State which formula it matches.
+- `uncertain` whenever confidence is below roughly 0.7, the context is not predominantly English, or the correction test does not resolve cleanly either way. Uncertain findings are never auto-accepted and never rewritten without an explicit user selection recorded in the report.
 
 ## Model cascade
 
-When the host can delegate to model tiers, run detection (mechanical catalog matching) on a small fast model, classification on a mid-tier model, and reserve the strongest available model for adjudicating `uncertain` findings and spot-checking at least one in five of the others. Spot-checks must probe both directions: confirm flagged findings are real (precision) **and** re-scan at least one unflagged section for missed candidates (recall) — small models miss quiet patterns like an unbalanced semicolon splice more often than they invent loud ones. Escalate the whole artifact if a spot-check disagrees either way. Tier assignment is binding, not advisory: a small-tier label or rewrite is a draft until a mid-tier model confirms it, because small models reliably find enumerable punctuation yet misjudge rhetorical intent and smuggle catalog patterns into their own rewrites. The quality bar is fixed: the cascaded result must match what the strongest available model would produce alone; if the host has no tiers, one model performs every step. The cascade changes cost, never the rubric.
+When the host can delegate to model tiers, run detection (mechanical catalog matching) on a small fast model, classification on a mid-tier model, and reserve the strongest available model for adjudicating `uncertain` findings and spot-checking at least one in five of the others. Spot-checks must probe both directions: confirm flagged findings are real (precision) **and** re-scan at least one unflagged section for missed candidates (recall) — small models miss quiet patterns like an unbalanced semicolon splice more often than they invent loud ones. Escalate the whole artifact if a spot-check disagrees either way. Tier assignment is binding, not advisory: a small-tier label or rewrite is a draft until a mid-tier model confirms it, because small models reliably find enumerable punctuation yet misjudge rhetorical intent and smuggle catalog patterns into their own rewrites. The quality bar is fixed: the cascaded result must match what the strongest available model would produce alone; if the host has no tiers, one model performs every step. The cascade changes cost, never the rubric. Which concrete model sits in which tier changes over time and by vendor; bind that mapping in the project README, not in this file.
 
 ## Workflow
 
@@ -44,7 +44,7 @@ Follow these steps in order. Each writes auditable content to a file; none depen
 
 ### Step 1 — Scope
 
-Identify the artifact(s) to audit: a path, a pasted text (save it to a file first so the audit has a stable input), or a JSONL of model outputs. Record for each input its path and content fingerprint — sha256 when a shell is available, else byte length plus first and last 40 characters. Ask which optional families (`curly_quote`, `bold_lead_in`, `other_preregistered`) are in scope if the user has not said; default to all. Never audit text you were not pointed at, and never modify any input.
+Identify the artifact(s) to audit — here, "artifact" means the input text being examined, not this skill's own output (which is called a "report," never an artifact, throughout this file): a path, a pasted text (save it to a file first so the audit has a stable input), or a JSONL of model outputs. Record for each input its path and content fingerprint — sha256 when a shell is available, else byte length plus first and last 40 characters. Ask which optional families (`curly_quote`, `bold_lead_in`, `other_preregistered`) are in scope if the user has not said; default to all. Never audit text you were not pointed at, and never modify any input.
 
 ### Step 2 — Detect
 
@@ -61,7 +61,7 @@ For each `harmful` finding (and only for an `uncertain` one the user explicitly 
 1. **Protected content** — numbers, percentages, URLs, citations, proper nouns, modal verbs (must/shall/should/may/might/can/could/will/would), and negation scope (never/cannot/must not …) appear in the rewrite exactly as in the source sentence.
 2. **No residual pattern** — the rewrite contains no catalog pattern itself; check the whole catalog, not just the family being fixed (a rewrite of a negative parallelism that ends in a trailing participle, smuggles in a triad, or keeps curly quotes is blocked).
 3. **Length** — non-empty and at most 2.5× the source sentence length.
-4. **Fidelity** — at least about half the source's content words survive; when they do not, mark the proposal `semantic_fidelity_uncertain` and block it.
+4. **Fidelity** — at least half the source's content words survive; when they do not, mark the proposal `semantic_fidelity_uncertain` and block it.
 5. **Variety** — no two proposals in the same report open with the same first four words.
 
 Rewrites are proposals recorded in the report; never apply one to the source file.
@@ -103,7 +103,7 @@ Report the result to the user as a short pass/fail list. If a check fails and ca
 
 | ID | Family | Line | Matched text | Label | Conf. | Rationale |
 |---|---|---|---|---|---|---|
-| negative_parallelism-001 | negative_parallelism | 12 | "not speed but correctness" | harmful | 0.85 | Compact negative-to-positive pivot, no material distinction. |
+| negative_parallelism-001 | negative_parallelism | 12 | "not speed but correctness" | harmful | 0.85 | Fails the correction test: no reader plausibly assumed speed was the goal; "speed" is a rhetorical foil for rhythm, not a disproved belief. |
 
 ### Rewrites (harmful + user-selected uncertain only)
 - negative_parallelism-001:
@@ -125,6 +125,7 @@ Optional downstream skills (this report is complete without them):
 - apply-app-harness — replay this audit deterministically when the review engine is installed, or use this report as its standardized manual-review fallback
 - trust-verification-architect — add verification gates where flagged text ships to users, seeded from this report's harmful/uncertain counts
 - model-routing-economist — weigh a model family's harmful-finding rate as one input to tier assignment
+- qa-companion — audited surfaces here become UX probe targets for that skill's novice/expert path tests
 ```
 
 ## Idempotency contract
@@ -140,11 +141,12 @@ This skill runs fully standalone: Step 1 elicits its inputs directly from the us
 
 **Bridges in (optional, opt-in):** a deterministic review engine at `./tools/app-harness`. If present, offer to also run `./tools/app-harness analyze <artifact>` and record both results side by side, keeping the deterministic packet and this `agent_review` report clearly distinguished — use it only if it exists **and** the user confirms. If absent or declined, this audit stands alone; completeness is unaffected.
 
-**Bridges out (optional, opt-in):** the `## Next steps` block offers three consumers of this report. Offer these; never auto-run them. The report must be complete and useful even if every bridge is declined.
+**Bridges out (optional, opt-in):** the `## Next steps` block offers four consumers of this report. Offer these; never auto-run them. If declined or absent, proceed exactly as the standalone workflow above specifies — the report's completeness is unaffected either way.
 
 - `apply-app-harness` — **Hook (its Step 4):** this skill is the named standardized method for that skill's manual-review fallback when its deterministic launcher is unavailable. When invoked for that purpose, use this skill's own workflow unmodified and hand back the resulting report; do not shortcut the rubric to fit the caller.
 - `trust-verification-architect` — **Hook (its verification gates):** offer this report's `harmful` and `uncertain` counts, grouped by family, as candidate gate locations — a text surface with recurring `harmful` findings or an unresolved `uncertain` backlog is exactly the kind of high-failure-cost point that skill places gates around.
 - `model-routing-economist` — **Hook (its workload inventory):** when this report's Step 5 attribution names a model family across multiple audited artifacts, offer the per-family `harmful`-finding rate as one input to that skill's model-tier assignment — a family with a persistently higher rate is weaker evidence for routing rote generation to it, not proof by itself.
+- `qa-companion` — offer this report's audited surfaces as UX probe targets so its novice/expert path tests cover the same user-facing copy this audit flagged.
 
 ## Finish
 

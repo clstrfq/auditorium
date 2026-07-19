@@ -15,10 +15,10 @@ Human working memory is the original architectural bottleneck: as codebases age 
 Gather: what the agent must remember across sessions (decisions, project state, preferences, open threads, environment facts), how long each class of fact stays true (forever / weeks / per-task), who else reads or writes the memory (other agents? humans?), and any privacy constraints on what may be persisted.
 
 ### Step 2 — Partition memory into stores
-Design named stores (`MEM-NNN`), each a markdown file with a single purpose — e.g. `identity.md` (stable facts and preferences), `decisions.md` (append-only decision log with rationale), `state.md` (current task state, rewritten freely), `threads.md` (open loops awaiting events). One store per volatility class: never mix facts-that-expire with facts-that-don't, or compaction will destroy the wrong ones.
+Design named stores (`MEM-NNN`), each a markdown file with a single purpose — e.g. `identity.md` (stable facts and preferences), `decisions.md` (append-only decision log with rationale), `state.md` (current task state, rewritten freely), `threads.md` (open loops awaiting events). One store per lifetime class from Step 1 (forever / weeks / per-task — three stores minimum); never place a shorter-lived class in a longer-lived store, or compaction will destroy facts that were meant to persist. A class may split across multiple stores by purpose (e.g. `identity.md` and `decisions.md` both hold "forever" facts, split by kind), but two classes must never merge into one store.
 
 ### Step 3 — Define write and read discipline
-For each store: when the agent writes (on decision, on task completion, on user correction — not on every message), the entry format (dated, one fact per line, source noted), and the read order on session start (typically identity → state → threads; decisions on demand). Cap what gets loaded by default — memory that always fully loads is just a slower context window.
+For each store: when the agent writes (on decision, on task completion, on user correction — not on every message), the entry format (dated, one fact per line, source noted), and the read order on session start (default identity → state → threads, with decisions on demand — record whichever order this spec actually uses if it differs). Cap what gets loaded by default — memory that always fully loads is just a slower context window.
 
 ### Step 4 — Define compaction and conflict rules
 Specify per store: maximum size before compaction, how to compact (summarize aged entries, drop superseded state, never silently drop decisions — mark them superseded), and conflict resolution when a new fact contradicts a stored one (newest wins for state; contradictions in identity get flagged to the user, not auto-resolved).
@@ -69,6 +69,10 @@ Optional downstream skills (each works without them):
 - trust-verification-architect — audit what the agent is allowed to remember and cite
 ```
 
+## Model tier notes
+
+Frontier or mid-tier judgment is worth spending on Step 2 (partitioning stores by lifetime class) and Step 4 (conflict-rule design) — the store boundaries and supersede rules a bad call here compounds every session after. Commodity tier is safe, unsupervised, for Step 6's bootstrap-content generation and templating once the stores are already defined. Which concrete model sits in which tier changes over time and by vendor; bind that mapping in the project README, not in this file.
+
 ## Idempotency contract
 
 - **Unchanged inputs → identical output.** Re-running on the same requirements yields a byte-identical file: same store IDs and ordering, no new change-log entry, no run timestamps in the body.
@@ -80,6 +84,6 @@ Optional downstream skills (each works without them):
 
 This skill runs fully standalone: Step 1 elicits requirements directly, and the spec (with bootstrap contents) is complete without any sibling artifact.
 
-**Bridges in (optional, opt-in):** `./agentic-artifacts/handoff-protocol.md` (from `handoff-ticket-designer`). If present at that canonical path, offer to add stores for ticket state and receipts derived from its schema — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, design from elicited requirements alone; completeness is unaffected. Prior App Harness Reports and receipts (from `apply-app-harness`, canonically under `.app-harness/receipts/`) — **Hook:** if present, offer a `decisions.md`/`state.md` store seeded from that history's unresolved items and change log, so a multi-cycle build persists what has already been tried instead of re-deriving it each session.
+**Bridges in (optional, opt-in):** `./agentic-artifacts/handoff-protocol.md` (from `handoff-ticket-designer`). If present at that canonical path, offer to add stores for ticket state and receipts derived from its schema — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, design from elicited requirements alone; completeness is unaffected. Prior App Harness Reports and receipts (from `apply-app-harness`, canonically under `.app-harness/receipts/`) — **Hook:** if present, offer a `decisions.md`/`state.md` store seeded from that history's unresolved items and change log, so a multi-cycle build persists what has already been tried instead of re-deriving it each session. If declined or absent, design from elicited requirements alone; completeness is unaffected either way.
 
 **Bridges out (optional, opt-in):** the `## Next steps` block offers `handoff-ticket-designer` and `trust-verification-architect`. Offer, never auto-run. The spec must be fully usable if every bridge is declined.
