@@ -81,6 +81,6 @@ Optional downstream skills (each works without them):
 
 This skill runs fully standalone: Step 1 elicits the workload directly, and the policy is complete without any sibling artifact.
 
-**Bridges in (optional, opt-in):** `./agentic-artifacts/shape-decision.md` (from `agent-shape-selector`). If present at that canonical path, offer to seed the workload inventory from its roles and model-tier assignments — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, elicit the inventory manually; completeness is unaffected.
+**Bridges in (optional, opt-in):** `./agentic-artifacts/shape-decision.md` (from `agent-shape-selector`). If present at that canonical path, offer to seed the workload inventory from its roles and model-tier assignments — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, elicit the inventory manually; completeness is unaffected. `./agentic-artifacts/slop-pattern-review.md` (from `slop-pattern-auditor`) — **Hook:** if it audits output from a model family already in this policy's workload inventory, offer that family's `harmful`-finding rate as one input to a tier reassignment; a persistently higher rate is weak evidence against routing more rote generation to that family, never sole justification for a change.
 
 **Bridges out (optional, opt-in):** the `## Next steps` block offers `handoff-ticket-designer` and `trust-verification-architect` as consumers of this policy. Offer, never auto-run. The policy must be fully usable if every bridge is declined.

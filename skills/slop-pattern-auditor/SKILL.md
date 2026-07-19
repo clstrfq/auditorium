@@ -122,8 +122,9 @@ Report the result to the user as a short pass/fail list. If a check fails and ca
 
 ## Next steps
 Optional downstream skills (this report is complete without them):
-- apply-app-harness — replay this audit deterministically when the review engine is installed
-- trust-verification-architect — add verification gates where flagged text ships to users
+- apply-app-harness — replay this audit deterministically when the review engine is installed, or use this report as its standardized manual-review fallback
+- trust-verification-architect — add verification gates where flagged text ships to users, seeded from this report's harmful/uncertain counts
+- model-routing-economist — weigh a model family's harmful-finding rate as one input to tier assignment
 ```
 
 ## Idempotency contract
@@ -139,7 +140,11 @@ This skill runs fully standalone: Step 1 elicits its inputs directly from the us
 
 **Bridges in (optional, opt-in):** a deterministic review engine at `./tools/app-harness`. If present, offer to also run `./tools/app-harness analyze <artifact>` and record both results side by side, keeping the deterministic packet and this `agent_review` report clearly distinguished — use it only if it exists **and** the user confirms. If absent or declined, this audit stands alone; completeness is unaffected.
 
-**Bridges out (optional, opt-in):** the `## Next steps` block offers `apply-app-harness` (deterministic replay and build receipts) and `trust-verification-architect` (verification gates for shipping text). Offer these; never auto-run them. The report must be complete and useful even if every bridge is declined.
+**Bridges out (optional, opt-in):** the `## Next steps` block offers three consumers of this report. Offer these; never auto-run them. The report must be complete and useful even if every bridge is declined.
+
+- `apply-app-harness` — **Hook (its Step 4):** this skill is the named standardized method for that skill's manual-review fallback when its deterministic launcher is unavailable. When invoked for that purpose, use this skill's own workflow unmodified and hand back the resulting report; do not shortcut the rubric to fit the caller.
+- `trust-verification-architect` — **Hook (its verification gates):** offer this report's `harmful` and `uncertain` counts, grouped by family, as candidate gate locations — a text surface with recurring `harmful` findings or an unresolved `uncertain` backlog is exactly the kind of high-failure-cost point that skill places gates around.
+- `model-routing-economist` — **Hook (its workload inventory):** when this report's Step 5 attribution names a model family across multiple audited artifacts, offer the per-family `harmful`-finding rate as one input to that skill's model-tier assignment — a family with a persistently higher rate is weaker evidence for routing rote generation to it, not proof by itself.
 
 ## Finish
 

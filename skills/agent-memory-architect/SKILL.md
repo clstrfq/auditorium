@@ -80,6 +80,6 @@ Optional downstream skills (each works without them):
 
 This skill runs fully standalone: Step 1 elicits requirements directly, and the spec (with bootstrap contents) is complete without any sibling artifact.
 
-**Bridges in (optional, opt-in):** `./agentic-artifacts/handoff-protocol.md` (from `handoff-ticket-designer`). If present at that canonical path, offer to add stores for ticket state and receipts derived from its schema — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, design from elicited requirements alone; completeness is unaffected.
+**Bridges in (optional, opt-in):** `./agentic-artifacts/handoff-protocol.md` (from `handoff-ticket-designer`). If present at that canonical path, offer to add stores for ticket state and receipts derived from its schema — use it only if it exists at that canonical path **and** the user confirms. If absent or declined, design from elicited requirements alone; completeness is unaffected. Prior App Harness Reports and receipts (from `apply-app-harness`, canonically under `.app-harness/receipts/`) — **Hook:** if present, offer a `decisions.md`/`state.md` store seeded from that history's unresolved items and change log, so a multi-cycle build persists what has already been tried instead of re-deriving it each session.
 
 **Bridges out (optional, opt-in):** the `## Next steps` block offers `handoff-ticket-designer` and `trust-verification-architect`. Offer, never auto-run. The spec must be fully usable if every bridge is declined.
