@@ -1,5 +1,14 @@
 # Skills
 
+> **This folder is a duplicated snapshot.** It holds a byte-identical copy of every
+> Codex and Claude skill from the main project — `codex-skill-packages/` (the seven
+> `.skill` archives for Codex), `claude-skill-packages/` (the same seven for Claude),
+> and `skills/` (the canonical, unpacked `SKILL.md` source directories). The live,
+> lintable source of truth stays in the main project's `skills/`,
+> `chatgpt-skill-packages/`, and `claude-skill-packages/`; regenerate and verify there
+> (`scripts/lint_skills.py`, `scripts/generate_claude_skills.py`, `scripts/check.sh`),
+> then re-copy into this folder — it has no scripts of its own.
+
 Seven portable Codex skills, canonical here as `skills/*/SKILL.md`. Each carries the
 five design guarantees checked by `python3 scripts/lint_skills.py skills`: an ordered
 five-plus-step workflow, file-based outputs at a stable canonical path, a final
@@ -18,7 +27,10 @@ rules are written directly into its own `SKILL.md`, not read from a sibling
 `references/` file — when the engine is absent it falls back to labeled agent
 judgment (`agent_review`) using that same self-contained text. `apply-app-harness`'s
 `agents/openai.yaml` is optional Codex UI metadata (a display name and default
-prompt); the workflow itself never reads it.
+prompt); the workflow itself never reads it. `apply-app-harness` is also the one
+skill packaged identically for both hosts here — it is explicitly designed to install
+byte-identically across every agent surface, so its `codex-skill-packages/` and
+`claude-skill-packages/` archives are the same bytes on purpose, not an oversight.
 
 ## Skill index
 
@@ -36,10 +48,12 @@ prompt); the workflow itself never reads it.
 
 **Codex** — install to `~/.codex/skills/<name>/SKILL.md` for personal use, or keep it
 in-repo and reference it from `AGENTS.md`. Invoke with `$<name>` (e.g. `$slop-pattern-auditor`).
+The `codex-skill-packages/*.skill` archives in this folder unzip to that layout.
 
-**Claude / Claude Code** — a Claude-banner copy of every skill above is generated
-automatically at `.claude/skills/<name>/SKILL.md` (or `~/.claude/skills/<name>/SKILL.md`
-for personal use) and invoked with `/<name>`. Regenerate after editing a Codex source:
+**Claude / Claude Code** — install to `.claude/skills/<name>/SKILL.md` (or
+`~/.claude/skills/<name>/SKILL.md` for personal use) and invoke with `/<name>`. The
+`claude-skill-packages/*.skill` archives in this folder unzip to that layout. In the
+main project, the Claude copies are generated automatically from the Codex sources:
 
 ```bash
 PYTHONPATH="$PWD" python3 scripts/generate_claude_skills.py
@@ -47,14 +61,15 @@ PYTHONPATH="$PWD" python3 scripts/generate_claude_skills.py
 
 The generator rewrites only the host banner byte-for-byte from the packaged Codex
 source, then self-lints the result and refuses to write a skill that fails the five
-guarantees. Packaged `.skill` archives for both hosts ship in
-`chatgpt-skill-packages/` and `claude-skill-packages/`.
+guarantees.
 
 **Any other AGENTS.md-reading agent** (Cursor, Gemini CLI, etc.) can reference a
 skill's `SKILL.md` directly; see `apply-app-harness`'s own doc for the full list of
 supported agent surfaces and how to install the harness across all of them at once.
 
 ## Verifying a skill
+
+Run these from the main project root (this folder has no `scripts/` of its own):
 
 ```bash
 python3 scripts/lint_skills.py skills        # all seven pass the five guarantees
