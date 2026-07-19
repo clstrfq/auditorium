@@ -1,7 +1,0 @@
-{
-  "version": "negative-parallelism-rubric-1.0.0",
-  "labels": ["harmful", "legitimate", "uncertain"],
-  "confidence_threshold": 0.7,
-  "abstain_label": "uncertain",
-  "policy": "Legitimate requires a material distinction or correction; formulaic rhetorical contrast is harmful; insufficient evidence abstains."
-}
