@@ -11,3 +11,7 @@
 # ...except the shareable skill pack and this ignore file itself.
 !/.gitignore
 !/The Auditorium/
+
+# OS metadata never belongs in the pack, even inside the allowed folder.
+The Auditorium/**/.DS_Store
+.DS_Store
